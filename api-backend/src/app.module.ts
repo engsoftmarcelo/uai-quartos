@@ -3,10 +3,10 @@ import { AppController } from './app.controller';
 import { AppService } from './app.service';
 
 // Importação dos Módulos Funcionais
-import { AuthModule } from './auth/auth.module';
-import { RepublicsModule } from './republics/republics.module';
-import { SocialModule } from './social/social.module';
-import { FinanceModule } from './finance/finance.module';
+import { AuthModule } from './modules/auth/auth.module';
+import { RepublicsModule } from './modules/republics/republics.module';
+import { SocialModule } from './modules/social/social.module';
+import { FinanceModule } from './modules/finance/finance.module';
 
 @Module({
   imports: [
