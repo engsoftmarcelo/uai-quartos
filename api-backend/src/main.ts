@@ -15,9 +15,9 @@ async function bootstrap() {
   // Limpa dados sujos e converte tipos (ex: string para number) automaticamente
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true,         // Remove campos não definidos nos DTOs
-      transform: true,         // Converte tipos baseados no DTO (Crucial para latitude/longitude)
-      forbidNonWhitelisted: true, // Rejeita requisições com campos extras
+      whitelist: true,            // Remove silenciosamente qualquer propriedade não definida no DTO (ex: tentativas de injeção de campos como 'isAdmin: true').
+      forbidNonWhitelisted: true, // Se o usuário enviar um pacote com propriedades não sintonizadas, rejeita com erro 400 (Bad Request).
+      transform: true,            // Transforma automaticamente payloads JSON nos tipos corretos (converte strings matemáticas para numbers puros).
     }),
   );
 
