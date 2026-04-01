@@ -42,8 +42,7 @@ CREATE TABLE "republics" (
     "owner_id" TEXT NOT NULL,
     "name" TEXT NOT NULL,
     "description" TEXT,
-    "latitude" DOUBLE PRECISION NOT NULL,
-    "longitude" DOUBLE PRECISION NOT NULL,
+    "location" geometry(Point, 4326),
     "created_at" TIMESTAMP(3) NOT NULL DEFAULT CURRENT_TIMESTAMP,
     "updated_at" TIMESTAMP(3) NOT NULL,
     "deleted_at" TIMESTAMP(3),
@@ -111,7 +110,7 @@ CREATE UNIQUE INDEX "users_email_key" ON "users"("email");
 CREATE UNIQUE INDEX "profiles_user_id_key" ON "profiles"("user_id");
 
 -- CreateIndex
-CREATE INDEX "republics_latitude_longitude_idx" ON "republics"("latitude", "longitude");
+CREATE INDEX "republics_location_idx" ON "republics" USING GIST ("location");
 
 -- CreateIndex
 CREATE UNIQUE INDEX "amenities_name_key" ON "amenities"("name");

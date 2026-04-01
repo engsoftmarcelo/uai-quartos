@@ -1,15 +1,19 @@
 // ---------------------------------------------------------
-// PROJETO: UAI QUARTOS - SEGUNDA-FEIRA, 23 DE MARÇO
-// ARTEFATO: Schema Relacional Final (ACID / LGPD / Financeiro)
+// PROJETO: UAI QUARTOS - TERÇA-FEIRA, 24 DE MARÇO
+// ARTEFATO: Schema Relacional Final c/ Dinâmica Geoespacial
 // ---------------------------------------------------------
 
 generator client {
-  provider = "prisma-client-js"
+  provider        = "prisma-client-js"
+  // Habilita as extensões do PostgreSQL (como o PostGIS)
+  previewFeatures = ["postgresqlExtensions"]
 }
 
 datasource db {
-  provider = "postgresql"
-  url      = env("DATABASE_URL")
+  provider   = "postgresql"
+  url        = env("DATABASE_URL")
+  // Instala a extensão PostGIS versão 3 no banco de dados
+  extensions = [postgis]
 }
 
 // ==========================================
@@ -39,26 +43,21 @@ enum PaymentStatus {
 // 1. IDENTIDADE (IAM & KYC) com Soft Deletes
 // ==========================================
 model User {
-  // A REGRA DO UUID: Evita Web Scraping.
-  id String @id @default(uuid())
-
+  id        String    @id @default(uuid())
   email     String    @unique
   name      String
   role      Role      @default(STUDENT)
   kycStatus KycStatus @default(PENDING) @map("kyc_status")
 
-  // CONTROLES DE AUDITORIA E LGPD
-  createdAt DateTime @default(now()) @map("created_at")
-  updatedAt DateTime @updatedAt @map("updated_at")
-
-  // EXCLUSÃO LÓGICA (Soft Delete): Cumpre a LGPD sem corromper o histórico
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
   deletedAt DateTime? @map("deleted_at")
 
   profile      Profile?
   republics    Republic[]
   reservations Reservation[]
 
-  @@map("users") // Mapeamento para snake_case no PostgreSQL
+  @@map("users")
 }
 
 model Profile {
@@ -66,7 +65,6 @@ model Profile {
   userId String @unique @map("user_id")
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  // Variáveis sensíveis de comportamento para o Match (0 a 10)
   noiseLevel    Int     @default(5) @map("noise_level")
   organization  Int     @default(5)
   visitorPolicy Int     @default(5) @map("visitor_policy")
@@ -80,7 +78,7 @@ model Profile {
 }
 
 // ==========================================
-// 2. INVENTÁRIO IMOBILIÁRIO & MAPA
+// 2. INVENTÁRIO IMOBILIÁRIO & MAPA VETORIAL
 // ==========================================
 model Republic {
   id      String @id @default(uuid())
@@ -89,16 +87,18 @@ model Republic {
 
   name        String
   description String? @db.Text
-  latitude    Float
-  longitude   Float
+
+  // ARQUITETURA ESPACIAL: SRID 4326 (Padrão WGS84 - GPS)
+  location Unsupported("geometry(Point, 4326)")?
 
   rooms Room[]
 
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
-  deletedAt DateTime? @map("deleted_at") // Permite pausar repúblicas sem apagar o histórico
+  deletedAt DateTime? @map("deleted_at")
 
-  @@index([latitude, longitude]) // Otimização para queries cartográficas (PostGIS no futuro)
+  // ÍNDICE GIST: Ativa a matemática de Árvore R (R-Tree) para buscas de proximidade instantâneas
+  @@index([location], type: Gist)
   @@map("republics")
 }
 
@@ -111,7 +111,7 @@ model Room {
   basePrice   Decimal @map("base_price") @db.Decimal(10, 2)
   isAvailable Boolean @default(true) @map("is_available")
 
-  amenities    Amenity[] // Relação N:M (Comodidades)
+  amenities    Amenity[]
   reservations Reservation[]
 
   @@map("rooms")
@@ -119,7 +119,7 @@ model Room {
 
 model Amenity {
   id    String @id @default(uuid())
-  name  String @unique // ex: "Wi-fi 500mb", "Limpeza inclusa"
+  name  String @unique
   rooms Room[]
 
   @@map("amenities")
@@ -135,17 +135,14 @@ model Reservation {
   roomId    String @map("room_id")
   room      Room   @relation(fields: [roomId], references: [id])
 
-  // Orquestração de Valores
-  grossValue  Decimal @map("gross_value") @db.Decimal(10, 2) // Valor cobrado ao estudante
-  platformFee Decimal @map("platform_fee") @db.Decimal(10, 2) // Retenção da plataforma
-  netValue    Decimal @map("net_value") @db.Decimal(10, 2) // Repasse final ao locador
+  grossValue  Decimal @map("gross_value") @db.Decimal(10, 2)
+  platformFee Decimal @map("platform_fee") @db.Decimal(10, 2)
+  netValue    Decimal @map("net_value") @db.Decimal(10, 2)
 
-  // Integração Iugu e Pix
   iuguInvoiceId String?       @unique @map("iugu_invoice_id")
   iuguPixCode   String?       @map("iugu_pix_code") @db.Text
   status        PaymentStatus @default(PENDING)
 
-  // Conformidade Financeira e Timestamps
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
   paidAt    DateTime? @map("paid_at")
@@ -155,10 +152,9 @@ model Reservation {
   @@map("reservations")
 }
 
-// Retenções voláteis para gerir comissões
 model SplitRule {
   id             String    @id @default(uuid())
-  platformFeePct Decimal   @map("platform_fee_pct") @db.Decimal(5, 2) // Ex: 5.00 para 5%
+  platformFeePct Decimal   @map("platform_fee_pct") @db.Decimal(5, 2)
   activeFrom     DateTime  @default(now()) @map("active_from")
   activeUntil    DateTime? @map("active_until")
 
