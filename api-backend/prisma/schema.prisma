@@ -1,0 +1,166 @@
+// ---------------------------------------------------------
+// PROJETO: UAI QUARTOS - SEGUNDA-FEIRA, 23 DE MARÇO
+// ARTEFATO: Schema Relacional Final (ACID / LGPD / Financeiro)
+// ---------------------------------------------------------
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+// ==========================================
+// ENUMS DE DOMÍNIO
+// ==========================================
+enum Role {
+  STUDENT
+  LANDLORD
+  ADMIN
+}
+
+enum KycStatus {
+  PENDING
+  VERIFIED
+  REJECTED
+}
+
+enum PaymentStatus {
+  PENDING
+  PROCESSING
+  PAID
+  FAILED
+  REFUNDED
+}
+
+// ==========================================
+// 1. IDENTIDADE (IAM & KYC) com Soft Deletes
+// ==========================================
+model User {
+  // A REGRA DO UUID: Evita Web Scraping.
+  id String @id @default(uuid())
+
+  email     String    @unique
+  name      String
+  role      Role      @default(STUDENT)
+  kycStatus KycStatus @default(PENDING) @map("kyc_status")
+
+  // CONTROLES DE AUDITORIA E LGPD
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  // EXCLUSÃO LÓGICA (Soft Delete): Cumpre a LGPD sem corromper o histórico
+  deletedAt DateTime? @map("deleted_at")
+
+  profile      Profile?
+  republics    Republic[]
+  reservations Reservation[]
+
+  @@map("users") // Mapeamento para snake_case no PostgreSQL
+}
+
+model Profile {
+  id     String @id @default(uuid())
+  userId String @unique @map("user_id")
+  user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  // Variáveis sensíveis de comportamento para o Match (0 a 10)
+  noiseLevel    Int     @default(5) @map("noise_level")
+  organization  Int     @default(5)
+  visitorPolicy Int     @default(5) @map("visitor_policy")
+  sleepRoutine  Int     @default(5) @map("sleep_routine")
+  isPetFriendly Boolean @default(false) @map("is_pet_friendly")
+  isSmoker      Boolean @default(false) @map("is_smoker")
+
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@map("profiles")
+}
+
+// ==========================================
+// 2. INVENTÁRIO IMOBILIÁRIO & MAPA
+// ==========================================
+model Republic {
+  id      String @id @default(uuid())
+  ownerId String @map("owner_id")
+  owner   User   @relation(fields: [ownerId], references: [id])
+
+  name        String
+  description String? @db.Text
+  latitude    Float
+  longitude   Float
+
+  rooms Room[]
+
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  deletedAt DateTime? @map("deleted_at") // Permite pausar repúblicas sem apagar o histórico
+
+  @@index([latitude, longitude]) // Otimização para queries cartográficas (PostGIS no futuro)
+  @@map("republics")
+}
+
+model Room {
+  id         String   @id @default(uuid())
+  republicId String   @map("republic_id")
+  republic   Republic @relation(fields: [republicId], references: [id], onDelete: Cascade)
+
+  title       String
+  basePrice   Decimal @map("base_price") @db.Decimal(10, 2)
+  isAvailable Boolean @default(true) @map("is_available")
+
+  amenities    Amenity[] // Relação N:M (Comodidades)
+  reservations Reservation[]
+
+  @@map("rooms")
+}
+
+model Amenity {
+  id    String @id @default(uuid())
+  name  String @unique // ex: "Wi-fi 500mb", "Limpeza inclusa"
+  rooms Room[]
+
+  @@map("amenities")
+}
+
+// ==========================================
+// 3. MOTOR FINANCEIRO & SPLIT (Checkout B2B)
+// ==========================================
+model Reservation {
+  id        String @id @default(uuid())
+  studentId String @map("student_id")
+  student   User   @relation(fields: [studentId], references: [id])
+  roomId    String @map("room_id")
+  room      Room   @relation(fields: [roomId], references: [id])
+
+  // Orquestração de Valores
+  grossValue  Decimal @map("gross_value") @db.Decimal(10, 2) // Valor cobrado ao estudante
+  platformFee Decimal @map("platform_fee") @db.Decimal(10, 2) // Retenção da plataforma
+  netValue    Decimal @map("net_value") @db.Decimal(10, 2) // Repasse final ao locador
+
+  // Integração Iugu e Pix
+  iuguInvoiceId String?       @unique @map("iugu_invoice_id")
+  iuguPixCode   String?       @map("iugu_pix_code") @db.Text
+  status        PaymentStatus @default(PENDING)
+
+  // Conformidade Financeira e Timestamps
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+  paidAt    DateTime? @map("paid_at")
+
+  @@index([studentId])
+  @@index([iuguInvoiceId])
+  @@map("reservations")
+}
+
+// Retenções voláteis para gerir comissões
+model SplitRule {
+  id             String    @id @default(uuid())
+  platformFeePct Decimal   @map("platform_fee_pct") @db.Decimal(5, 2) // Ex: 5.00 para 5%
+  activeFrom     DateTime  @default(now()) @map("active_from")
+  activeUntil    DateTime? @map("active_until")
+
+  @@map("split_rules")
+}
