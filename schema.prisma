@@ -1,0 +1,104 @@
+// ---------------------------------------------------------
+// PROJETO: UAI QUARTOS - DOMINGO, 22 DE MARÇO (FASE B)
+// ARTEFATO: Planta Preliminar Bruta (ERD Base)
+// ---------------------------------------------------------
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql" // Preparando para usar o PostGIS no futuro
+  url      = env("DATABASE_URL")
+}
+
+// ==========================================
+// 1. DOMÍNIO: IDENTIDADE (IAM & KYC)
+// O espelho da tua tela de Login e Documentos
+// ==========================================
+model User {
+  id            String   @id @default(uuid())
+  email         String   @unique
+  name          String
+  role          Role     @default(STUDENT) // Pode ser STUDENT ou LANDLORD
+  kycStatus     KYC      @default(PENDING) // Reflete a tela "Verificado"
+  createdAt     DateTime @default(now())
+
+  // Relacionamentos
+  profile       Profile?
+  republics     Republic[] // Se for Landlord, ele é dono de repúblicas
+  reservations  Reservation[]
+}
+
+enum Role { STUDENT, LANDLORD, ADMIN }
+enum KYC { PENDING, VERIFIED, REJECTED }
+
+// ==========================================
+// 2. DOMÍNIO: MATCHING (ESPELHO SOCIAL)
+// Reflete a tela "Score de Convivência"
+// ==========================================
+model Profile {
+  id             String  @id @default(uuid())
+  userId         String  @unique
+  user           User    @relation(fields: [userId], references: [id])
+  
+  // Hábitos coletados nas "Pílulas" (0 a 10)
+  noiseLevel     Int     @default(5) // Silencioso vs Música Alta
+  organization   Int     @default(5)
+  visitorPolicy  Int     @default(5)
+  sleepRoutine   Int     @default(5) // Durmo Cedo vs Madrugada
+  isPetFriendly  Boolean @default(false)
+  isSmoker       Boolean @default(false)
+}
+
+// ==========================================
+// 3. DOMÍNIO: CATÁLOGO & MAPA (INVENTORY)
+// Reflete o "Wizard Form" do Dono e os Pinos do Mapa
+// ==========================================
+model Republic {
+  id            String   @id @default(uuid())
+  ownerId       String
+  owner         User     @relation(fields: [ownerId], references: [id])
+  
+  name          String   // "República DAES"
+  description   String?
+  // O motor Cartográfico (PostGIS entrará aqui)
+  latitude      Float
+  longitude     Float
+  
+  rooms         Room[]
+  createdAt     DateTime @default(now())
+}
+
+model Room {
+  id            String   @id @default(uuid())
+  republicId    String
+  republic      Republic @relation(fields: [republicId], references: [id])
+  
+  title         String   // "Suíte Individual"
+  basePrice     Decimal  // R$ 1.100,00
+  isAvailable   Boolean  @default(true)
+  
+  reservations  Reservation[]
+}
+
+// ==========================================
+// 4. DOMÍNIO: FINANCEIRO (CHECKOUT B2B)
+// Reflete a Tela de Pix e Orquestração Iugu
+// ==========================================
+model Reservation {
+  id            String   @id @default(uuid())
+  studentId     String
+  student       User     @relation(fields: [studentId], references: [id])
+  roomId        String
+  room          Room     @relation(fields: [roomId], references: [id])
+  
+  totalValue    Decimal  // Ex: 1.655,00
+  serviceFee    Decimal  // Ex: 55,00
+  iuguPixCode   String?  // O código copia e cola
+  status        PaymentStatus @default(PENDING)
+  
+  createdAt     DateTime @default(now())
+}
+
+enum PaymentStatus { PENDING, PAID, CANCELLED }
