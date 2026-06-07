@@ -39,6 +39,13 @@ enum PaymentStatus {
   REFUNDED
 }
 
+enum KycDocumentType {
+  RG
+  CNH
+  PASSPORT
+  STUDENT_ID
+}
+
 // ==========================================
 // 1. IDENTIDADE (IAM & KYC) com Soft Deletes
 // ==========================================
@@ -54,9 +61,14 @@ model User {
   updatedAt DateTime  @updatedAt @map("updated_at")
   deletedAt DateTime? @map("deleted_at")
 
-  profile      Profile?
-  republics    Republic[]
-  reservations Reservation[]
+  profile               Profile?
+  republics             Republic[]
+  reservations          Reservation[]
+  sessions              AuthSession[]
+  kycDocuments          KycDocument[]
+  studentConversations  Conversation[] @relation("StudentConversations")
+  landlordConversations Conversation[] @relation("LandlordConversations")
+  sentMessages          Message[]      @relation("SentMessages")
 
   @@map("users")
 }
@@ -66,12 +78,13 @@ model Profile {
   userId String @unique @map("user_id")
   user   User   @relation(fields: [userId], references: [id], onDelete: Cascade)
 
-  noiseLevel    Int     @default(5) @map("noise_level")
-  organization  Int     @default(5)
-  visitorPolicy Int     @default(5) @map("visitor_policy")
-  sleepRoutine  Int     @default(5) @map("sleep_routine")
-  isPetFriendly Boolean @default(false) @map("is_pet_friendly")
-  isSmoker      Boolean @default(false) @map("is_smoker")
+  noiseLevel       Int     @default(5) @map("noise_level")
+  organization     Int     @default(5)
+  visitorPolicy    Int     @default(5) @map("visitor_policy")
+  sleepRoutine     Int     @default(5) @map("sleep_routine")
+  isPetFriendly    Boolean @default(false) @map("is_pet_friendly")
+  isSmoker         Boolean @default(false) @map("is_smoker")
+  preferenceVector Float[] @default([]) @map("preference_vector")
 
   updatedAt DateTime @updatedAt @map("updated_at")
 
@@ -86,13 +99,21 @@ model Republic {
   ownerId String @map("owner_id")
   owner   User   @relation(fields: [ownerId], references: [id])
 
-  name        String
-  description String? @db.Text
+  name         String
+  description  String? @db.Text
+  address      String?
+  neighborhood String?
+  city         String?
+  state        String? @default("MG")
+  postalCode   String? @map("postal_code")
+  imageUrl     String? @map("image_url") @db.Text
 
   // ARQUITETURA ESPACIAL: SRID 4326 (Padrão WGS84 - GPS)
   location Unsupported("geometry(Point, 4326)")?
 
-  rooms Room[]
+  rooms         Room[]
+  photos        PropertyPhoto[]
+  conversations Conversation[]
 
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
@@ -108,9 +129,12 @@ model Room {
   republicId String   @map("republic_id")
   republic   Republic @relation(fields: [republicId], references: [id], onDelete: Cascade)
 
-  title       String
-  basePrice   Decimal @map("base_price") @db.Decimal(10, 2)
-  isAvailable Boolean @default(true) @map("is_available")
+  title           String
+  basePrice       Decimal  @map("base_price") @db.Decimal(10, 2)
+  isAvailable     Boolean  @default(true) @map("is_available")
+  privateBathroom Boolean  @default(false) @map("private_bathroom")
+  capacity        Int      @default(1)
+  areaM2          Decimal? @map("area_m2") @db.Decimal(5, 2)
 
   amenities    Amenity[]
   reservations Reservation[]
@@ -124,6 +148,20 @@ model Amenity {
   rooms Room[]
 
   @@map("amenities")
+}
+
+model PropertyPhoto {
+  id         String   @id @default(uuid())
+  republicId String   @map("republic_id")
+  republic   Republic @relation(fields: [republicId], references: [id], onDelete: Cascade)
+  storageKey String   @unique @map("storage_key")
+  imageUrl   String?  @map("image_url") @db.Text
+  altText    String?  @map("alt_text")
+  position   Int      @default(0)
+  createdAt  DateTime @default(now()) @map("created_at")
+
+  @@index([republicId])
+  @@map("property_photos")
 }
 
 // ==========================================
@@ -160,4 +198,76 @@ model SplitRule {
   activeUntil    DateTime? @map("active_until")
 
   @@map("split_rules")
+}
+
+model AuthSession {
+  id               String    @id @default(uuid())
+  userId           String    @map("user_id")
+  user             User      @relation(fields: [userId], references: [id], onDelete: Cascade)
+  refreshTokenHash String    @unique @map("refresh_token_hash")
+  userAgent        String?   @map("user_agent")
+  ipAddress        String?   @map("ip_address")
+  expiresAt        DateTime  @map("expires_at")
+  revokedAt        DateTime? @map("revoked_at")
+  replacedByHash   String?   @map("replaced_by_hash")
+  createdAt        DateTime  @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@index([expiresAt])
+  @@index([revokedAt])
+  @@map("auth_sessions")
+}
+
+model KycDocument {
+  id           String          @id @default(uuid())
+  userId       String          @map("user_id")
+  user         User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  documentType KycDocumentType @map("document_type")
+  storageKey   String          @unique @map("storage_key")
+  filename     String
+  contentType  String          @map("content_type")
+  status       KycStatus       @default(PENDING)
+  reviewedAt   DateTime?       @map("reviewed_at")
+  createdAt    DateTime        @default(now()) @map("created_at")
+
+  @@index([userId])
+  @@index([status])
+  @@map("kyc_documents")
+}
+
+model Conversation {
+  id         String   @id @default(uuid())
+  propertyId String   @map("property_id")
+  property   Republic @relation(fields: [propertyId], references: [id], onDelete: Cascade)
+  studentId  String   @map("student_id")
+  student    User     @relation("StudentConversations", fields: [studentId], references: [id])
+  landlordId String   @map("landlord_id")
+  landlord   User     @relation("LandlordConversations", fields: [landlordId], references: [id])
+
+  messages  Message[]
+  createdAt DateTime  @default(now()) @map("created_at")
+  updatedAt DateTime  @updatedAt @map("updated_at")
+
+  @@unique([propertyId, studentId, landlordId])
+  @@index([studentId])
+  @@index([landlordId])
+  @@index([propertyId])
+  @@map("conversations")
+}
+
+model Message {
+  id             String       @id @default(uuid())
+  conversationId String       @map("conversation_id")
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+  senderId       String       @map("sender_id")
+  sender         User         @relation("SentMessages", fields: [senderId], references: [id])
+  body           String       @db.Text
+  eventId        String?      @unique @map("event_id")
+  deliveredAt    DateTime?    @map("delivered_at")
+  readAt         DateTime?    @map("read_at")
+  createdAt      DateTime     @default(now()) @map("created_at")
+
+  @@index([conversationId, createdAt])
+  @@index([senderId])
+  @@map("messages")
 }

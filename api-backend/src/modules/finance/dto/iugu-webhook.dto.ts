@@ -1,12 +1,19 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
+import { IsNotEmpty, IsObject, IsOptional, IsString } from 'class-validator';
 
 export class IuguWebhookDto {
-  @ApiProperty({ example: 'invoice_id_123' })
+  @ApiProperty({ example: 'sandbox-invoice-id' })
+  @IsString()
+  @IsNotEmpty()
   id: string;
 
-  @ApiProperty({ example: 'paid', description: 'Status da transação' })
+  @ApiProperty({ example: 'invoice.paid', description: 'Evento da transacao.' })
+  @IsString()
+  @IsNotEmpty()
   event: string;
 
-  @ApiProperty({ description: 'Dados extras da transação' })
-  data: any;
+  @ApiPropertyOptional({ description: 'Dados extras da transacao.' })
+  @IsOptional()
+  @IsObject()
+  data?: Record<string, unknown>;
 }
