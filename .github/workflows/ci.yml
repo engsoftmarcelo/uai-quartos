@@ -1,0 +1,45 @@
+name: UAI QUARTOS - CI Pipeline
+
+# Regulação do comportamento Trunk-Based: Dispara em pushes e PRs para a main
+on:
+  push:
+    branches: [ "main" ]
+  pull_request:
+    branches: [ "main" ]
+
+jobs:
+  auditoria-e-build:
+    runs-on: ubuntu-latest
+    
+    defaults:
+      run:
+        working-directory: ./api-backend
+
+    strategy:
+      matrix:
+        node-version: [20.x] # Nó de processamento analítico
+
+    steps:
+    - name: Capturar código fonte (Checkout)
+      uses: actions/checkout@v4
+
+    - name: Provisionar ambiente Node.js ${{ matrix.node-version }}
+      uses: actions/setup-node@v4
+      with:
+        node-version: ${{ matrix.node-version }}
+        cache: 'npm'
+        cache-dependency-path: ./api-backend/package-lock.json
+
+    - name: Instalar dependências estruturais
+      run: npm ci
+
+    - name: Gerar Artefatos do Prisma (Tipagem Segura)
+      run: npx prisma generate
+
+    - name: Auditoria de Padrão Opinionado (Linter)
+      run: npm run lint
+
+    - name: Compilação do Monolito Modular (Build)
+      run: npm run build
+
+    # Futuramente: npm run test

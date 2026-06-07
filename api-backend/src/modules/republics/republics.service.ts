@@ -1,33 +1,81 @@
-import { Injectable } from '@nestjs/common';
-import { PrismaService } from '../../core/prisma/prisma.service';
+import { Inject, Injectable } from '@nestjs/common';
+import { Role } from '@prisma/client';
+import type { AuthenticatedUser } from '../auth/auth.types';
+import { CreateRepublicDto } from './dto/create-republic.dto';
+import { PropertyMediaUploadDto } from './dto/property-media-upload.dto';
 import { SearchRepublicDto } from './dto/search-republic.dto';
-import { RepublicResponseDto } from './dto/republic-response.dto';
+import { UpdateRepublicDto } from './dto/update-republic.dto';
+import { GeocodingService } from './geocoding.service';
+import { REPUBLICS_REPOSITORY_PORT } from './interfaces/republics.repository.port';
+import type { IRepublicsRepository } from './interfaces/republics.repository.port';
 
 @Injectable()
 export class RepublicsService {
-  constructor(private prisma: PrismaService) {}
+  constructor(
+    @Inject(REPUBLICS_REPOSITORY_PORT)
+    private readonly repository: IRepublicsRepository,
+    private readonly geocodingService: GeocodingService,
+  ) {}
 
-  async findNearby(query: SearchRepublicDto): Promise<RepublicResponseDto[]> {
-    const { lat, lng, radius } = query;
+  findNearby(query: SearchRepublicDto) {
+    return this.repository.findNearby(query);
+  }
 
-    // Execução da Query Heurística Geográfica (PostGIS)
-    // Usamos $queryRaw porque o Prisma não tem suporte nativo total para tipos espaciais
-    const republics = await this.prisma.$queryRaw<any[]>`
-      SELECT id, name, price, 
-             ST_X(location::geometry) as lng, 
-             ST_Y(location::geometry) as lat,
-             ST_Distance(location, ST_MakePoint(${lng}, ${lat})::geography) as distance
-      FROM "Republic"
-      WHERE ST_DWithin(location, ST_MakePoint(${lng}, ${lat})::geography, ${radius})
-      ORDER BY distance ASC
-    `;
+  findById(id: string) {
+    return this.repository.findById(id);
+  }
 
-    return republics.map(repo => ({
-      id: repo.id,
-      name: repo.name,
-      price: Number(repo.price),
-      location: { lat: repo.lat, lng: repo.lng },
-      distanceMetros: Math.round(repo.distance)
-    }));
+  findMine(user: AuthenticatedUser) {
+    return this.repository.findOwned({
+      userId: user.id,
+      role: user.role,
+    });
+  }
+
+  async create(user: AuthenticatedUser, dto: CreateRepublicDto) {
+    const coordinates = await this.geocodingService.resolve(dto);
+    return this.repository.create(user.id, dto, coordinates);
+  }
+
+  async update(id: string, user: AuthenticatedUser, dto: UpdateRepublicDto) {
+    const shouldRecalculateLocation =
+      typeof dto.lat === 'number' ||
+      typeof dto.lng === 'number' ||
+      typeof dto.address === 'string' ||
+      typeof dto.neighborhood === 'string' ||
+      typeof dto.city === 'string';
+    const coordinates = shouldRecalculateLocation
+      ? await this.geocodingService.resolve(dto)
+      : undefined;
+
+    return this.repository.update(
+      id,
+      { userId: user.id, role: user.role },
+      dto,
+      coordinates,
+    );
+  }
+
+  remove(id: string, user: AuthenticatedUser) {
+    return this.repository.softDelete(id, {
+      userId: user.id,
+      role: user.role,
+    });
+  }
+
+  createMediaUploadIntent(
+    id: string,
+    user: AuthenticatedUser,
+    dto: PropertyMediaUploadDto,
+  ) {
+    return this.repository.createMediaUploadIntent(
+      id,
+      { userId: user.id, role: user.role },
+      dto,
+    );
+  }
+
+  canManage(user: AuthenticatedUser): boolean {
+    return user.role === Role.LANDLORD || user.role === Role.ADMIN;
   }
 }

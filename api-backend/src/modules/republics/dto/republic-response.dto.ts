@@ -1,6 +1,5 @@
-import { ApiProperty } from '@nestjs/swagger';
+import { ApiProperty, ApiPropertyOptional } from '@nestjs/swagger';
 
-// Sub-esqueleto para as coordenadas formatadas
 class LocationResponse {
   @ApiProperty({ example: -19.9227 })
   lat: number;
@@ -9,25 +8,63 @@ class LocationResponse {
   lng: number;
 }
 
+class RoomSummaryResponse {
+  @ApiProperty({ example: 'Quarto individual mobiliado' })
+  title: string;
+
+  @ApiProperty({ example: 850.5 })
+  basePrice: number;
+
+  @ApiProperty({ example: true })
+  isAvailable: boolean;
+
+  @ApiProperty({ example: false })
+  privateBathroom: boolean;
+
+  @ApiProperty({ example: 1 })
+  capacity: number;
+}
+
 export class RepublicResponseDto {
-  @ApiProperty({ 
-    example: '550e8400-e29b-41d4-a716-446655440000', 
-    description: 'UUID único da república (Imutável)' 
-  })
+  @ApiProperty({ example: '550e8400-e29b-41d4-a716-446655440000' })
   id: string;
 
-  @ApiProperty({ example: 'República UAI Centro', description: 'Nome da acomodação' })
+  @ApiProperty({ example: 'Republica UAI Centro' })
   name: string;
 
-  @ApiProperty({ example: 950.50, description: 'Preço base formatado' })
-  price: number;
+  @ApiPropertyOptional()
+  description?: string | null;
 
-  @ApiProperty({ type: LocationResponse, description: 'Coordenadas geográficas processadas' })
+  @ApiPropertyOptional({ example: 'Rua Padre Eustaquio, 1200' })
+  address?: string | null;
+
+  @ApiPropertyOptional({ example: 'Coracao Eucaristico' })
+  neighborhood?: string | null;
+
+  @ApiPropertyOptional({ example: 'Belo Horizonte' })
+  city?: string | null;
+
+  @ApiPropertyOptional({ example: 'MG' })
+  state?: string | null;
+
+  @ApiPropertyOptional({ example: 'https://example.com/republica.jpg' })
+  imageUrl?: string | null;
+
+  @ApiProperty({ type: LocationResponse })
   location: LocationResponse;
 
-  @ApiProperty({ 
-    example: 450.5, 
-    description: 'Distância calculada em metros em relação ao ponto de busca' 
-  })
+  @ApiProperty({ example: 850.5 })
+  minPrice: number;
+
+  @ApiProperty({ example: 3 })
+  availableRooms: number;
+
+  @ApiProperty({ example: ['wifi', 'lavanderia'] })
+  amenities: string[];
+
+  @ApiProperty({ type: [RoomSummaryResponse] })
+  rooms: RoomSummaryResponse[];
+
+  @ApiPropertyOptional({ example: 450 })
   distanceMetros?: number;
 }

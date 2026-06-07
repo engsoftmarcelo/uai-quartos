@@ -1,47 +1,64 @@
-import { NestFactory } from '@nestjs/core';
-import { SwaggerModule, DocumentBuilder } from '@nestjs/swagger';
-import { AppModule } from './app.module';
 import { ValidationPipe } from '@nestjs/common';
+import { NestFactory } from '@nestjs/core';
+import { DocumentBuilder, SwaggerModule } from '@nestjs/swagger';
+import cookieParser from 'cookie-parser';
+import { AppModule } from './app.module';
 import { AllExceptionsFilter } from './common/filters/http-exception.filter';
+import { RedisIoAdapter } from './core/redis-io.adapter';
 
 async function bootstrap() {
   const app = await NestFactory.create(AppModule);
 
-  // 1. MECANISMO UNIFICADO DE TRATAMENTO DE ERROS (Artefato de Sexta-feira)
-  // Garante que todo erro (404, 500, etc.) tenha o mesmo formato JSON
-  app.useGlobalFilters(new AllExceptionsFilter());
+  const frontendOrigins = (
+    process.env.FRONTEND_URLS ??
+    'http://localhost:3001,http://localhost:3000,http://localhost:3003'
+  )
+    .split(',')
+    .map((origin) => origin.trim());
 
-  // 2. VERIFICAÇÃO ROBÓTICA E AUTÔNOMA (ValidationPipe)
-  // Limpa dados sujos e converte tipos (ex: string para number) automaticamente
+  app.enableCors({
+    origin: frontendOrigins,
+    credentials: true,
+  });
+  app.use(cookieParser());
+  app.useGlobalFilters(new AllExceptionsFilter());
   app.useGlobalPipes(
     new ValidationPipe({
-      whitelist: true,         // Remove campos não definidos nos DTOs
-      transform: true,         // Converte tipos baseados no DTO (Crucial para latitude/longitude)
-      forbidNonWhitelisted: true, // Rejeita requisições com campos extras
+      whitelist: true,
+      forbidNonWhitelisted: true,
+      transform: true,
     }),
   );
 
-  // 3. TAXONOMIA FUNDAMENTAL OPENAPI (Swagger)
   const config = new DocumentBuilder()
     .setTitle('UAI QUARTOS - API Mestra')
     .setDescription(
-      'Legislação de rede, protocolos de identificação e gestão de feudos habitacionais em Belo Horizonte.',
+      'Monolito modular para identidade, moradia estudantil, matching e reservas.',
     )
     .setVersion('1.0')
-    .addTag('auth', 'Operações de Acesso e Identidade')
-    .addTag('properties', 'Busca Geográfica e Inventário (PostGIS)')
-    .addTag('social', 'Heurística de Match e Convivência')
-    .addTag('finance', 'Reservas, Faturas e Webhooks')
-    .addBearerAuth() // Prepara para a segurança JWT
+    .addTag('auth', 'Operacoes de acesso e identidade')
+    .addTag('kyc', 'Onboarding documental e verificacao')
+    .addTag('properties', 'Busca geografica e inventario')
+    .addTag('social', 'Heuristica de match e convivencia')
+    .addTag('finance', 'Reservas, faturas e webhooks')
+    .addBearerAuth()
     .build();
 
   const document = SwaggerModule.createDocument(app, config);
   SwaggerModule.setup('api/docs', app, document);
 
-  // 4. INICIALIZAÇÃO DA FUNDAÇÃO VIRTUAL
-  await app.listen(3000);
-  
-  console.log(`\n🚀 UAI QUARTOS está operacional em: http://localhost:3000`);
-  console.log(`📚 Portal de Documentação: http://localhost:3000/api/docs\n`);
+  const redisIoAdapter = new RedisIoAdapter(app);
+  const redisEnabled = await redisIoAdapter.connectToRedis();
+
+  if (redisEnabled) {
+    app.useWebSocketAdapter(redisIoAdapter);
+  }
+
+  const port = Number(process.env.PORT ?? 3000);
+  await app.listen(port);
+
+  console.log(`UAI QUARTOS API: http://localhost:${port}`);
+  console.log(`Swagger: http://localhost:${port}/api/docs`);
 }
-bootstrap();
+
+void bootstrap();

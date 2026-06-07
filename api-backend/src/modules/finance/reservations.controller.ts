@@ -1,40 +1,60 @@
-import { Controller, Post, Body, HttpCode, HttpStatus } from '@nestjs/common';
-import { ApiTags, ApiOperation, ApiResponse, ApiHeader } from '@nestjs/swagger';
+import {
+  Body,
+  Controller,
+  HttpCode,
+  HttpStatus,
+  Post,
+  UseGuards,
+} from '@nestjs/common';
+import {
+  ApiBearerAuth,
+  ApiHeader,
+  ApiOperation,
+  ApiResponse,
+  ApiTags,
+} from '@nestjs/swagger';
+import { Role } from '@prisma/client';
+import { CurrentUser } from '../auth/decorators/current-user.decorator';
+import { Roles } from '../auth/decorators/roles.decorator';
+import { JwtAuthGuard } from '../auth/guards/jwt-auth.guard';
+import { RolesGuard } from '../auth/guards/roles.guard';
+import type { AuthenticatedUser } from '../auth/auth.types';
 import { CreateReservationDto } from './dto/create-reservation.dto';
 import { IuguWebhookDto } from './dto/iugu-webhook.dto';
+import { FinanceService } from './finance.service';
 
 @ApiTags('finance')
 @Controller('api/v1/reservations')
 export class ReservationsController {
-  
+  constructor(private readonly financeService: FinanceService) {}
+
   @Post()
-  @ApiOperation({ summary: 'Inicia reserva vinculante e gera fatura na Iugu' })
+  @UseGuards(JwtAuthGuard, RolesGuard)
+  @Roles(Role.STUDENT)
+  @ApiBearerAuth()
+  @ApiOperation({ summary: 'Inicia reserva vinculante e gera fatura sandbox.' })
   @ApiResponse({ status: 201, description: 'Reserva criada e fatura gerada.' })
-  async createReservation(@Body() createDto: CreateReservationDto) {
-    return {
-      reservationId: 'uuid-gerado-no-banco',
-      iuguInvoiceUrl: 'https://iugu.com/i/exemplo_token',
-      status: 'pending'
-    };
+  createReservation(
+    @CurrentUser() user: AuthenticatedUser,
+    @Body() createDto: CreateReservationDto,
+  ) {
+    return this.financeService.createReservation(user, createDto);
   }
 
   @Post('webhooks/iugu')
   @HttpCode(HttpStatus.OK)
-  @ApiHeader({ name: 'X-Iugu-Signature', description: 'Assinatura de segurança para validar origem' })
-  @ApiOperation({ 
-    summary: 'Receptor de payloads assíncronos da Iugu (Blindagem contra Duplicidade)',
-    description: 'Aplica regra de idempotência usando o iugu_invoice_id como chave única.'
+  @ApiHeader({
+    name: 'X-Iugu-Signature',
+    description: 'Assinatura de seguranca para validar origem',
+    required: false,
   })
-  @ApiResponse({ status: 200, description: 'Evento processado ou ignorado por duplicidade.' })
-  async handleIuguWebhook(@Body() payload: IuguWebhookDto) {
-    /**
-     * REGRA DE IDEMPOTÊNCIA:
-     * 1. Consultar no Banco: SELECT * FROM reservations WHERE iugu_invoice_id = payload.id
-     * 2. Se já existir e estiver 'PAID': retornar 200 OK (ignora reenvio)
-     * 3. Se for novo: Processar liquidação e marcar como 'PAID'
-     */
-    console.log(`Processando Webhook Iugu: ${payload.id} - Evento: ${payload.event}`);
-    
-    return { status: 'success', message: 'Idempotency check passed' };
+  @ApiOperation({
+    summary: 'Receptor de payloads assincronos da Iugu.',
+    description:
+      'Aplica idempotencia usando iugu_invoice_id como chave unica da reserva.',
+  })
+  @ApiResponse({ status: 200, description: 'Evento processado ou ignorado.' })
+  handleIuguWebhook(@Body() payload: IuguWebhookDto) {
+    return this.financeService.handleIuguWebhook(payload);
   }
 }
