@@ -16,7 +16,7 @@ const geistMono = Geist_Mono({
 export const metadata: Metadata = {
   title: "UAI QUARTOS",
   description:
-    "Mapa geoespacial, inventario, matching sociocultural e mensageria do UAI QUARTOS",
+    "Mapa geoespacial, matching, mensageria, split financeiro e compliance do UAI QUARTOS",
 };
 
 export default function RootLayout({

@@ -4,7 +4,9 @@ import {
   IsNumber,
   IsOptional,
   IsPositive,
+  IsString,
   IsUUID,
+  MaxLength,
   Min,
 } from 'class-validator';
 
@@ -27,4 +29,14 @@ export class CreateReservationDto {
   @IsPositive({ message: 'O valor financeiro deve ser estritamente positivo.' })
   @Min(100, { message: 'O valor minimo da reserva operacional e R$ 100,00.' })
   amount?: number;
+
+  @ApiPropertyOptional({
+    example: 'checkout_550e8400_e29b',
+    description:
+      'Chave idempotente do checkout para evitar reservas duplicadas.',
+  })
+  @IsOptional()
+  @IsString()
+  @MaxLength(120)
+  idempotencyKey?: string;
 }

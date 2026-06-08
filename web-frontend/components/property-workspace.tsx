@@ -20,6 +20,7 @@ import { useAuth } from "@/contexts/auth-provider";
 import { api } from "@/lib/api";
 
 interface PropertyRoom {
+  id: string;
   title: string;
   basePrice: number;
   isAvailable: boolean;
