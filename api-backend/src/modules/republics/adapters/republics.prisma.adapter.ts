@@ -34,6 +34,7 @@ interface PropertyRow {
   available_rooms: number;
   amenities: string[] | null;
   rooms: Array<{
+    id: string;
     title: string;
     basePrice: number;
     isAvailable: boolean;
@@ -317,6 +318,7 @@ export class PrismaRepublicsAdapter implements IRepublicsRepository {
         ) AS amenities,
         COALESCE(
           jsonb_agg(DISTINCT jsonb_build_object(
+            'id', room.id,
             'title', room.title,
             'basePrice', room.base_price::float,
             'isAvailable', room.is_available,
@@ -354,6 +356,7 @@ export class PrismaRepublicsAdapter implements IRepublicsRepository {
       availableRooms: Number(row.available_rooms),
       amenities: row.amenities ?? [],
       rooms: (row.rooms ?? []).map((room) => ({
+        id: room.id,
         title: room.title,
         basePrice: Number(room.basePrice),
         isAvailable: Boolean(room.isAvailable),

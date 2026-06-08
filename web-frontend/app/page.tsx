@@ -15,6 +15,7 @@ import {
 import { useMemo, useState } from "react";
 import { useForm, useWatch } from "react-hook-form";
 import { z } from "zod";
+import { FinanceWorkspace } from "@/components/finance-workspace";
 import { PropertyWorkspace } from "@/components/property-workspace";
 import { SocialWorkspace } from "@/components/social-workspace";
 import { useAuth, type KycUploadIntent } from "@/contexts/auth-provider";
@@ -108,6 +109,7 @@ export default function HomePage() {
         <div className="grid content-start gap-5">
           <PropertyWorkspace />
           <SocialWorkspace />
+          <FinanceWorkspace />
         </div>
       </div>
     </main>

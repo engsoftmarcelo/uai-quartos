@@ -35,8 +35,13 @@ enum PaymentStatus {
   PENDING
   PROCESSING
   PAID
+  APPROVED
+  CONTRACT_PENDING
+  CONTRACT_SIGNED
+  SETTLED
   FAILED
   REFUNDED
+  CANCELED
 }
 
 enum KycDocumentType {
@@ -44,6 +49,44 @@ enum KycDocumentType {
   CNH
   PASSPORT
   STUDENT_ID
+}
+
+enum SplitCalculationType {
+  PERCENTAGE
+  FIXED
+}
+
+enum RecipientStatus {
+  PENDING
+  ACTIVE
+  SUSPENDED
+}
+
+enum LedgerAccount {
+  STUDENT_RECEIVABLE
+  IUGU_CLEARING
+  PLATFORM_REVENUE
+  LANDLORD_PAYABLE
+  CONTRACT_ESCROW
+}
+
+enum LedgerDirection {
+  DEBIT
+  CREDIT
+}
+
+enum LegalAgreementStatus {
+  DRAFT
+  SENT
+  SIGNED
+  CANCELED
+}
+
+enum ProviderEventStatus {
+  RECEIVED
+  PROCESSED
+  IGNORED
+  FAILED
 }
 
 // ==========================================
@@ -66,9 +109,10 @@ model User {
   reservations          Reservation[]
   sessions              AuthSession[]
   kycDocuments          KycDocument[]
-  studentConversations  Conversation[] @relation("StudentConversations")
-  landlordConversations Conversation[] @relation("LandlordConversations")
-  sentMessages          Message[]      @relation("SentMessages")
+  studentConversations  Conversation[]    @relation("StudentConversations")
+  landlordConversations Conversation[]    @relation("LandlordConversations")
+  sentMessages          Message[]         @relation("SentMessages")
+  paymentRecipient      PaymentRecipient?
 
   @@map("users")
 }
@@ -168,36 +212,151 @@ model PropertyPhoto {
 // 3. MOTOR FINANCEIRO & SPLIT (Checkout B2B)
 // ==========================================
 model Reservation {
-  id        String @id @default(uuid())
-  studentId String @map("student_id")
-  student   User   @relation(fields: [studentId], references: [id])
-  roomId    String @map("room_id")
-  room      Room   @relation(fields: [roomId], references: [id])
+  id          String     @id @default(uuid())
+  studentId   String     @map("student_id")
+  student     User       @relation(fields: [studentId], references: [id])
+  roomId      String     @map("room_id")
+  room        Room       @relation(fields: [roomId], references: [id])
+  splitRuleId String?    @map("split_rule_id")
+  splitRule   SplitRule? @relation(fields: [splitRuleId], references: [id])
 
   grossValue  Decimal @map("gross_value") @db.Decimal(10, 2)
   platformFee Decimal @map("platform_fee") @db.Decimal(10, 2)
   netValue    Decimal @map("net_value") @db.Decimal(10, 2)
 
-  iuguInvoiceId String?       @unique @map("iugu_invoice_id")
-  iuguPixCode   String?       @map("iugu_pix_code") @db.Text
-  status        PaymentStatus @default(PENDING)
+  idempotencyKey   String?               @unique @map("idempotency_key")
+  iuguInvoiceId    String?               @unique @map("iugu_invoice_id")
+  iuguPixCode      String?               @map("iugu_pix_code") @db.Text
+  iuguSplitPayload Json?                 @map("iugu_split_payload")
+  paymentExpiresAt DateTime?             @map("payment_expires_at")
+  status           PaymentStatus         @default(PENDING)
+  paymentSplit     PaymentSplit?
+  ledgerEntries    LedgerEntry[]
+  webhookEvents    FinanceWebhookEvent[]
+  legalAgreement   LegalAgreement?
 
   createdAt DateTime  @default(now()) @map("created_at")
   updatedAt DateTime  @updatedAt @map("updated_at")
   paidAt    DateTime? @map("paid_at")
 
   @@index([studentId])
+  @@index([roomId])
+  @@index([splitRuleId])
   @@index([iuguInvoiceId])
+  @@index([status])
   @@map("reservations")
 }
 
 model SplitRule {
-  id             String    @id @default(uuid())
-  platformFeePct Decimal   @map("platform_fee_pct") @db.Decimal(5, 2)
-  activeFrom     DateTime  @default(now()) @map("active_from")
-  activeUntil    DateTime? @map("active_until")
+  id             String         @id @default(uuid())
+  platformFeePct Decimal        @map("platform_fee_pct") @db.Decimal(5, 2)
+  activeFrom     DateTime       @default(now()) @map("active_from")
+  activeUntil    DateTime?      @map("active_until")
+  reservations   Reservation[]
+  paymentSplits  PaymentSplit[]
 
   @@map("split_rules")
+}
+
+model PaymentRecipient {
+  id                String          @id @default(uuid())
+  userId            String          @unique @map("user_id")
+  user              User            @relation(fields: [userId], references: [id], onDelete: Cascade)
+  provider          String          @default("IUGU_SANDBOX")
+  providerAccountId String          @unique @map("provider_account_id")
+  legalName         String          @map("legal_name")
+  document          String
+  bankCode          String?         @map("bank_code")
+  agency            String?
+  accountNumber     String?         @map("account_number")
+  pixKey            String?         @map("pix_key")
+  status            RecipientStatus @default(PENDING)
+  paymentSplits     PaymentSplit[]
+
+  createdAt DateTime @default(now()) @map("created_at")
+  updatedAt DateTime @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@map("payment_recipients")
+}
+
+model PaymentSplit {
+  id              String               @id @default(uuid())
+  reservationId   String               @unique @map("reservation_id")
+  reservation     Reservation          @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  recipientId     String               @map("recipient_id")
+  recipient       PaymentRecipient     @relation(fields: [recipientId], references: [id])
+  splitRuleId     String?              @map("split_rule_id")
+  splitRule       SplitRule?           @relation(fields: [splitRuleId], references: [id])
+  calculationType SplitCalculationType @map("calculation_type")
+  platformFeePct  Decimal              @map("platform_fee_pct") @db.Decimal(5, 2)
+  platformAmount  Decimal              @map("platform_amount") @db.Decimal(10, 2)
+  landlordAmount  Decimal              @map("landlord_amount") @db.Decimal(10, 2)
+  providerPayload Json                 @map("provider_payload")
+
+  createdAt DateTime @default(now()) @map("created_at")
+
+  @@index([recipientId])
+  @@index([splitRuleId])
+  @@map("payment_splits")
+}
+
+model LedgerEntry {
+  id             String          @id @default(uuid())
+  reservationId  String          @map("reservation_id")
+  reservation    Reservation     @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  account        LedgerAccount
+  direction      LedgerDirection
+  amount         Decimal         @db.Decimal(10, 2)
+  currency       String          @default("BRL")
+  idempotencyKey String          @unique @map("idempotency_key")
+  description    String
+  metadata       Json?
+  createdAt      DateTime        @default(now()) @map("created_at")
+
+  @@index([reservationId])
+  @@index([account])
+  @@map("ledger_entries")
+}
+
+model FinanceWebhookEvent {
+  id            String              @id @default(uuid())
+  provider      String
+  eventKey      String              @unique @map("event_key")
+  eventType     String              @map("event_type")
+  signature     String?
+  payload       Json
+  status        ProviderEventStatus @default(RECEIVED)
+  reservationId String?             @map("reservation_id")
+  reservation   Reservation?        @relation(fields: [reservationId], references: [id], onDelete: SetNull)
+  processedAt   DateTime?           @map("processed_at")
+  createdAt     DateTime            @default(now()) @map("created_at")
+
+  @@index([provider])
+  @@index([reservationId])
+  @@index([status])
+  @@map("finance_webhook_events")
+}
+
+model LegalAgreement {
+  id                  String               @id @default(uuid())
+  reservationId       String               @unique @map("reservation_id")
+  reservation         Reservation          @relation(fields: [reservationId], references: [id], onDelete: Cascade)
+  provider            String               @default("CLICKSIGN_SANDBOX")
+  providerDocumentId  String               @unique @map("provider_document_id")
+  documentKey         String               @unique @map("document_key")
+  status              LegalAgreementStatus @default(SENT)
+  signatureRequestUrl String?              @map("signature_request_url") @db.Text
+  studentEmail        String               @map("student_email")
+  landlordEmail       String               @map("landlord_email")
+  payload             Json
+  sentAt              DateTime             @default(now()) @map("sent_at")
+  signedAt            DateTime?            @map("signed_at")
+  createdAt           DateTime             @default(now()) @map("created_at")
+  updatedAt           DateTime             @updatedAt @map("updated_at")
+
+  @@index([status])
+  @@map("legal_agreements")
 }
 
 model AuthSession {
