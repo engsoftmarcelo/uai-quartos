@@ -54,24 +54,24 @@ const kycLabel = {
   REJECTED: "Rejeitado",
 };
 
-export default function HomePage() {
+export function ProductWorkspace() {
   const auth = useAuth();
   const [mode, setMode] = useState<AuthMode>("login");
   const [feedback, setFeedback] = useState<string | null>(null);
 
   if (auth.isLoading) {
     return (
-      <main className="grid min-h-screen place-items-center bg-[#f4f6f2] text-[#191b18]">
+      <div className="grid min-h-[60vh] place-items-center bg-[#f4f6f2] text-[#191b18]">
         <div className="flex items-center gap-3 rounded-md border border-[#dfe5d9] bg-white px-4 py-3 text-sm font-medium">
           <Loader2 className="h-4 w-4 animate-spin text-[#27735d]" />
           Sincronizando sessao
         </div>
-      </main>
+      </div>
     );
   }
 
   return (
-    <main className="min-h-screen bg-[#f4f6f2] text-[#191b18]">
+    <div className="min-h-screen bg-[#f4f6f2] text-[#191b18]">
       <div className="mx-auto grid min-h-screen w-full max-w-7xl gap-5 px-5 py-8 lg:grid-cols-[360px_minmax(0,1fr)] lg:px-8">
         <aside className="grid content-start gap-5">
           <div className="flex items-center gap-3">
@@ -112,9 +112,11 @@ export default function HomePage() {
           <FinanceWorkspace />
         </div>
       </div>
-    </main>
+    </div>
   );
 }
+
+export default ProductWorkspace;
 
 function AuthPanel({
   feedback,
