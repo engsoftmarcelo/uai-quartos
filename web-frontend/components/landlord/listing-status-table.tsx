@@ -78,7 +78,7 @@ export function ListingStatusTable({
       <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_14rem_auto] md:items-end">
         <div>
           <h2 className="font-display text-2xl font-bold text-foreground">
-            Gestao de anuncios
+            Gestão de anúncios
           </h2>
           <p className="mt-1 text-sm text-muted">
             Liste, filtre, pause, arquive, duplique e acompanhe completude.
@@ -96,7 +96,7 @@ export function ListingStatusTable({
           className="inline-flex h-11 items-center justify-center rounded-md bg-brand px-4 text-sm font-bold text-white transition hover:bg-brand-strong"
           href="/landlord/anuncios/novo"
         >
-          Novo anuncio
+          Novo anúncio
         </Link>
       </div>
 
@@ -139,7 +139,7 @@ export function ListingStatusTable({
                 </div>
                 <p className="font-display text-xl font-bold text-foreground">
                   {formatCurrency(listing.monthlyTotal.amount)}
-                  <span className="text-sm font-medium text-muted">/mes</span>
+                  <span className="text-sm font-medium text-muted">/mês</span>
                 </p>
               </div>
 
@@ -147,7 +147,7 @@ export function ListingStatusTable({
                 <Fact label="Leads" value={String(listing.activeLeads)} />
                 <Fact label="Views 30d" value={String(listing.viewsLast30Days)} />
                 <Fact label="Resposta" value={`${listing.responseRate}%`} />
-                <Fact label="Disponivel" value={listing.availableFromLabel} />
+                <Fact label="Disponível" value={listing.availableFromLabel} />
               </div>
 
               <div className="h-2 overflow-hidden rounded-full bg-border">

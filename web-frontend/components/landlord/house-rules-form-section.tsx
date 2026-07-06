@@ -5,7 +5,7 @@ import { Checkbox } from "@/components/ui/checkbox";
 const suggestedRules = [
   "visitas combinadas",
   "sem fumantes",
-  "silencio depois das 22h",
+  "silêncio depois das 22h",
   "pets sob consulta",
   "limpeza compartilhada",
   "festas com acordo previo",

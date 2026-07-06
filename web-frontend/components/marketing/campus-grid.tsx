@@ -11,7 +11,7 @@ export function CampusGrid() {
         <SectionHeader
           eyebrow="Busca por campus"
           subtitle="Comece por onde sua rotina acontece: faculdade, bairro e tempo de deslocamento."
-          title="Universidades e regioes populares"
+          title="Universidades e regiões populares"
         />
         <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
           {popularCampuses.map((campus) => (
@@ -44,7 +44,7 @@ export function CampusGrid() {
                   </p>
                 </div>
                 <p className="inline-flex items-center gap-2 text-sm font-bold text-muted-strong">
-                  {campus.listingCount} opcoes
+                  {campus.listingCount} opções
                   <ArrowRight className="h-4 w-4 transition group-hover:translate-x-0.5" />
                 </p>
               </div>

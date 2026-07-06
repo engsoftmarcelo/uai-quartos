@@ -18,7 +18,7 @@ export function NoResultsState() {
             className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-surface px-4 text-sm font-bold text-muted-strong transition hover:bg-surface-muted"
             href="/buscar/resultados?commuteMax=15&totalMax=1200"
           >
-            Ver opcoes ate 15 min
+            Ver opções até 15 min
           </Link>
         </div>
       }
@@ -26,7 +26,7 @@ export function NoResultsState() {
       title="Nenhuma moradia combina com todos esses filtros"
     >
       Remova uma regra muito restrita, aumente o custo total ou tente bairros
-      proximos ao campus. A lista continua funcionando mesmo sem abrir o mapa.
+      próximos ao campus. A lista continua funcionando mesmo sem abrir o mapa.
     </EmptyState>
   );
 }

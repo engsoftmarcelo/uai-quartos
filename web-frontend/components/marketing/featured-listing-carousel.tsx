@@ -12,7 +12,7 @@ export interface FeaturedListingCarouselProps {
 
 export function FeaturedListingCarousel({
   listings,
-  subtitle = "Quartos com fotos reais, reviews e sinais de confianca para voce comparar rapido.",
+  subtitle = "Quartos com fotos reais, reviews e sinais de confiança para você comparar rápido.",
   title = "Listagens em destaque",
 }: FeaturedListingCarouselProps) {
   return (
@@ -28,7 +28,7 @@ export function FeaturedListingCarousel({
               <ArrowRight className="h-4 w-4" aria-hidden="true" />
             </Link>
           }
-          eyebrow="Escolhas rapidas"
+          eyebrow="Escolhas rápidas"
           subtitle={subtitle}
           title={title}
         />

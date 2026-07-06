@@ -18,7 +18,7 @@ export function TransparentPricingCard({
           Quanto custa de verdade
         </h2>
         <p className="text-sm leading-6 text-muted">
-          Sem esconder custo inicial: veja aluguel, contas, caucao, taxas,
+          Sem esconder custo inicial: veja aluguel, contas, caução, taxas,
           valor devido hoje e estimativa mensal total.
         </p>
       </div>
@@ -60,7 +60,7 @@ export function TransparentPricingCard({
       <div className="grid gap-2">
         <p className="inline-flex items-center gap-2 text-sm font-bold text-muted-strong">
           <ShieldCheck className="h-4 w-4 text-success" aria-hidden="true" />
-          Incluido no anuncio
+          Incluido no anúncio
         </p>
         <div className="flex flex-wrap gap-2">
           {pricing.included.map((item) => (

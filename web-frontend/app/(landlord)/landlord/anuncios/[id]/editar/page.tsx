@@ -16,9 +16,9 @@ export async function generateMetadata({
   const listing = await adapter.getListing(id);
 
   return {
-    title: listing ? `Editar ${listing.title}` : "Anuncio nao encontrado",
+    title: listing ? `Editar ${listing.title}` : "Anúncio não encontrado",
     description:
-      "Wizard de edicao de anuncio com preview em tempo real e checklist de qualidade.",
+      "Wizard de edicao de anúncio com preview em tempo real e checklist de qualidade.",
   };
 }
 

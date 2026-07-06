@@ -13,15 +13,15 @@ const roomTypes = [
   { label: "Qualquer tipo", value: "" },
   { label: "Quarto individual", value: "private" },
   { label: "Quarto compartilhado", value: "shared" },
-  { label: "Suite", value: "suite" },
+  { label: "Suíte", value: "suite" },
 ] as const;
 
 const budgets = [
-  { label: "Qualquer orcamento", value: "" },
-  { label: "Ate R$ 700", value: "700" },
-  { label: "Ate R$ 900", value: "900" },
-  { label: "Ate R$ 1.200", value: "1200" },
-  { label: "Ate R$ 1.500", value: "1500" },
+  { label: "Qualquer orçamento", value: "" },
+  { label: "Até R$ 700", value: "700" },
+  { label: "Até R$ 900", value: "900" },
+  { label: "Até R$ 1.200", value: "1200" },
+  { label: "Até R$ 1.500", value: "1500" },
 ] as const;
 
 export function HeroSearchForm({
@@ -45,7 +45,7 @@ export function HeroSearchForm({
     >
       <SearchField
         icon={<MapPin className="h-4 w-4" aria-hidden="true" />}
-        label="Localizacao"
+        label="Localização"
       >
         <input
           className="h-11 w-full rounded-md border border-border bg-surface px-3 pl-9 text-sm outline-none transition placeholder:text-muted focus:border-brand focus:ring-2 focus:ring-brand/20"
@@ -58,7 +58,7 @@ export function HeroSearchForm({
 
       <SearchField
         icon={<WalletCards className="h-4 w-4" aria-hidden="true" />}
-        label="Orcamento"
+        label="Orçamento"
       >
         <select
           className="h-11 w-full rounded-md border border-border bg-surface px-3 pl-9 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"

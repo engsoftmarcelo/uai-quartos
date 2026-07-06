@@ -65,8 +65,8 @@ export function FavoritesGrid({
             Sua shortlist ainda esta vazia
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-muted">
-            Salve quartos promissores para comparar custos, match, mudancas de
-            preco e proximo passo sem recomecar a busca.
+            Salve quartos promissores para comparar custos, match, mudanças de
+            preço e próximo passo sem recomecar a busca.
           </p>
         </div>
         <Link
@@ -87,7 +87,7 @@ export function FavoritesGrid({
             Favoritos salvos
           </h2>
           <p className="mt-1 text-sm text-muted">
-            Compare opcoes vivas por custo real, match e mudancas recentes.
+            Compare opções vivas por custo real, match e mudanças recentes.
           </p>
         </div>
         <Select
@@ -98,7 +98,7 @@ export function FavoritesGrid({
         />
         <Button
           disabled={selectedIds.length < 2}
-          disabledReason="Selecione pelo menos dois anuncios para comparar."
+          disabledReason="Selecione pelo menos dois anúncios para comparar."
           leftIcon={<GitCompare className="h-4 w-4" aria-hidden="true" />}
           variant="secondary"
         >
@@ -175,7 +175,7 @@ export function FavoritesGrid({
                 <div className="grid gap-2 rounded-md bg-surface-muted p-3">
                   <p className="font-display text-2xl font-bold text-foreground">
                     {formatCurrency(listing.totalMonthly.amount)}
-                    <span className="text-sm font-medium text-muted">/mes</span>
+                    <span className="text-sm font-medium text-muted">/mês</span>
                   </p>
                   <p className="text-sm text-muted">
                     Hoje: {formatCurrency(listing.dueToday.amount)} -{" "}
@@ -190,7 +190,7 @@ export function FavoritesGrid({
                         className="inline-flex items-center gap-2 text-sm font-bold text-success"
                         key={change}
                       >
-                        {change.includes("preco") ? (
+                        {change.includes("preço") ? (
                           <TrendingDown
                             className="h-4 w-4"
                             aria-hidden="true"

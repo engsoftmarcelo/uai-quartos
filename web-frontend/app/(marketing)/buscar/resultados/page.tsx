@@ -26,19 +26,19 @@ export async function generateMetadata({
   const place = filters.location ?? filters.campus;
   const title = place
     ? `Resultados de moradia perto de ${place}`
-    : "Resultados de moradia universitaria";
+    : "Resultados de moradia universitária";
 
   return {
     title,
     description:
-      "Explore moradias universitarias com mapa, filtros avancados, custo total, valor a pagar hoje e compatibilidade de convivencia.",
+      "Explore moradias universitárias com mapa, filtros avancados, custo total, valor a pagar hoje e compatibilidade de convivência.",
     alternates: {
       canonical: "/buscar/resultados",
     },
     openGraph: {
       title: `${title} | UAI QUARTOS`,
       description:
-        "Resultados compartilhaveis por URL com lista performatica, mapa e filtros de confianca.",
+        "Resultados compartilhaveis por URL com lista performatica, mapa e filtros de confiança.",
       type: "website",
       url: "/buscar/resultados",
     },

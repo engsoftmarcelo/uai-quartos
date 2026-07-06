@@ -8,7 +8,7 @@ import { createLandlordDashboardAdapter } from "@/lib/adapters";
 export const metadata: Metadata = {
   title: "Perfil do locador",
   description:
-    "Perfil operacional do locador com contato, reputacao, verificacao e confianca.",
+    "Perfil operacional do locador com contato, reputação, verificação e confiança.",
 };
 
 export default async function LandlordProfilePage() {
@@ -17,7 +17,7 @@ export default async function LandlordProfilePage() {
 
   return (
     <LandlordDashboardShell
-      subtitle="Dados usados para reputacao, resposta rapida e confianca do anuncio."
+      subtitle="Dados usados para reputação, resposta rápida e confiança do anúncio."
       title="Perfil do locador"
     >
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_23rem]">
@@ -28,7 +28,7 @@ export default async function LandlordProfilePage() {
                 {profile.name}
               </h2>
               <p className="mt-1 text-sm text-muted">
-                Perfil preparado para conectar com APIs de conta e verificacao.
+                Perfil preparado para conectar com APIs de conta e verificação.
               </p>
             </div>
             <Badge tone={profile.verificationStatus === "verified" ? "success" : "accent"}>
@@ -50,7 +50,7 @@ export default async function LandlordProfilePage() {
             />
             <Info
               icon={<Star className="h-5 w-5" aria-hidden="true" />}
-              label="Reputacao"
+              label="Reputação"
               value={profile.reputationScore.toFixed(1)}
             />
             <Info

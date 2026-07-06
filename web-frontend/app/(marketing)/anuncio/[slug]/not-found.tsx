@@ -16,10 +16,10 @@ export default function ListingNotFound() {
           </Link>
         }
         icon={<SearchX className="h-5 w-5" aria-hidden="true" />}
-        title="Anuncio nao encontrado"
+        title="Anúncio não encontrado"
       >
-        Este quarto pode ter sido removido, reservado ou ainda nao estar
-        disponivel para visualizacao publica.
+        Este quarto pode ter sido removido, reservado ou ainda não estar
+        disponível para visualização pública.
       </EmptyState>
     </div>
   );

@@ -18,7 +18,7 @@ export function ResultsStats({
       />
       <Stat
         icon={<Clock3 className="h-4 w-4" aria-hidden="true" />}
-        label="tempo medio ao campus"
+        label="tempo médio ao campus"
         value={`${averageCommute} min`}
       />
       <Stat

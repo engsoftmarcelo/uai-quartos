@@ -13,7 +13,7 @@ export function ListingGallery({ media }: { media: ListingMediaItem[] }) {
   if (!selected) return null;
 
   return (
-    <section className="grid gap-3" aria-label="Galeria do anuncio">
+    <section className="grid gap-3" aria-label="Galeria do anúncio">
       <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-surface-muted shadow-xs lg:aspect-[16/10]">
         {selected.type === "video" ? (
           <video
@@ -50,7 +50,7 @@ export function ListingGallery({ media }: { media: ListingMediaItem[] }) {
       <div className="grid grid-cols-4 gap-2">
         {media.slice(0, 4).map((item, index) => (
           <button
-            aria-label={`Ver midia ${index + 1}: ${item.alt}`}
+            aria-label={`Ver mídia ${index + 1}: ${item.alt}`}
             className={cn(
               "relative aspect-[4/3] overflow-hidden rounded-md border bg-surface-muted transition",
               selected.id === item.id

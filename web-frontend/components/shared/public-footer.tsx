@@ -9,14 +9,15 @@ const footerGroups = [
       { href: "/buscar", label: "Buscar moradia" },
       { href: "/buscar?nearCampus=true", label: "Perto do campus" },
       { href: "/buscar?billsIncluded=true", label: "Contas inclusas" },
-      { href: "/seguranca", label: "Como escolher com seguranca" },
+      { href: "/entrar", label: "Entrar ou criar conta" },
+      { href: "/seguranca", label: "Como escolher com segurança" },
     ],
   },
   {
     title: "Locadores",
     links: [
       { href: "/landlord", label: "Anunciar um quarto" },
-      { href: "/landlord#inventario", label: "Gerenciar inventario" },
+      { href: "/landlord#inventario", label: "Gerenciar inventário" },
       { href: "/seguranca#contratos", label: "Contratos e conformidade" },
     ],
   },
@@ -45,7 +46,7 @@ export function PublicFooter() {
           <p className="text-sm leading-6 text-muted">{siteConfig.description}</p>
           <p className="inline-flex items-center gap-2 text-sm font-bold text-muted-strong">
             <ShieldCheck className="h-4 w-4 text-brand" aria-hidden="true" />
-            Produto preparado para LGPD, verificacao e reviews reais.
+            Anúncios verificados, custos transparentes e dados protegidos pela LGPD.
           </p>
         </div>
 
@@ -71,7 +72,7 @@ export function PublicFooter() {
 
       <div className="border-t border-border">
         <div className="uai-container flex flex-col gap-3 py-4 text-sm text-muted sm:flex-row sm:items-center sm:justify-between">
-          <p>(c) 2026 UAI QUARTOS. Base frontend preparada para escala.</p>
+          <p>© {new Date().getFullYear()} UAI QUARTOS. Todos os direitos reservados.</p>
           <nav aria-label="Links legais" className="flex flex-wrap gap-3">
             {siteConfig.legalNav.map((item) => (
               <Link

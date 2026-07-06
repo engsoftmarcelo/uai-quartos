@@ -10,7 +10,7 @@ import type {
 } from "@/lib/types";
 
 export const studentProfileSummary: StudentProfileSummary = {
-  campus: "PUC Minas - Coracao Eucaristico",
+  campus: "PUC Minas - Coração Eucarístico",
   course: "Engenharia de Software",
   email: "marina.alves@universidade.br",
   id: "student-marina",
@@ -31,22 +31,22 @@ export const studentPreferences: StudentHousingPreferences = {
 export const studentSavedListings: StudentSavedListing[] = [
   {
     campusLabel: "PUC Minas",
-    changes: ["preco caiu R$ 40", "nova janela de visita"],
+    changes: ["preço caiu R$ 40", "nova janela de visita"],
     dueToday: { amount: 600, currency: "BRL" },
     id: "saved-puc-coracao",
     imageUrl:
       "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
     matchScore: 94,
-    neighborhood: "Coracao Eucaristico",
+    neighborhood: "Coração Eucarístico",
     savedAtLabel: "salvo ha 2 dias",
     slug: "quarto-individual-republica-puc-coracao-eucaristico",
     tags: ["8 min do campus", "mobiliado", "perfil de estudos"],
-    title: "Quarto individual mobiliado em republica verificada",
+    title: "Quarto individual mobiliado em república verificada",
     totalMonthly: { amount: 860, currency: "BRL" },
   },
   {
     campusLabel: "UFMG Pampulha",
-    changes: ["1 pessoa tambem favoritou"],
+    changes: ["1 pessoa também favoritou"],
     dueToday: { amount: 400, currency: "BRL" },
     id: "saved-ufmg-ouro",
     imageUrl:
@@ -61,13 +61,13 @@ export const studentSavedListings: StudentSavedListing[] = [
   },
   {
     campusLabel: "PUC Praca da Liberdade",
-    changes: ["locador respondeu rapido esta semana"],
+    changes: ["locador respondeu rápido esta semana"],
     dueToday: { amount: 500, currency: "BRL" },
     id: "saved-sao-pedro",
     imageUrl:
       "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=1200&q=80",
     matchScore: 90,
-    neighborhood: "Sao Pedro",
+    neighborhood: "São Pedro",
     savedAtLabel: "salvo ha 5 dias",
     slug: "quarto-casa-estudantil-sao-pedro-praca-liberdade",
     tags: ["casa feminina", "contas inclusas", "visitas combinadas"],
@@ -78,21 +78,21 @@ export const studentSavedListings: StudentSavedListing[] = [
 
 export const studentChecklist: StudentChecklistItem[] = [
   {
-    description: "Seu perfil de convivencia esta quase pronto para gerar melhores recomendacoes.",
+    description: "Seu perfil de convivência esta quase pronto para gerar melhores recomendações.",
     href: "/match",
     id: "match",
     label: "Completar Roommate Matching",
     status: "warning",
   },
   {
-    description: "Envie documento estudantil para aumentar confianca nas candidaturas.",
+    description: "Envie documento estudantil para aumentar confiança nas candidaturas.",
     href: "/perfil",
     id: "verification",
-    label: "Verificacao estudantil",
+    label: "Verificação estudantil",
     status: "pending",
   },
   {
-    description: "Voce ja salvou opcoes suficientes para comparar com calma.",
+    description: "Você já salvou opções suficientes para comparar com calma.",
     href: "/favoritos",
     id: "shortlist",
     label: "Shortlist criada",
@@ -129,17 +129,17 @@ export const studentConversations: StudentConversation[] = [
     participantName: "Marcos Andrade",
     readState: "unread",
     trustNotice:
-      "Combine visitas e pagamentos dentro dos fluxos verificados. Nao envie sinal fora da plataforma.",
+      "Combine visitas e pagamentos dentro dos fluxos verificados. Não envie sinal fora da plataforma.",
     unreadCount: 1,
     updatedAtLabel: "ha 12 min",
   },
   {
     connectedListing: studentSavedListings[1],
     id: "conv-ana",
-    lastMessage: "A vaga ainda esta disponivel para agosto.",
+    lastMessage: "A vaga ainda esta disponível para agosto.",
     messages: [
       {
-        body: "A vaga ainda esta disponivel para agosto.",
+        body: "A vaga ainda esta disponível para agosto.",
         id: "msg-4",
         isMine: false,
         sentAtLabel: "Hoje 08:10",
@@ -159,7 +159,7 @@ export const studentApplications: StudentApplication[] = [
     documentsPending: ["Documento estudantil", "Comprovante de renda/fiador"],
     history: [
       {
-        description: "Voce enviou interesse no quarto individual.",
+        description: "Você enviou interesse no quarto individual.",
         id: "timeline-1",
         label: "Candidatura enviada",
         status: "complete",
@@ -168,12 +168,12 @@ export const studentApplications: StudentApplication[] = [
       {
         description: "Locador analisando perfil, matching e disponibilidade.",
         id: "timeline-2",
-        label: "Analise do locador",
+        label: "Análise do locador",
         status: "current",
         timestampLabel: "agora",
       },
       {
-        description: "Proximo passo recomendado antes de qualquer pagamento.",
+        description: "Próximo passo recomendado antes de qualquer pagamento.",
         id: "timeline-3",
         label: "Agendar visita",
         status: "upcoming",
@@ -182,7 +182,7 @@ export const studentApplications: StudentApplication[] = [
     ],
     id: "app-puc-coracao",
     listing: studentSavedListings[0],
-    nextAction: "Enviar documento estudantil e sugerir horario de visita",
+    nextAction: "Enviar documento estudantil e sugerir horário de visita",
     status: "under_review",
     submittedAtLabel: "enviada ha 2 dias",
   },
@@ -190,7 +190,7 @@ export const studentApplications: StudentApplication[] = [
     documentsPending: [],
     history: [
       {
-        description: "Voce salvou a vaga e iniciou contato.",
+        description: "Você salvou a vaga e iniciou contato.",
         id: "timeline-4",
         label: "Contato iniciado",
         status: "complete",
@@ -206,7 +206,7 @@ export const studentApplications: StudentApplication[] = [
     ],
     id: "app-ufmg-ouro",
     listing: studentSavedListings[1],
-    nextAction: "Confirmar presenca na visita",
+    nextAction: "Confirmar presença na visita",
     status: "visit_scheduled",
     submittedAtLabel: "visita marcada",
   },
@@ -216,13 +216,13 @@ export const studentAlerts: StudentAvailabilityAlert[] = [
   {
     href: "/buscar/resultados?location=PUC+Minas&totalMax=1000",
     id: "alert-puc-budget",
-    label: "Novo quarto ate R$ 1.000 perto da PUC",
-    meta: "2 opcoes podem entrar hoje",
+    label: "Novo quarto até R$ 1.000 perto da PUC",
+    meta: "2 opções podem entrar hoje",
   },
   {
     href: "/favoritos",
     id: "alert-shortlist",
-    label: "Favorito com mudanca de preco",
+    label: "Favorito com mudança de preço",
     meta: "Quarto individual caiu R$ 40",
   },
 ];

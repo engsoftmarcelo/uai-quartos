@@ -6,11 +6,11 @@ const roomTypes = [
   { label: "Qualquer tipo", value: "" },
   { label: "Quarto individual", value: "private" },
   { label: "Quarto compartilhado", value: "shared" },
-  { label: "Suite", value: "suite" },
+  { label: "Suíte", value: "suite" },
 ] as const;
 
 const genderPolicies = [
-  { label: "Qualquer politica", value: "" },
+  { label: "Qualquer política", value: "" },
   { label: "Todos os generos", value: "all_genders" },
   { label: "Casa mista", value: "mixed" },
   { label: "Casa feminina", value: "women_only" },
@@ -25,21 +25,21 @@ const simpleOptions = {
     { label: "Sem hospedes", value: "not_allowed" },
   ],
   noise: [
-    { label: "Qualquer nivel", value: "" },
+    { label: "Qualquer nível", value: "" },
     { label: "Silencioso", value: "quiet" },
     { label: "Equilibrado", value: "balanced" },
     { label: "Movimentado", value: "lively" },
   ],
   pets: [
-    { label: "Qualquer politica", value: "" },
+    { label: "Qualquer política", value: "" },
     { label: "Pets permitidos", value: "allowed" },
     { label: "Sem pets", value: "not_allowed" },
   ],
   smoker: [
-    { label: "Qualquer politica", value: "" },
+    { label: "Qualquer política", value: "" },
     { label: "Fumante ok", value: "allowed" },
     { label: "So fora de casa", value: "outside_only" },
-    { label: "Nao fumante", value: "not_allowed" },
+    { label: "Não fumante", value: "not_allowed" },
   ],
 } as const;
 
@@ -100,7 +100,7 @@ export function FilterPanel({
               type="date"
             />
           </Field>
-          <Field label="Ate o campus">
+          <Field label="Até o campus">
             <input
               className="h-11 w-full rounded-md border border-border bg-surface px-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
               defaultValue={filters.commuteMax}
@@ -125,10 +125,10 @@ export function FilterPanel({
 
       <details className="rounded-md border border-border bg-surface-muted p-3" open>
         <summary className="cursor-pointer text-sm font-bold text-muted-strong">
-          Convivencia e regras da casa
+          Convivência e regras da casa
         </summary>
         <div className="mt-3 grid gap-3">
-          <Field label="Genero/politica da casa">
+          <Field label="Genero/política da casa">
             <Select
               defaultValue={filters.genderPolicy ?? ""}
               name="genderPolicy"
@@ -157,7 +157,7 @@ export function FilterPanel({
               />
             </Field>
           </div>
-          <Field label="Duracao minima max.">
+          <Field label="Duração mínima max.">
             <input
               className="h-11 w-full rounded-md border border-border bg-surface px-3 text-sm outline-none transition focus:border-brand focus:ring-2 focus:ring-brand/20"
               defaultValue={filters.minStayMax}
@@ -170,7 +170,7 @@ export function FilterPanel({
       </details>
 
       <CheckboxGroup
-        label="Compatibilidade de convivencia"
+        label="Compatibilidade de convivência"
         name="compat"
         options={compatOptions.map((value) => ({ label: value, value }))}
         selected={filters.compatibility}

@@ -23,7 +23,7 @@ import type { Role } from "@/lib/api";
 
 const loginSchema = z.object({
   email: z.string().email("E-mail invalido"),
-  password: z.string().min(8, "Minimo de 8 caracteres"),
+  password: z.string().min(8, "Mínimo de 8 caracteres"),
 });
 
 const registerSchema = loginSchema.extend({
@@ -64,7 +64,7 @@ export function ProductWorkspace() {
       <div className="grid min-h-[60vh] place-items-center bg-[#f4f6f2] text-[#191b18]">
         <div className="flex items-center gap-3 rounded-md border border-[#dfe5d9] bg-white px-4 py-3 text-sm font-medium">
           <Loader2 className="h-4 w-4 animate-spin text-[#27735d]" />
-          Sincronizando sessao
+          Sincronizando sessão
         </div>
       </div>
     );
@@ -342,7 +342,7 @@ function SessionPanel() {
       <div className="flex flex-col gap-4 sm:flex-row sm:items-start sm:justify-between">
         <div>
           <p className="text-sm font-semibold uppercase tracking-[0.18em] text-[#5b6258]">
-            Sessao ativa
+            Sessão ativa
           </p>
           <h2 className="mt-1 text-2xl font-semibold">{user.name}</h2>
           <p className="mt-1 text-sm text-[#5b6258]">{user.email}</p>
@@ -543,5 +543,5 @@ function getErrorMessage(error: unknown) {
     }
   }
 
-  return "Nao foi possivel concluir a operacao.";
+  return "Não foi possível concluir a operação.";
 }

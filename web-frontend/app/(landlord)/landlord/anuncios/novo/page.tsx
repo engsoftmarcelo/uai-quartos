@@ -4,9 +4,9 @@ import { LandlordDashboardShell } from "@/components/landlord/landlord-dashboard
 import { createLandlordDashboardAdapter } from "@/lib/adapters";
 
 export const metadata: Metadata = {
-  title: "Novo anuncio",
+  title: "Novo anúncio",
   description:
-    "Wizard de novo anuncio com midia, localizacao, custos, regras, convivencia, disponibilidade e documentacao.",
+    "Wizard de novo anúncio com mídia, localização, custos, regras, convivência, disponibilidade e documentação.",
 };
 
 export default async function NewLandlordListingPage() {
@@ -16,7 +16,7 @@ export default async function NewLandlordListingPage() {
   return (
     <LandlordDashboardShell
       subtitle="Publique com custos claros, regras explicitas e preview em tempo real."
-      title="Novo anuncio"
+      title="Novo anúncio"
     >
       <ListingWizardShell initialDraft={draft} mode="create" />
     </LandlordDashboardShell>

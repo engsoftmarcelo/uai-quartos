@@ -52,7 +52,7 @@ export function RangePreferenceStep({
         </div>
       ))}
       {step.optional ? (
-        <p className="text-sm text-muted">Opcional: voce pode manter o valor sugerido.</p>
+        <p className="text-sm text-muted">Opcional: você pode manter o valor sugerido.</p>
       ) : null}
     </div>
   );

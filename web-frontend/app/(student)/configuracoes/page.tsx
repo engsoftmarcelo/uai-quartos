@@ -5,22 +5,22 @@ import { Badge } from "@/components/ui/badge";
 import { InlineMessage } from "@/components/ui/inline-message";
 
 export const metadata: Metadata = {
-  title: "Configuracoes",
+  title: "Configurações",
   description:
-    "Preferencias de notificacao, privacidade, seguranca e pagamentos do estudante.",
+    "Preferências de notificação, privacidade, segurança e pagamentos do estudante.",
 };
 
 const settingsSections = [
   {
     description:
-      "Receba alertas sobre mensagens, mudancas de preco e disponibilidade perto do campus.",
+      "Receba alertas sobre mensagens, mudanças de preço e disponibilidade perto do campus.",
     icon: Bell,
-    label: "Notificacoes",
+    label: "Notificações",
     status: "ativadas",
   },
   {
     description:
-      "Controle dados visiveis para locadores antes e depois de uma candidatura.",
+      "Controle dados visíveis para locadores antes e depois de uma candidatura.",
     icon: LockKeyhole,
     label: "Privacidade",
     status: "revisar",
@@ -34,7 +34,7 @@ const settingsSections = [
   },
   {
     description:
-      "Confirme e-mail estudantil para aumentar confianca nas conversas.",
+      "Confirme e-mail estudantil para aumentar confiança nas conversas.",
     icon: Mail,
     label: "Conta",
     status: "pendente",
@@ -44,8 +44,8 @@ const settingsSections = [
 export default function StudentSettingsPage() {
   return (
     <StudentDashboardShell
-      subtitle="Preferencias de conta para manter o uso seguro e previsivel."
-      title="Configuracoes"
+      subtitle="Preferências de conta para manter o uso seguro e previsível."
+      title="Configurações"
     >
       <InlineMessage
         icon={<ShieldCheck className="h-5 w-5" />}
@@ -53,7 +53,7 @@ export default function StudentSettingsPage() {
         title="Sem backend novo nesta fase"
       >
         Estes controles deixam a arquitetura visual pronta para integrar com as
-        APIs existentes de notificacao, privacidade, conta e pagamentos.
+        APIs existentes de notificação, privacidade, conta e pagamentos.
       </InlineMessage>
 
       <section className="grid gap-3 sm:grid-cols-2">

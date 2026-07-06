@@ -6,7 +6,7 @@ import { createLandlordDashboardAdapter } from "@/lib/adapters";
 export const metadata: Metadata = {
   title: "Leads",
   description:
-    "Inbox operacional do locador com leads agrupados por anuncio, historico e resposta rapida.",
+    "Inbox operacional do locador com leads agrupados por anúncio, histórico e resposta rápida.",
 };
 
 export default async function LandlordLeadsPage() {
@@ -18,7 +18,7 @@ export default async function LandlordLeadsPage() {
 
   return (
     <LandlordDashboardShell
-      subtitle="Centralize conversas, respostas rapidas e contexto de cada anuncio."
+      subtitle="Centralize conversas, respostas rápidas e contexto de cada anúncio."
       title="Leads"
     >
       <LeadsInbox leads={leads} listings={listings} />

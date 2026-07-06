@@ -58,8 +58,8 @@ const searchSchema = z.object({
 });
 
 const propertySchema = z.object({
-  name: z.string().min(3, "Informe o nome da republica"),
-  address: z.string().min(4, "Informe o endereco"),
+  name: z.string().min(3, "Informe o nome da república"),
+  address: z.string().min(4, "Informe o endereço"),
   neighborhood: z.string().min(2, "Informe o bairro"),
   city: z.string().min(2, "Informe a cidade"),
   lat: z.number().min(-90).max(90),
@@ -111,7 +111,7 @@ export function PropertyWorkspace() {
     defaultValues: {
       name: "",
       address: "Rua Padre Eustaquio, 1200",
-      neighborhood: "Coracao Eucaristico",
+      neighborhood: "Coração Eucarístico",
       city: "Belo Horizonte",
       lat: defaultCenter.lat,
       lng: defaultCenter.lng,
@@ -218,7 +218,7 @@ export function PropertyWorkspace() {
         imageUrl: "",
       });
       await Promise.all([loadProperties(), loadMine()]);
-      setFeedback("Republica cadastrada no inventario.");
+      setFeedback("República cadastrada no inventário.");
     } catch (error) {
       setFeedback(getErrorMessage(error));
     }
@@ -230,7 +230,7 @@ export function PropertyWorkspace() {
     try {
       await api.delete(`/properties/${id}`);
       await Promise.all([loadProperties(), loadMine()]);
-      setFeedback("Republica desativada com soft delete.");
+      setFeedback("República desativada com soft delete.");
     } catch (error) {
       setFeedback(getErrorMessage(error));
     }
@@ -249,7 +249,7 @@ export function PropertyWorkspace() {
         </div>
         <div className="inline-flex items-center gap-2 rounded-md bg-[#eef2ea] px-3 py-2 text-sm font-semibold text-[#174d3d]">
           <MapPinned className="h-4 w-4" />
-          PostGIS + Inventario
+          PostGIS + Inventário
         </div>
       </div>
 
@@ -333,7 +333,7 @@ export function PropertyWorkspace() {
               />
             ))
           ) : (
-            <EmptyState text="Nenhuma republica encontrada nesse raio." />
+            <EmptyState text="Nenhuma república encontrada nesse raio." />
           )}
         </div>
       </div>
@@ -350,7 +350,7 @@ export function PropertyWorkspace() {
               <TextField label="Bairro" {...createForm.register("neighborhood")} />
               <TextField
                 className="sm:col-span-2"
-                label="Endereco"
+                label="Endereço"
                 {...createForm.register("address")}
               />
               <TextField label="Cidade" {...createForm.register("city")} />
@@ -368,13 +368,13 @@ export function PropertyWorkspace() {
             </div>
             <textarea
               className="min-h-24 rounded-md border border-[#dfe5d9] px-3 py-2 text-sm outline-none transition focus:border-[#27735d] focus:ring-2 focus:ring-[#27735d]/15"
-              placeholder="Descricao curta da republica"
+              placeholder="Descrição curta da república"
               {...createForm.register("description")}
             />
             <div className="grid gap-3 sm:grid-cols-2">
               <TextField label="Quarto" {...createForm.register("roomTitle")} />
               <NumberField
-                label="Preco"
+                label="Preço"
                 step="50"
                 {...createForm.register("basePrice", { valueAsNumber: true })}
               />
@@ -406,13 +406,13 @@ export function PropertyWorkspace() {
               ) : (
                 <Plus className="h-4 w-4" />
               )}
-              Publicar republica
+              Publicar república
             </button>
           </form>
 
           <div className="grid content-start gap-3">
             <div className="flex items-center justify-between">
-              <h3 className="text-lg font-semibold">Meu inventario</h3>
+              <h3 className="text-lg font-semibold">Meu inventário</h3>
               {isLoadingMine ? (
                 <Loader2 className="h-4 w-4 animate-spin text-[#27735d]" />
               ) : null}
@@ -440,7 +440,7 @@ export function PropertyWorkspace() {
                 </div>
               ))
             ) : (
-              <EmptyState text="Nenhuma republica cadastrada por voce." />
+              <EmptyState text="Nenhuma república cadastrada por você." />
             )}
           </div>
         </div>
@@ -694,5 +694,5 @@ function getErrorMessage(error: unknown) {
     }
   }
 
-  return "Nao foi possivel concluir a operacao.";
+  return "Não foi possível concluir a operação.";
 }

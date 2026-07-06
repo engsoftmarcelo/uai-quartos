@@ -14,69 +14,69 @@ const detailOverrides: Record<
 > = {
   "quarto-individual-republica-puc-coracao-eucaristico": {
     description:
-      "Quarto individual em republica organizada no Coracao Eucaristico, com rotina tranquila durante a semana e combinados claros para visitas. A casa fica em uma rua residencial com acesso rapido ao campus e mercados.",
+      "Quarto individual em república organizada no Coração Eucarístico, com rotina tranquila durante a semana e combinados claros para visitas. A casa fica em uma rua residencial com acesso rápido ao campus e mercados.",
     idealFor: [
-      "Voce quer privacidade sem morar sozinho.",
-      "Voce precisa estar perto da PUC Minas.",
-      "Voce prefere uma casa com rotina de estudos e regras claras.",
+      "Você quer privacidade sem morar sozinho.",
+      "Você precisa estar perto da PUC Minas.",
+      "Você prefere uma casa com rotina de estudos e regras claras.",
     ],
     summary:
       "Individual mobiliado, 8 min da PUC, casa mista e perfil forte para estudos.",
   },
   "vaga-compartilhada-ufmg-ouro-preto": {
     description:
-      "Vaga compartilhada mobiliada no Ouro Preto, pensada para custo baixo e deslocamento rapido ate a UFMG. A convivencia e silenciosa, com combinados para limpeza, cozinha e horarios de estudo.",
+      "Vaga compartilhada mobiliada no Ouro Preto, pensada para custo baixo e deslocamento rápido até a UFMG. A convivência e silenciosa, com combinados para limpeza, cozinha e horários de estudo.",
     idealFor: [
-      "Voce quer reduzir custo total mensal.",
-      "Voce estuda na UFMG Pampulha.",
-      "Voce aceita quarto compartilhado com rotina silenciosa.",
+      "Você quer reduzir custo total mensal.",
+      "Você estuda na UFMG Pampulha.",
+      "Você aceita quarto compartilhado com rotina silenciosa.",
     ],
     summary:
       "Vaga compartilhada, contas inclusas e 6 min da UFMG Pampulha.",
   },
   "suite-compacta-contas-inclusas-savassi": {
     description:
-      "Suite compacta em apartamento compartilhado na Savassi, com contas inclusas e boa estrutura para quem quer praticidade urbana. A casa tem perfil social moderado e aceita pets combinados.",
+      "Suíte compacta em apartamento compartilhado na Savassi, com contas inclusas e boa estrutura para quem quer praticidade urbana. A casa tem perfil social moderado e aceita pets combinados.",
     idealFor: [
-      "Voce valoriza localizacao central.",
-      "Voce quer suite e custo mensal previsivel.",
-      "Voce gosta de uma casa social, mas sem bagunca.",
+      "Você valoriza localização central.",
+      "Você quer suíte e custo mensal previsível.",
+      "Você gosta de uma casa social, mas sem bagunca.",
     ],
     summary:
-      "Suite com contas inclusas na Savassi, ideal para rotina urbana.",
+      "Suíte com contas inclusas na Savassi, ideal para rotina urbana.",
   },
   "quarto-casa-estudantil-sao-pedro-praca-liberdade": {
     description:
-      "Quarto em casa estudantil feminina no Sao Pedro, perto da Praca da Liberdade. Ambiente organizado, visitas combinadas e foco em rotina de aulas, estagio e estudos.",
+      "Quarto em casa estudantil feminina no São Pedro, perto da Praca da Liberdade. Ambiente organizado, visitas combinadas e foco em rotina de aulas, estágio e estudos.",
     idealFor: [
-      "Voce procura casa feminina.",
-      "Voce quer bairro central com clima residencial.",
-      "Voce prefere visitas combinadas e rotina previsivel.",
+      "Você procura casa feminina.",
+      "Você quer bairro central com clima residencial.",
+      "Você prefere visitas combinadas e rotina previsível.",
     ],
     summary:
       "Casa feminina, quarto mobiliado e 11 min da PUC Praca da Liberdade.",
   },
   "vaga-economica-unibh-barro-preto": {
     description:
-      "Vaga economica em republica masculina no Barro Preto, indicada para quem prioriza custo baixo e acesso rapido ao UniBH. A casa e mais movimentada e tem regras diretas para visitas e fumantes.",
+      "Vaga economica em república masculina no Barro Preto, indicada para quem prioriza custo baixo e acesso rápido ao UniBH. A casa e mais movimentada e tem regras diretas para visitas e fumantes.",
     idealFor: [
-      "Voce precisa economizar no primeiro mes.",
-      "Voce quer contas inclusas.",
-      "Voce se adapta bem a uma casa mais movimentada.",
+      "Você precisa economizar no primeiro mês.",
+      "Você quer contas inclusas.",
+      "Você se adapta bem a uma casa mais movimentada.",
     ],
     summary:
       "Vaga economica com contas inclusas e custo inicial baixo.",
   },
   "suite-silenciosa-santa-efigenia": {
     description:
-      "Suite silenciosa na Santa Efigenia para quem precisa de foco e privacidade. A casa tem reviews fortes, combinados de ruido e perfil de convivencia voltado a estudos.",
+      "Suíte silenciosa na Santa Efigenia para quem precisa de foco e privacidade. A casa tem reviews fortes, combinados de ruido e perfil de convivência voltado a estudos.",
     idealFor: [
-      "Voce precisa de silencio para estudar.",
-      "Voce quer banheiro privativo.",
-      "Voce prefere convivencia discreta e reviews fortes.",
+      "Você precisa de silêncio para estudar.",
+      "Você quer banheiro privativo.",
+      "Você prefere convivência discreta e reviews fortes.",
     ],
     summary:
-      "Suite silenciosa, 7 min do campus e convivencia focada em estudos.",
+      "Suíte silenciosa, 7 min do campus e convivência focada em estudos.",
   },
 };
 
@@ -95,12 +95,12 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
 
   return {
     amenities: [
-      result.room.furnished ? "Quarto mobiliado" : "Espaco para mobilia propria",
+      result.room.furnished ? "Quarto mobiliado" : "Espaço para mobília própria",
       result.pricing.billsIncluded ? "Contas inclusas" : "Contas detalhadas antes do contato",
       "Wi-Fi",
       "Cozinha compartilhada",
       "Lavanderia",
-      result.rules.studyFriendly ? "Area de estudos" : "Sala compartilhada",
+      result.rules.studyFriendly ? "Área de estudos" : "Sala compartilhada",
     ],
     availability: {
       availableFrom: result.availability.availableFrom,
@@ -120,23 +120,23 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
       {
         question: "O valor mensal pode mudar?",
         answer:
-          "Os valores exibidos sao estimativas do anuncio. Antes de reservar, o fluxo deve confirmar contrato, contas e taxas pelo adapter oficial.",
+          "Os valores exibidos são estimativas do anúncio. Antes de reservar, o fluxo deve confirmar contrato, contas e taxas pelo adapter oficial.",
       },
       {
         question: "Posso visitar antes de reservar?",
         answer:
-          "Sim. O card de disponibilidade mostra janelas de visita e o contato permite combinar horario com o locador.",
+          "Sim. O card de disponibilidade mostra janelas de visita e o contato permite combinar horário com o locador.",
       },
       {
-        question: "Como funciona a verificacao?",
+        question: "Como funciona a verificação?",
         answer:
-          "A pagina exibe sinais de verificacao do locador e do anuncio. A validacao real continua nos servicos existentes.",
+          "A página exibe sinais de verificação do locador e do anúncio. A validação real continua nos serviços existentes.",
       },
     ],
     host: {
       avatarUrl: undefined,
       bio:
-        "Locador com historico de atendimento a estudantes, comunicacao objetiva e anuncios revisados pela plataforma.",
+        "Locador com histórico de atendimento a estudantes, comunicação objetiva e anúncios revisados pela plataforma.",
       id: `host-${result.id}`,
       name: index % 2 === 0 ? "Marcos Andrade" : "Ana Paula Martins",
       responseTimeLabel: result.responseTimeLabel,
@@ -144,21 +144,21 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
       verification: [
         "Documento validado",
         "Telefone confirmado",
-        "Historico de respostas acompanhado",
+        "Histórico de respostas acompanhado",
       ],
     },
     houseRules: {
       ...result.rules,
       policySummary: [
         result.rules.noise === "quiet"
-          ? "Silencio combinado depois das 22h"
+          ? "Silêncio combinado depois das 22h"
           : "Ruido moderado com combinados",
         result.rules.guests === "not_allowed"
-          ? "Hospedes nao permitidos"
+          ? "Hospedes não permitidos"
           : "Hospedes com aviso previo",
         result.rules.smoker === "not_allowed"
-          ? "Nao fumante"
-          : "Fumante apenas em area combinada",
+          ? "Não fumante"
+          : "Fumante apenas em área combinada",
       ],
     },
     idealFor: override.idealFor,
@@ -178,19 +178,19 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
         type: "image",
       },
       {
-        alt: "Vista do quarto e area de estudos",
+        alt: "Vista do quarto e área de estudos",
         id: `${result.id}-room`,
         src: extraImages[index % extraImages.length],
         type: "image",
       },
       {
-        alt: "Area compartilhada da republica",
+        alt: "Área compartilhada da república",
         id: `${result.id}-shared`,
         src: extraImages[(index + 1) % extraImages.length],
         type: "image",
       },
       {
-        alt: "Tour virtual do anuncio",
+        alt: "Tour virtual do anúncio",
         id: `${result.id}-tour`,
         posterUrl: extraImages[(index + 2) % extraImages.length],
         src: `/anuncio/${result.slug}#tour`,
@@ -200,7 +200,7 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
     pricing: {
       dueToday: result.pricing.dueToday,
       included: result.pricing.billsIncluded
-        ? ["Internet", "Agua", "Energia estimada"]
+        ? ["Internet", "Água", "Energia estimada"]
         : ["Internet"],
       lines: [
         {
@@ -225,9 +225,9 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
         },
         {
           amount: result.pricing.deposit,
-          description: "Caucao/deposito para entrada.",
+          description: "Caução/depósito para entrada.",
           id: "deposit",
-          label: "Caucao",
+          label: "Caução",
         },
         {
           amount: { amount: 0, currency: "BRL" },
@@ -245,16 +245,16 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
         dateLabel: "Mar 2026",
         id: `${result.id}-review-1`,
         quote:
-          "O anuncio bateu com a visita. O ponto mais util foi ver custo, regras e tempo ate o campus antes de chamar.",
+          "O anúncio bateu com a visita. O ponto mais útil foi ver custo, regras e tempo até o campus antes de chamar.",
         rating: 5,
-        stayContext: "visitou e comparou com outras republicas",
+        stayContext: "visitou e comparou com outras repúblicas",
       },
       {
         author: "Rafael S.",
         dateLabel: "Fev 2026",
         id: `${result.id}-review-2`,
         quote:
-          "A casa tinha combinados claros e resposta rapida. Deu para decidir sem ficar perdido no chat.",
+          "A casa tinha combinados claros e resposta rápida. Deu para decidir sem ficar perdido no chat.",
         rating: result.rating >= 4.8 ? 5 : 4,
         stayContext: "morou por 1 semestre",
       },
@@ -272,8 +272,8 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
       ...result.roommateProfile,
       routine:
         result.rules.noise === "quiet"
-          ? "rotina de estudos, horarios previsiveis e pouco barulho a noite"
-          : "rotina equilibrada entre aulas, estagio e social moderado",
+          ? "rotina de estudos, horários previsíveis e pouco barulho a noite"
+          : "rotina equilibrada entre aulas, estágio e social moderado",
     },
     slug: result.slug,
     summary: override.summary,
@@ -281,7 +281,7 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
     trustBadges: result.trustBadges,
     verification: {
       landlord: ["Documento validado", "Telefone confirmado", "Conta monitorada"],
-      listing: ["Fotos revisadas", "Custos declarados", "Endereco aproximado validado"],
+      listing: ["Fotos revisadas", "Custos declarados", "Endereço aproximado validado"],
     },
   };
 }

@@ -17,13 +17,13 @@ import { MediaUploadSection } from "./media-upload-section";
 import { PricingTransparencySection } from "./pricing-transparency-section";
 
 const steps = [
-  "Midia",
-  "Localizacao",
+  "Mídia",
+  "Localização",
   "Custos",
   "Regras",
-  "Convivencia",
+  "Convivência",
   "Disponibilidade",
-  "Documentacao",
+  "Documentação",
 ];
 
 export function ListingWizardShell({
@@ -53,11 +53,11 @@ export function ListingWizardShell({
     );
     const issues = [
       !checks[0] ? "Adicionar imagem principal real" : null,
-      !checks[1] ? "Informar bairro/localizacao" : null,
+      !checks[1] ? "Informar bairro/localização" : null,
       !checks[2] ? "Informar aluguel mensal" : null,
-      !checks[4] ? "Selecionar pelo menos tres regras da casa" : null,
-      !checks[5] ? "Selecionar pelo menos tres tags de convivencia" : null,
-      !checks[7] ? "Escrever descricao objetiva com pelo menos 60 caracteres" : null,
+      !checks[4] ? "Selecionar pelo menos três regras da casa" : null,
+      !checks[5] ? "Selecionar pelo menos três tags de convivência" : null,
+      !checks[7] ? "Escrever descrição objetiva com pelo menos 60 caracteres" : null,
     ].filter(Boolean) as string[];
 
     return { issues, score };
@@ -71,7 +71,7 @@ export function ListingWizardShell({
   function saveDraft() {
     setFeedback(
       mode === "create"
-        ? "Rascunho pronto para criar anuncio quando a API estiver conectada."
+        ? "Rascunho pronto para criar anúncio quando a API estiver conectada."
         : "Alteracoes prontas para sincronizar com a API.",
     );
   }
@@ -111,15 +111,15 @@ export function ListingWizardShell({
           <section className="grid gap-4">
             <div>
               <h2 className="font-display text-2xl font-bold text-foreground">
-                Localizacao
+                Localização
               </h2>
               <p className="mt-1 text-sm text-muted">
-                Localizacao clara ajuda o estudante a decidir por campus e
+                Localização clara ajuda o estudante a decidir por campus e
                 deslocamento.
               </p>
             </div>
             <Input
-              label="Titulo do anuncio"
+              label="Título do anúncio"
               onChange={(event) => updateDraft({ listingTitle: event.target.value })}
               value={draft.listingTitle}
             />
@@ -130,7 +130,7 @@ export function ListingWizardShell({
               value={draft.neighborhood}
             />
             <Textarea
-              label="Descricao"
+              label="Descrição"
               onChange={(event) => updateDraft({ description: event.target.value })}
               rows={5}
               value={draft.description}
@@ -176,7 +176,7 @@ export function ListingWizardShell({
               </p>
             </div>
             <Input
-              label="Disponivel a partir de"
+              label="Disponível a partir de"
               leadingIcon={<CalendarCheck className="h-4 w-4" aria-hidden="true" />}
               onChange={(event) =>
                 updateDraft({ availabilityLabel: event.target.value })
@@ -190,17 +190,17 @@ export function ListingWizardShell({
           <section className="grid gap-4">
             <div>
               <h2 className="font-display text-2xl font-bold text-foreground">
-                Documentacao
+                Documentação
               </h2>
               <p className="mt-1 text-sm text-muted">
-                Checklist visual para futura integracao com verificacao do
-                anuncio e contrato.
+                Checklist visual para futura integração com verificação do
+                anúncio e contrato.
               </p>
             </div>
             <div className="grid gap-2 rounded-md bg-surface-muted p-3">
               {[
                 "Documento do locador verificado",
-                "Comprovante do imovel preparado",
+                "Comprovante do imóvel preparado",
                 "Termos e custos revisados",
               ].map((item) => (
                 <p
@@ -218,7 +218,7 @@ export function ListingWizardShell({
         <div className="flex flex-col gap-2 border-t border-border pt-4 sm:flex-row sm:items-center sm:justify-between">
           <Button
             disabled={activeStep === 0}
-            disabledReason="Voce ja esta na primeira etapa."
+            disabledReason="Você já esta na primeira etapa."
             onClick={() => setActiveStep((step) => Math.max(0, step - 1))}
             variant="secondary"
           >
@@ -237,7 +237,7 @@ export function ListingWizardShell({
                 setActiveStep((step) => Math.min(steps.length - 1, step + 1))
               }
             >
-              {activeStep === steps.length - 1 ? "Revisar anuncio" : "Continuar"}
+              {activeStep === steps.length - 1 ? "Revisar anúncio" : "Continuar"}
             </Button>
           </div>
         </div>
@@ -269,7 +269,7 @@ export function ListingWizardShell({
             </div>
             <p className="font-display text-2xl font-bold text-foreground">
               {formatCurrency(draft.monthlyRent)}
-              <span className="text-sm font-medium text-muted">/mes</span>
+              <span className="text-sm font-medium text-muted">/mês</span>
             </p>
             <p className="text-sm leading-6 text-muted">{draft.description}</p>
             <div className="flex flex-wrap gap-2">

@@ -34,7 +34,7 @@ export function CompatibilityProfileFormSection({
     <section className="grid gap-4">
       <div>
         <h2 className="font-display text-2xl font-bold text-foreground">
-          Perfil de convivencia
+          Perfil de convivência
         </h2>
         <p className="mt-1 text-sm text-muted">
           Ajuda o estudante a entender se a rotina da casa combina com ele.
@@ -48,7 +48,7 @@ export function CompatibilityProfileFormSection({
         options={[
           { label: "Individual", value: "private" },
           { label: "Compartilhado", value: "shared" },
-          { label: "Suite", value: "suite" },
+          { label: "Suíte", value: "suite" },
         ]}
         value={roomType}
       />

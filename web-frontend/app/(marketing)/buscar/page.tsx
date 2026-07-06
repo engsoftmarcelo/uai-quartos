@@ -23,20 +23,20 @@ export async function generateMetadata({
   const query = parseSearchParams(await searchParams);
   const location = query.location?.trim();
   const title = location
-    ? `Quartos e republicas perto de ${location}`
-    : "Buscar quartos e republicas";
+    ? `Quartos e repúblicas perto de ${location}`
+    : "Buscar quartos e repúblicas";
 
   return {
     title,
     description:
-      "Busca de moradia universitaria com filtros por campus, bairro, orcamento, tipo de quarto, data de entrada e sinais de confianca.",
+      "Busca de moradia universitária com filtros por campus, bairro, orçamento, tipo de quarto, data de entrada e sinais de confiança.",
     alternates: {
       canonical: "/buscar",
     },
     openGraph: {
       title: `${title} | UAI QUARTOS`,
       description:
-        "Compare preco, distancia, reviews e custos transparentes antes de chamar no contato.",
+        "Compare preço, distância, reviews e custos transparentes antes de chamar no contato.",
       url: "/buscar",
       type: "website",
     },

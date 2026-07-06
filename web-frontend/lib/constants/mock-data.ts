@@ -10,12 +10,12 @@ import type {
 export const featuredListings: ListingPreview[] = [
   {
     id: "listing-sagrada-familia",
-    title: "Quarto individual em republica perto da PUC Minas",
+    title: "Quarto individual em república perto da PUC Minas",
     campusTags: ["puc-minas", "coracao-eucaristico", "bh"],
     imageUrl:
       "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
     location: {
-      neighborhood: "Coracao Eucaristico",
+      neighborhood: "Coração Eucarístico",
       city: "Belo Horizonte",
       state: "MG",
       distanceToCampusInMinutes: 8,
@@ -36,7 +36,7 @@ export const featuredListings: ListingPreview[] = [
   },
   {
     id: "listing-savassi",
-    title: "Suite compacta em ap compartilhado na Savassi",
+    title: "Suíte compacta em ap compartilhado na Savassi",
     campusTags: ["fumec", "faculdade-santa-casa", "savassi", "bh"],
     imageUrl:
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
@@ -53,11 +53,11 @@ export const featuredListings: ListingPreview[] = [
     rating: 4.9,
     reviewCount: 18,
     amenities: [
-      { id: "suite", label: "Suite" },
+      { id: "suite", label: "Suíte" },
       { id: "coworking", label: "Coworking perto" },
       { id: "bills", label: "Contas inclusas" },
     ],
-    matchHighlights: ["Contas inclusas", "Suite", "Perto de restaurantes"],
+    matchHighlights: ["Contas inclusas", "Suíte", "Perto de restaurantes"],
     trustBadges: ["verified_owner", "bill_split"],
   },
   {
@@ -88,12 +88,12 @@ export const featuredListings: ListingPreview[] = [
   },
   {
     id: "listing-sao-pedro",
-    title: "Quarto mobiliado em casa estudantil no Sao Pedro",
+    title: "Quarto mobiliado em casa estudantil no São Pedro",
     campusTags: ["puc-praca-liberdade", "sao-pedro", "bh"],
     imageUrl:
       "https://images.unsplash.com/photo-1560185007-c5ca9d2c014d?auto=format&fit=crop&w=1200&q=80",
     location: {
-      neighborhood: "Sao Pedro",
+      neighborhood: "São Pedro",
       city: "Belo Horizonte",
       state: "MG",
       distanceToCampusInMinutes: 11,
@@ -109,12 +109,12 @@ export const featuredListings: ListingPreview[] = [
       { id: "bills", label: "Contas inclusas" },
       { id: "study", label: "Mesa de estudos" },
     ],
-    matchHighlights: ["Contas inclusas", "Casa estudantil", "Visita rapida"],
+    matchHighlights: ["Contas inclusas", "Casa estudantil", "Visita rápida"],
     trustBadges: ["verified_owner", "contract_ready", "bill_split"],
   },
   {
     id: "listing-barro-preto",
-    title: "Vaga economica em republica proxima ao UniBH",
+    title: "Vaga economica em república próxima ao UniBH",
     campusTags: ["unibh", "barro-preto", "bh"],
     imageUrl:
       "https://images.unsplash.com/photo-1484154218962-a197022b5858?auto=format&fit=crop&w=1200&q=80",
@@ -135,12 +135,12 @@ export const featuredListings: ListingPreview[] = [
       { id: "kitchen", label: "Cozinha equipada" },
       { id: "bills", label: "Contas inclusas" },
     ],
-    matchHighlights: ["Orcamento leve", "Contas inclusas", "Perto do UniBH"],
+    matchHighlights: ["Orçamento leve", "Contas inclusas", "Perto do UniBH"],
     trustBadges: ["student_friendly", "bill_split"],
   },
   {
     id: "listing-santa-efigenia",
-    title: "Suite silenciosa para rotina de estudos na Santa Efigenia",
+    title: "Suíte silenciosa para rotina de estudos na Santa Efigenia",
     campusTags: ["faculdade-santa-casa", "santa-efigenia", "bh"],
     imageUrl:
       "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1200&q=80",
@@ -157,23 +157,23 @@ export const featuredListings: ListingPreview[] = [
     rating: 4.9,
     reviewCount: 16,
     amenities: [
-      { id: "suite", label: "Suite" },
+      { id: "suite", label: "Suíte" },
       { id: "quiet", label: "Ambiente silencioso" },
       { id: "study", label: "Mesa de estudos" },
     ],
-    matchHighlights: ["Ambiente silencioso", "Suite", "7 min do campus"],
+    matchHighlights: ["Ambiente silencioso", "Suíte", "7 min do campus"],
     trustBadges: ["verified_owner", "student_friendly"],
   },
 ];
 
 export const trustMetrics = [
-  { label: "anuncios com dono validado", value: "92%" },
-  { label: "tempo medio ate visita", value: "18h" },
+  { label: "anúncios com dono validado", value: "92%" },
+  { label: "tempo médio até visita", value: "18h" },
   { label: "contratos com checklist", value: "100%" },
 ] as const;
 
 export const socialProofItems: SocialProofItem[] = [
-  { label: "estudantes usando sinais de confianca", value: "18k+" },
+  { label: "estudantes usando sinais de confiança", value: "18k+" },
   { label: "reviews revisados pela comunidade", value: "4.8/5" },
   { label: "buscas por campus todos os meses", value: "52k" },
 ];
@@ -187,7 +187,7 @@ export const popularCampuses: CampusPreview[] = [
       "https://images.unsplash.com/photo-1518005020951-eccb494ad742?auto=format&fit=crop&w=900&q=80",
     label: "PUC Minas",
     listingCount: 128,
-    neighborhoodHint: "Coracao Eucaristico, Padre Eustaquio",
+    neighborhoodHint: "Coração Eucarístico, Padre Eustaquio",
   },
   {
     city: "Belo Horizonte",
@@ -207,7 +207,7 @@ export const popularCampuses: CampusPreview[] = [
       "https://images.unsplash.com/photo-1517502884422-41eaead166d4?auto=format&fit=crop&w=900&q=80",
     label: "Savassi e Centro-Sul",
     listingCount: 74,
-    neighborhoodHint: "Savassi, Sao Pedro, Funcionarios",
+    neighborhoodHint: "Savassi, São Pedro, Funcionarios",
   },
   {
     city: "Belo Horizonte",
@@ -223,13 +223,13 @@ export const popularCampuses: CampusPreview[] = [
 
 export const filterShortcuts: FilterShortcut[] = [
   {
-    description: "Resultados com distancia curta ate a faculdade.",
+    description: "Resultados com distância curta até a faculdade.",
     href: "/buscar?nearCampus=true",
     id: "near-campus",
     label: "perto do campus",
   },
   {
-    description: "Aluguel com previsao de agua, luz ou internet.",
+    description: "Aluguel com previsao de água, luz ou internet.",
     href: "/buscar?billsIncluded=true",
     id: "bills",
     label: "contas inclusas",
@@ -252,8 +252,8 @@ export const recentSearches: RecentSearch[] = [
   {
     href: "/buscar?location=PUC+Minas&budget=900",
     id: "recent-puc",
-    label: "PUC Minas ate R$ 900",
-    meta: "Coracao Eucaristico, individual ou partilhado",
+    label: "PUC Minas até R$ 900",
+    meta: "Coração Eucarístico, individual ou partilhado",
   },
   {
     href: "/buscar?location=UFMG&roomType=shared",
@@ -265,7 +265,7 @@ export const recentSearches: RecentSearch[] = [
     href: "/buscar?location=Savassi&billsIncluded=true",
     id: "recent-savassi",
     label: "Savassi com contas inclusas",
-    meta: "Suite ou quarto individual",
+    meta: "Suíte ou quarto individual",
   },
 ];
 
@@ -273,21 +273,21 @@ export const landingFaqs: FAQItem[] = [
   {
     question: "A UAI QUARTOS aluga diretamente os quartos?",
     answer:
-      "Nao. A plataforma organiza busca, sinais de confianca e contato. Contratos e pagamentos seguem os fluxos oficiais conectados por adapters.",
+      "Não. A plataforma organiza busca, sinais de confiança e contato. Contratos e pagamentos seguem os fluxos oficiais conectados por adapters.",
   },
   {
-    question: "Como sei se um anuncio e confiavel?",
+    question: "Como sei se um anúncio e confiável?",
     answer:
-      "A interface destaca dono validado, reviews reais, custos transparentes e status de contrato para reduzir duvida antes do contato.",
+      "A interface destaca dono validado, reviews reais, custos transparentes e status de contrato para reduzir dúvida antes do contato.",
   },
   {
     question: "Posso buscar por campus ou bairro?",
     answer:
-      "Sim. A busca foi desenhada para universidade, campus, cidade e bairro, com filtros de preco, tipo de quarto e data de entrada.",
+      "Sim. A busca foi desenhada para universidade, campus, cidade e bairro, com filtros de preço, tipo de quarto e data de entrada.",
   },
   {
     question: "Locadores podem anunciar quartos?",
     answer:
-      "Sim. O CTA de locadores leva para a area preparada para inventario, verificacao e futuro financeiro B2B.",
+      "Sim. O CTA de locadores leva para a área preparada para inventário, verificação e futuro financeiro B2B.",
   },
 ];

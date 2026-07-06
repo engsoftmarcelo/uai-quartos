@@ -20,7 +20,7 @@ export function CompletionSummary({
           perfil concluido
         </p>
         <h1 className="font-display text-3xl font-bold text-balance text-foreground">
-          Seu perfil de convivencia esta pronto.
+          Seu perfil de convivência esta pronto.
         </h1>
         <p className="text-pretty text-sm leading-6 text-muted">
           Este resumo pode alimentar o score de compatibilidade, ordenar
@@ -35,7 +35,7 @@ export function CompletionSummary({
           className="inline-flex h-12 items-center justify-center gap-2 rounded-md bg-brand px-4 text-sm font-bold text-white transition hover:bg-brand-strong"
           href="/buscar/resultados"
         >
-          Ver moradias compativeis
+          Ver moradias compatíveis
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
         <button

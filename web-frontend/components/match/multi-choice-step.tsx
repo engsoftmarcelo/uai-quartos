@@ -67,7 +67,7 @@ export function MultiChoiceStep({
       })}
       {step.mode === "multiple" ? (
         <p className="text-sm text-muted">
-          Selecione uma ou mais opcoes.{" "}
+          Selecione uma ou mais opções.{" "}
           {step.optional ? "Esta etapa e opcional." : null}
         </p>
       ) : null}

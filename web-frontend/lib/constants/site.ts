@@ -4,19 +4,19 @@ export const siteConfig = {
   name: "UAI QUARTOS",
   shortName: "UAI",
   description:
-    "Marketplace de moradia universitaria para encontrar republicas, quartos partilhados e contratos com mais confianca.",
+    "Marketplace de moradia universitária para encontrar repúblicas, quartos partilhados e contratos com mais confiança.",
   publicNav: [
-    { href: "/", label: "Inicio" },
+    { href: "/", label: "Início" },
     { href: "/buscar", label: "Buscar" },
-    { href: "/seguranca", label: "Seguranca" },
+    { href: "/seguranca", label: "Segurança" },
   ] satisfies NavigationItem[],
   authNav: [
     { href: "/student", label: "Estudante" },
     { href: "/landlord", label: "Locador" },
   ] satisfies NavigationItem[],
   legalNav: [
-    { href: "/seguranca", label: "Confianca" },
+    { href: "/termos", label: "Termos de uso" },
+    { href: "/privacidade", label: "Privacidade" },
     { href: "/seguranca#lgpd", label: "LGPD" },
-    { href: "/seguranca#contratos", label: "Contratos" },
   ] satisfies NavigationItem[],
 } as const;

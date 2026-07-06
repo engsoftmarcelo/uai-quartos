@@ -5,22 +5,22 @@ const steps = [
   {
     icon: Search,
     title: "Busque pelo seu mapa mental",
-    text: "Digite campus, bairro ou cidade e filtre por orcamento, tipo de quarto e data de entrada.",
+    text: "Digite campus, bairro ou cidade e filtre por orçamento, tipo de quarto e data de entrada.",
   },
   {
     icon: ShieldCheck,
-    title: "Compare sinais de confianca",
+    title: "Compare sinais de confiança",
     text: "Veja dono validado, reviews, custos transparentes e compatibilidade com rotina estudantil.",
   },
   {
     icon: MessageCircle,
     title: "Fale com mais contexto",
-    text: "Chegue no contato ja sabendo preco, distancia, regras da casa e proximos passos.",
+    text: "Chegue no contato já sabendo preço, distância, regras da casa e próximos passos.",
   },
   {
     icon: CalendarCheck,
     title: "Agende visita sem enrolacao",
-    text: "A experiencia prepara o caminho para visita, contrato e pagamento nos fluxos existentes.",
+    text: "A experiência prepara o caminho para visita, contrato e pagamento nos fluxos existentes.",
   },
 ];
 
@@ -30,7 +30,7 @@ export function HowItWorks() {
       <div className="uai-container grid gap-6">
         <SectionHeader
           eyebrow="Como funciona"
-          subtitle="Uma jornada curta para sair de duvida para opcao real, sem reimplementar regra de negocio no frontend."
+          subtitle="Uma jornada curta para sair de dúvida para opção real, sem reimplementar regra de negocio no frontend."
           title="Da busca ao contato em quatro passos"
         />
         <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">

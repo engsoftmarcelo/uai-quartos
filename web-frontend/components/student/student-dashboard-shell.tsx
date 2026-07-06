@@ -16,7 +16,7 @@ export function StudentDashboardShell({
     <section className="grid gap-6">
       <SectionHeader
         action={action}
-        eyebrow="Area do estudante"
+        eyebrow="Área do estudante"
         subtitle={subtitle}
         title={title}
       />

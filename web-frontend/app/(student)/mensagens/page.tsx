@@ -12,7 +12,7 @@ interface MessagesPageProps {
 export const metadata: Metadata = {
   title: "Mensagens",
   description:
-    "Inbox do estudante com conversas, templates rapidos, anexos e avisos de pagamento seguro.",
+    "Inbox do estudante com conversas, templates rápidos, anexos e avisos de pagamento seguro.",
 };
 
 export default async function StudentMessagesPage({
@@ -27,7 +27,7 @@ export default async function StudentMessagesPage({
 
   return (
     <StudentDashboardShell
-      subtitle="Centralize combinados, documentos e proximos passos com cada locador."
+      subtitle="Centralize combinados, documentos e próximos passos com cada locador."
       title="Mensagens"
     >
       <StudentInbox

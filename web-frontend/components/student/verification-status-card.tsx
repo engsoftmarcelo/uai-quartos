@@ -18,16 +18,16 @@ export function VerificationStatusCard({
         </span>
         <div>
           <h2 className="font-display text-2xl font-bold text-foreground">
-            Verificacao e privacidade
+            Verificação e privacidade
           </h2>
           <p className="mt-1 text-sm text-muted">
-            Aumenta confianca sem expor dados desnecessarios.
+            Aumenta confiança sem expor dados desnecessarios.
           </p>
         </div>
       </div>
 
       <Badge tone={verified ? "success" : "accent"}>
-        {verified ? "perfil verificado" : "verificacao pendente"}
+        {verified ? "perfil verificado" : "verificação pendente"}
       </Badge>
 
       <div className="grid gap-2 rounded-md bg-surface-muted p-3 text-sm leading-6 text-muted">
@@ -36,8 +36,8 @@ export function VerificationStatusCard({
           Privacidade
         </p>
         <p>
-          Locadores veem apenas dados necessarios para avaliar candidatura. Dados
-          sensiveis devem ser enviados somente em fluxos verificados.
+          Locadores veem apenas dados necessários para avaliar candidatura. Dados
+          sensíveis devem ser enviados somente em fluxos verificados.
         </p>
       </div>
 

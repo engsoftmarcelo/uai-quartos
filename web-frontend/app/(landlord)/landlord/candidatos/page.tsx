@@ -6,7 +6,7 @@ import { createLandlordDashboardAdapter } from "@/lib/adapters";
 export const metadata: Metadata = {
   title: "Candidatos",
   description:
-    "Pipeline de candidatos por etapa, documentos pendentes, visitas e proximos passos.",
+    "Pipeline de candidatos por etapa, documentos pendentes, visitas e próximos passos.",
 };
 
 export default async function LandlordApplicantsPage() {
@@ -18,7 +18,7 @@ export default async function LandlordApplicantsPage() {
 
   return (
     <LandlordDashboardShell
-      subtitle="Acompanhe triagem, documentos, visitas, decisao e historico operacional."
+      subtitle="Acompanhe triagem, documentos, visitas, decisao e histórico operacional."
       title="Candidatos"
     >
       <ApplicantsPipeline applicants={applicants} listings={listings} />

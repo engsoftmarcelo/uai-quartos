@@ -13,7 +13,7 @@ import { createLandlordDashboardAdapter } from "@/lib/adapters";
 export const metadata: Metadata = {
   title: "Dashboard do locador",
   description:
-    "Painel operacional do locador com KPIs, tarefas, leads, inventario, reviews e performance.",
+    "Painel operacional do locador com KPIs, tarefas, leads, inventário, reviews e performance.",
 };
 
 export default async function LandlordDashboardPage() {
@@ -28,11 +28,11 @@ export default async function LandlordDashboardPage() {
           className="inline-flex h-11 items-center justify-center gap-2 rounded-md bg-brand px-4 text-sm font-bold text-white transition hover:bg-brand-strong"
           href="/landlord/anuncios/novo"
         >
-          Novo anuncio
+          Novo anúncio
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       }
-      subtitle="Gestao de inventario, leads, candidatos e performance em um unico fluxo operacional."
+      subtitle="Gestão de inventário, leads, candidatos e performance em um único fluxo operacional."
       title="Painel operacional"
     >
       <KPIGrid kpis={overview.kpis} />
@@ -46,7 +46,7 @@ export default async function LandlordDashboardPage() {
                 Leads novos
               </h2>
               <p className="mt-1 text-sm text-muted">
-                Responda rapido para manter a conversao viva.
+                Responda rápido para manter a conversao viva.
               </p>
             </div>
             <Badge tone="accent">{newLeads.length} novos</Badge>
@@ -84,13 +84,13 @@ export default async function LandlordDashboardPage() {
       <section className="grid gap-3 rounded-md border border-border bg-surface p-4 shadow-xs">
         <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-brand">
           <Sparkles className="h-4 w-4" aria-hidden="true" />
-          Recomendacoes para conversao
+          Recomendações para conversao
         </p>
         <div className="grid gap-2 sm:grid-cols-3">
           {[
-            "Responder leads novos em ate 1 hora",
-            "Completar midia real dos anuncios ativos",
-            "Deixar valor de entrada e contas sempre visiveis",
+            "Responder leads novos em até 1 hora",
+            "Completar mídia real dos anúncios ativos",
+            "Deixar valor de entrada e contas sempre visíveis",
           ].map((recommendation) => (
             <p
               className="rounded-md bg-surface-muted p-3 text-sm font-bold text-muted-strong"

@@ -6,17 +6,17 @@ const signals = [
   {
     icon: Route,
     title: "Rotas e bairro antes do contato",
-    text: "A interface reserva espaco para campus, tempo de deslocamento e filtros cartograficos sem amarrar regra de negocio no frontend.",
+    text: "A interface reserva espaço para campus, tempo de deslocamento e filtros cartograficos sem amarrar regra de negocio no frontend.",
   },
   {
     icon: ShieldCheck,
-    title: "Confianca visivel em cada fluxo",
-    text: "Estados de verificacao, foco acessivel e mensagens inline deixam risco, status e proximo passo claros.",
+    title: "Confiança visível em cada fluxo",
+    text: "Estados de verificação, foco acessível e mensagens inline deixam risco, status e próximo passo claros.",
   },
   {
     icon: MessageCircle,
     title: "Preparado para eventos",
-    text: "Componentes pequenos permitem evoluir mensageria, notificacoes e async UI por adapters tipados.",
+    text: "Componentes pequenos permitem evoluir mensageria, notificações e async UI por adapters tipados.",
   },
 ];
 
@@ -26,7 +26,7 @@ export function CampusProof() {
       <div className="uai-container grid gap-8">
         <SectionHeader
           eyebrow="Produto grande, base simples"
-          subtitle="A fundacao separa componentes reutilizaveis, adapters e tipos para crescer sem duplicar UI ou espalhar regra de negocio."
+          subtitle="A fundação separa componentes reutilizáveis, adapters e tipos para crescer sem duplicar UI ou espalhar regra de negocio."
           title="Feito para a rotina real de quem divide casa"
         />
         <div className="grid gap-4 lg:grid-cols-3">
@@ -51,7 +51,7 @@ export function CampusProof() {
         </div>
         <ReviewSnippet
           author="Marina, estudante de Eng. Civil"
-          quote="Eu queria comparar preco, bairro e confianca sem abrir dez abas. O fluxo deixa o que importa bem na minha frente."
+          quote="Eu queria comparar preço, bairro e confiança sem abrir dez abas. O fluxo deixa o que importa bem na minha frente."
           rating={5}
         />
       </div>

@@ -22,12 +22,12 @@ export function AvailabilityCard({
       <div className="grid gap-2 sm:grid-cols-2">
         <Info
           icon={<CalendarDays className="h-4 w-4" aria-hidden="true" />}
-          label="Disponivel a partir de"
+          label="Disponível a partir de"
           value={formatShortDate(availability.availableFrom)}
         />
         <Info
           icon={<Clock3 className="h-4 w-4" aria-hidden="true" />}
-          label="Duracao minima"
+          label="Duração mínima"
           value={`${availability.minStayMonths} meses`}
         />
       </div>

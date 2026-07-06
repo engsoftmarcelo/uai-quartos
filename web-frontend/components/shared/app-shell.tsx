@@ -30,23 +30,23 @@ const studentNav: NavigationItem[] = [
   { href: "/perfil", label: "Perfil", icon: UserRound },
   { href: "/student", label: "Busca", icon: Search },
   { href: "/match", label: "Matching", icon: HeartHandshake },
-  { href: "/configuracoes", label: "Configuracoes", icon: Settings },
+  { href: "/configuracoes", label: "Configurações", icon: Settings },
 ];
 
 const landlordNav: NavigationItem[] = [
   { href: "/landlord/dashboard", label: "Painel", icon: LayoutDashboard },
-  { href: "/landlord/anuncios", label: "Anuncios", icon: Building2 },
+  { href: "/landlord/anuncios", label: "Anúncios", icon: Building2 },
   { href: "/landlord/leads", label: "Leads", icon: MessageCircle },
   { href: "/landlord/candidatos", label: "Candidatos", icon: UsersRound },
-  { href: "/landlord/calendario", label: "Calendario", icon: CalendarCheck },
+  { href: "/landlord/calendario", label: "Calendário", icon: CalendarCheck },
   { href: "/landlord/insights", label: "Insights", icon: BarChart3 },
   { href: "/landlord/perfil", label: "Perfil", icon: ShieldCheck },
-  { href: "/landlord/configuracoes", label: "Configuracoes", icon: Settings },
+  { href: "/landlord/configuracoes", label: "Configurações", icon: Settings },
 ];
 
 export function AppShell({ area, children }: AppShellProps) {
   const nav = area === "student" ? studentNav : landlordNav;
-  const label = area === "student" ? "Area do estudante" : "Area do locador";
+  const label = area === "student" ? "Área do estudante" : "Área do locador";
 
   return (
     <div className="min-h-screen bg-background">

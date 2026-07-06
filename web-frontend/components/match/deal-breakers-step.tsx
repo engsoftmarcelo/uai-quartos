@@ -53,7 +53,7 @@ export function DealBreakersStep({
         );
       })}
       <p className="text-sm text-muted">
-        Opcional. Se nada for inegociavel agora, avance sem selecionar.
+        Opcional. Se nada for inegociável agora, avance sem selecionar.
       </p>
     </div>
   );

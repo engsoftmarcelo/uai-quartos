@@ -16,7 +16,7 @@ export function LandlordDashboardShell({
     <section className="grid gap-6">
       <SectionHeader
         action={action}
-        eyebrow="Area do locador"
+        eyebrow="Área do locador"
         subtitle={subtitle}
         title={title}
       />

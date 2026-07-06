@@ -283,7 +283,7 @@ export function FinanceWorkspace() {
 
     try {
       await navigator.clipboard.writeText(code);
-      setFeedback("Pix copia e cola enviado para a area de transferencia.");
+      setFeedback("Pix copia e cola enviado para a área de transferência.");
     } catch {
       setFeedback(code);
     }
@@ -531,7 +531,7 @@ function CheckoutPanel({
           ))}
         </div>
       ) : (
-        <EmptyState text="Nenhum quarto disponivel para checkout." />
+        <EmptyState text="Nenhum quarto disponível para checkout." />
       )}
     </div>
   );
@@ -614,7 +614,7 @@ function ReservationDossierPanel({
             ) : null}
           </div>
         ) : (
-          <EmptyState text="Contrato sera gerado apos liquidacao Pix." />
+          <EmptyState text="Contrato será gerado após liquidação Pix." />
         )}
       </div>
 
@@ -751,5 +751,5 @@ function getErrorMessage(error: unknown) {
     }
   }
 
-  return "Nao foi possivel concluir a operacao.";
+  return "Não foi possível concluir a operação.";
 }

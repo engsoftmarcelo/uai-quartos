@@ -15,7 +15,7 @@ const trustLabel: Record<ListingTrustBadge, string> = {
 const roomTypeLabel: Record<ListingPreview["roomType"], string> = {
   private: "individual",
   shared: "partilhado",
-  suite: "suite",
+  suite: "suíte",
 };
 
 export function ListingCard({ listing }: { listing: ListingPreview }) {
@@ -98,7 +98,7 @@ export function ListingCard({ listing }: { listing: ListingPreview }) {
             <span className="font-display text-2xl font-bold text-foreground">
               {formatCurrency(listing.price.amount)}
             </span>
-            <span className="text-sm text-muted">/mes</span>
+            <span className="text-sm text-muted">/mês</span>
           </p>
         </div>
 
