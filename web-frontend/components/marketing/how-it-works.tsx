@@ -1,26 +1,21 @@
-import { CalendarCheck, MessageCircle, Search, ShieldCheck } from "lucide-react";
+import { HeartHandshake, MessageCircle, Search } from "lucide-react";
 import { SectionHeader } from "@/components/ui/section-header";
 
 const steps = [
   {
     icon: Search,
-    title: "Busque pelo seu mapa mental",
-    text: "Digite campus, bairro ou cidade e filtre por orçamento, tipo de quarto e data de entrada.",
+    title: "Conte o que você precisa",
+    text: "Campus, orçamento e seu jeito de morar: tranquilo, festeiro, com pet, focado em provas. Leva 2 minutos.",
   },
   {
-    icon: ShieldCheck,
-    title: "Compare sinais de confiança",
-    text: "Veja dono validado, reviews, custos transparentes e compatibilidade com rotina estudantil.",
+    icon: HeartHandshake,
+    title: "Veja repúblicas compatíveis",
+    text: "A gente mostra o preço total com contas, a distância até a aula e o quanto cada casa combina com você.",
   },
   {
     icon: MessageCircle,
-    title: "Fale com mais contexto",
-    text: "Chegue no contato já sabendo preço, distância, regras da casa e próximos passos.",
-  },
-  {
-    icon: CalendarCheck,
-    title: "Agende visita sem enrolacao",
-    text: "A experiência prepara o caminho para visita, contrato e pagamento nos fluxos existentes.",
+    title: "Fale pelo contato seguro",
+    text: "Chame o dono verificado, combine a visita e assine com contrato. Sem depósito às cegas, sem golpe.",
   },
 ];
 
@@ -30,10 +25,10 @@ export function HowItWorks() {
       <div className="uai-container grid gap-6">
         <SectionHeader
           eyebrow="Como funciona"
-          subtitle="Uma jornada curta para sair de dúvida para opção real, sem reimplementar regra de negocio no frontend."
-          title="Da busca ao contato em quatro passos"
+          subtitle="Três passos entre 'preciso de um quarto' e 'achei minha república'."
+          title="Da busca ao contrato em três passos"
         />
-        <ol className="grid gap-4 sm:grid-cols-2 lg:grid-cols-4">
+        <ol className="grid gap-4 sm:grid-cols-3">
           {steps.map((step, index) => {
             const Icon = step.icon;
 
