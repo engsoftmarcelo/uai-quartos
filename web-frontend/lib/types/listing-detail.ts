@@ -51,6 +51,8 @@ export interface ListingDetailReview {
   quote: string;
   rating: number;
   stayContext: string;
+  /** Tags de convivência (ex.: "silenciosa", "internet boa") usadas para filtrar reviews. */
+  tags: string[];
 }
 
 export interface ListingDetailFAQ {

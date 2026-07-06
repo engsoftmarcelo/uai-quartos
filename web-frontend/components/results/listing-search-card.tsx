@@ -27,7 +27,7 @@ const trustLabel: Record<ListingTrustBadge, string> = {
   bill_split: "contas claras",
   contract_ready: "contrato pronto",
   student_friendly: "perfil estudantil",
-  verified_owner: "verificado",
+  verified_owner: "Dono verificado",
 };
 
 export function ListingSearchCard({

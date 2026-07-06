@@ -51,7 +51,7 @@ export function HeroSearchForm({
           className="h-11 w-full rounded-md border border-border bg-surface px-3 pl-9 text-sm outline-none transition placeholder:text-muted focus:border-brand focus:ring-2 focus:ring-brand/20"
           defaultValue={values?.location}
           name="location"
-          placeholder="Universidade, campus, cidade ou bairro"
+          placeholder="PUC Coração Eucarístico, UFMG, bairro..."
           type="search"
         />
       </SearchField>
@@ -105,7 +105,7 @@ export function HeroSearchForm({
           type="submit"
         >
           <Search className="h-4 w-4" aria-hidden="true" />
-          Encontrar moradia
+          Encontrar quartos
         </button>
       </div>
     </form>
