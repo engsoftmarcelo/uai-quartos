@@ -23,7 +23,7 @@ export function StickyDecisionBar({
         variant === "sidebar" &&
           "hidden rounded-md lg:sticky lg:top-24 lg:grid",
       )}
-      aria-label="Acoes para decidir"
+      aria-label="Ações para decidir"
     >
       <div className="grid gap-1">
         <p className="text-sm text-muted">Estimativa mensal total</p>
@@ -31,7 +31,7 @@ export function StickyDecisionBar({
           {formatCurrency(listing.pricing.monthlyTotal.amount)}
         </p>
         <p className="text-sm text-muted">
-          Hoje: {formatCurrency(listing.pricing.dueToday.amount)} - disponivel{" "}
+          Hoje: {formatCurrency(listing.pricing.dueToday.amount)} - disponível{" "}
           {formatShortDate(listing.availability.availableFrom)}
         </p>
       </div>
@@ -55,7 +55,7 @@ export function StickyDecisionBar({
 
       <p className="inline-flex items-start gap-2 text-xs leading-5 text-muted">
         <ShieldCheck className="mt-0.5 h-4 w-4 shrink-0 text-success" aria-hidden="true" />
-        Voce ve custos e verificacao antes de qualquer compromisso.
+        Você ve custos e verificação antes de qualquer compromisso.
       </p>
     </aside>
   );

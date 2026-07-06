@@ -18,7 +18,7 @@ const labels = {
   },
   smoker: {
     allowed: "fumante ok",
-    not_allowed: "nao fumante",
+    not_allowed: "não fumante",
     outside_only: "fumante so fora",
   },
 } as const;

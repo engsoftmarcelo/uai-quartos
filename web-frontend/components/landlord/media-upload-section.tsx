@@ -15,10 +15,10 @@ export function MediaUploadSection({
     <section className="grid gap-4">
       <div>
         <h2 className="font-display text-2xl font-bold text-foreground">
-          Midia
+          Mídia
         </h2>
         <p className="mt-1 text-sm text-muted">
-          Fotos reais e claras reduzem duvida e aumentam a chance de contato.
+          Fotos reais e claras reduzem dúvida e aumentam a chance de contato.
         </p>
       </div>
       <div className="grid gap-3 md:grid-cols-[minmax(0,1fr)_16rem] md:items-start">
@@ -36,7 +36,7 @@ export function MediaUploadSection({
         </label>
         <div className="relative aspect-[4/3] overflow-hidden rounded-md bg-surface-muted">
           <Image
-            alt="Preview da midia do anuncio"
+            alt="Preview da mídia do anúncio"
             className="object-cover"
             fill
             sizes="(min-width: 768px) 256px, 100vw"

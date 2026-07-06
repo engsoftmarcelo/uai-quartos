@@ -5,9 +5,9 @@ import { LandlordDashboardShell } from "@/components/landlord/landlord-dashboard
 import { createLandlordDashboardAdapter } from "@/lib/adapters";
 
 export const metadata: Metadata = {
-  title: "Anuncios do locador",
+  title: "Anúncios do locador",
   description:
-    "Gestao de anuncios com filtros, status, completude, pausa, arquivo e duplicacao.",
+    "Gestão de anúncios com filtros, status, completude, pausa, arquivo e duplicacao.",
 };
 
 export default async function LandlordListingsPage() {
@@ -19,8 +19,8 @@ export default async function LandlordListingsPage() {
 
   return (
     <LandlordDashboardShell
-      subtitle="Gerencie inventario e mantenha cada anuncio pronto para converter."
-      title="Anuncios"
+      subtitle="Gerencie inventário e mantenha cada anúncio pronto para converter."
+      title="Anúncios"
     >
       <ListingStatusTable listings={listings} />
       {weakestListing ? (

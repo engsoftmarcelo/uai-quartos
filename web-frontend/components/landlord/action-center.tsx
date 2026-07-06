@@ -19,7 +19,7 @@ export function ActionCenter({ tasks }: { tasks: LandlordTask[] }) {
     <section className="grid gap-3 rounded-md border border-border bg-surface p-4 shadow-xs">
       <div>
         <h2 className="font-display text-xl font-bold text-foreground">
-          Central de acoes
+          Central de ações
         </h2>
         <p className="mt-1 text-sm text-muted">
           Tarefas que reduzem erro operacional e melhoram conversao.

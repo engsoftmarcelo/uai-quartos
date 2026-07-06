@@ -25,8 +25,8 @@ export function SearchEmptyState() {
       icon={<SearchX className="h-5 w-5" aria-hidden="true" />}
       title="Nenhum quarto bateu exatamente com essa busca"
     >
-      Tente aumentar o orcamento, remover a data de entrada ou buscar por um
-      bairro proximo. A gente mostra filtros claros para voce nao perder tempo.
+      Tente aumentar o orçamento, remover a data de entrada ou buscar por um
+      bairro próximo. A gente mostra filtros claros para você não perder tempo.
     </EmptyState>
   );
 }

@@ -13,7 +13,7 @@ import type {
 import { cn } from "@/lib/utils";
 
 const statusLabel: Record<LandlordCalendarStatus, string> = {
-  available: "disponivel",
+  available: "disponível",
   blocked: "bloqueado",
   conflict: "conflito",
   visit: "visita",
@@ -51,14 +51,14 @@ export function AvailabilityCalendar({
       <div className="grid gap-3 rounded-md border border-border bg-surface p-4 shadow-xs md:grid-cols-[minmax(0,1fr)_16rem_12rem] md:items-end">
         <div>
           <h2 className="font-display text-2xl font-bold text-foreground">
-            Calendario de disponibilidade
+            Calendário de disponibilidade
           </h2>
           <p className="mt-1 text-sm text-muted">
-            Controle datas por imovel/quarto, conflitos e duracao minima.
+            Controle datas por imóvel/quarto, conflitos e duração mínima.
           </p>
         </div>
         <Select
-          label="Anuncio"
+          label="Anúncio"
           onChange={(event) => {
             const nextListingId = event.target.value;
             const nextListing = listings.find((item) => item.id === nextListingId);
@@ -75,7 +75,7 @@ export function AvailabilityCalendar({
           value={listingId}
         />
         <Input
-          label="Duracao minima"
+          label="Duração mínima"
           min={1}
           onChange={(event) => setMinimumStay(event.target.value)}
           trailingElement={<span className="text-xs font-bold">meses</span>}
@@ -118,13 +118,13 @@ export function AvailabilityCalendar({
                   {slot.dateLabel}
                 </h3>
                 <p className="mt-1 text-sm font-bold text-muted-strong">
-                  {listing?.title ?? selectedListing?.title ?? "Anuncio"}
+                  {listing?.title ?? selectedListing?.title ?? "Anúncio"}
                 </p>
                 <p className="mt-2 text-sm leading-6 text-muted">{slot.note}</p>
               </div>
               <p className="inline-flex items-center gap-2 text-sm font-bold text-muted">
                 <Clock3 className="h-4 w-4" aria-hidden="true" />
-                Duracao minima atual: {minimumStay || "0"} meses
+                Duração mínima atual: {minimumStay || "0"} meses
               </p>
             </article>
           );

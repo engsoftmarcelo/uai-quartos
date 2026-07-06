@@ -29,8 +29,8 @@ export const metadata: Metadata = {
   description: siteConfig.description,
   applicationName: siteConfig.name,
   keywords: [
-    "moradia universitaria",
-    "republicas",
+    "moradia universitária",
+    "repúblicas",
     "quartos compartilhados",
     "aluguel estudantil",
     "UAI QUARTOS",
@@ -67,7 +67,7 @@ export default function RootLayout({
       >
         <AuthProvider>
           <a className="skip-link" href="#conteudo">
-            Pular para o conteudo
+            Pular para o conteúdo
           </a>
           {children}
           <ToastRegion />

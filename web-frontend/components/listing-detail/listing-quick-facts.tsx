@@ -15,7 +15,7 @@ import type { ListingDetail } from "@/lib/types";
 const roomTypeLabel: Record<ListingDetail["room"]["type"], string> = {
   private: "quarto individual",
   shared: "quarto compartilhado",
-  suite: "suite",
+  suite: "suíte",
 };
 
 export function ListingQuickFacts({ listing }: { listing: ListingDetail }) {
@@ -55,7 +55,7 @@ export function ListingQuickFacts({ listing }: { listing: ListingDetail }) {
         />
         <Fact
           icon={<CalendarDays className="h-4 w-4" aria-hidden="true" />}
-          label="Disponivel"
+          label="Disponível"
           value={formatShortDate(listing.availability.availableFrom)}
         />
         <Fact

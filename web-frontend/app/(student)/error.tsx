@@ -15,11 +15,11 @@ export default function StudentAreaError({
       <InlineMessage
         className="max-w-xl"
         tone="danger"
-        title="Nao foi possivel carregar sua area"
+        title="Não foi possível carregar sua área"
       >
         <p>
           Tente novamente. Se continuar, seus dados podem estar temporariamente
-          indisponiveis na API.
+          indisponíveis na API.
         </p>
         <Button
           className="mt-3"

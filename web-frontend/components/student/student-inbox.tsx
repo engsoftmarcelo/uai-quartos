@@ -39,8 +39,8 @@ export function StudentInbox({
             Nenhuma conversa iniciada
           </h2>
           <p className="mx-auto mt-2 max-w-xl text-sm leading-6 text-muted">
-            Quando voce chamar um locador, a conversa aparece aqui com o
-            anuncio, avisos de seguranca e historico de combinados.
+            Quando você chamar um locador, a conversa aparece aqui com o
+            anúncio, avisos de segurança e histórico de combinados.
           </p>
         </div>
       </section>
@@ -52,10 +52,10 @@ export function StudentInbox({
       <InlineMessage
         icon={<ShieldCheck className="h-5 w-5" />}
         tone="success"
-        title="Comunicacao centralizada"
+        title="Comunicação centralizada"
       >
-        Use este espaco para alinhar visita, documentos e custos. Evite
-        pagamentos ou combinados sensiveis fora da plataforma.
+        Use este espaço para alinhar visita, documentos e custos. Evite
+        pagamentos ou combinados sensíveis fora da plataforma.
       </InlineMessage>
 
       <div className="grid gap-4 lg:grid-cols-[22rem_minmax(0,1fr)] lg:items-start">

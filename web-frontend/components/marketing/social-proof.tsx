@@ -19,7 +19,7 @@ export function SocialProof() {
           <Quote className="h-5 w-5 text-brand" aria-hidden="true" />
           <blockquote className="text-pretty text-sm leading-6 text-muted-strong">
             Achei um quarto perto da faculdade sem ficar perguntando mil coisas
-            no WhatsApp. O preco, a distancia e os sinais de confianca ja
+            no WhatsApp. O preço, a distância e os sinais de confiança já
             estavam claros.
           </blockquote>
           <figcaption className="text-sm font-bold text-foreground">

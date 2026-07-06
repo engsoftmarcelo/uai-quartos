@@ -21,7 +21,7 @@ export function ResultsPageHeader({
           </h1>
           <p className="max-w-3xl text-pretty text-sm leading-6 text-muted sm:text-base">
             Compare custo total, valor a pagar hoje, regras da casa e
-            compatibilidade de convivencia em uma URL compartilhavel.
+            compatibilidade de convivência em uma URL compartilhável.
           </p>
         </div>
         <div className="flex flex-col gap-2 sm:flex-row">

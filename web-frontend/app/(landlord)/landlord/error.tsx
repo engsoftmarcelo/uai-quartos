@@ -15,11 +15,11 @@ export default function LandlordAreaError({
       <InlineMessage
         className="max-w-xl"
         tone="danger"
-        title="Nao foi possivel carregar a area do locador"
+        title="Não foi possível carregar a área do locador"
       >
         <p>
           Tente novamente. Se continuar, os dados operacionais podem estar
-          temporariamente indisponiveis na API.
+          temporariamente indisponíveis na API.
         </p>
         <Button
           className="mt-3"

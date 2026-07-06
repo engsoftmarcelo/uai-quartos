@@ -18,7 +18,7 @@ export function VerificationAndTrustPanel({
         </span>
         <div>
           <h2 className="font-display text-2xl font-bold text-foreground">
-            Verificacao e confianca
+            Verificação e confiança
           </h2>
           <p className="mt-1 text-sm text-muted">
             Sinais que reduzem risco percebido para estudantes.
@@ -31,7 +31,7 @@ export function VerificationAndTrustPanel({
           icon={<BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />}
           tone={verified ? "success" : "accent"}
         >
-          {verified ? "locador verificado" : "verificacao pendente"}
+          {verified ? "locador verificado" : "verificação pendente"}
         </Badge>
         <Badge
           icon={<Clock className="h-3.5 w-3.5" aria-hidden="true" />}
@@ -43,7 +43,7 @@ export function VerificationAndTrustPanel({
 
       <div className="grid gap-2 rounded-md bg-surface-muted p-3">
         <p className="text-sm font-bold text-muted-strong">
-          Reputacao {profile.reputationScore.toFixed(1)}/5
+          Reputação {profile.reputationScore.toFixed(1)}/5
         </p>
         <div className="h-2 overflow-hidden rounded-full bg-border">
           <div
@@ -57,7 +57,7 @@ export function VerificationAndTrustPanel({
         className="inline-flex h-11 items-center justify-center rounded-md border border-border bg-surface px-4 text-sm font-bold text-muted-strong transition hover:bg-surface-muted"
         href="/landlord/perfil"
       >
-        Revisar dados de confianca
+        Revisar dados de confiança
       </Link>
     </section>
   );

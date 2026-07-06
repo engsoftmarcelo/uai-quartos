@@ -35,7 +35,7 @@ const stageOptions = [
 
 const quickReplies = [
   "Obrigado pelo interesse. Posso confirmar custos e disponibilidade agora.",
-  "Voce pode sugerir dois horarios para visita?",
+  "Você pode sugerir dois horários para visita?",
   "Antes de qualquer pagamento, vamos manter os combinados pela plataforma.",
 ];
 
@@ -83,7 +83,7 @@ export function LeadsInbox({
         </h2>
         <p className="text-sm leading-6 text-muted">
           Quando estudantes entrarem em contato, eles aparecem agrupados por
-          anuncio e estagio operacional.
+          anúncio e estágio operacional.
         </p>
       </section>
     );
@@ -97,12 +97,12 @@ export function LeadsInbox({
             Inbox operacional
           </h2>
           <p className="mt-1 text-sm text-muted">
-            Responda rapido, mantenha historico e conecte cada conversa ao
-            anuncio certo.
+            Responda rápido, mantenha histórico e conecte cada conversa ao
+            anúncio certo.
           </p>
         </div>
         <Select
-          label="Estagio"
+          label="Estágio"
           onChange={(event) =>
             setStageFilter(event.target.value as LandlordLeadStage | "all")
           }
@@ -144,7 +144,7 @@ export function LeadsInbox({
                   {lead.messagePreview}
                 </span>
                 <span className="text-xs font-bold uppercase tracking-[0.1em] text-muted">
-                  {leadListing?.title ?? "Anuncio"} - {lead.lastInteractionLabel}
+                  {leadListing?.title ?? "Anúncio"} - {lead.lastInteractionLabel}
                 </span>
               </button>
             );
@@ -156,7 +156,7 @@ export function LeadsInbox({
             <div className="flex flex-wrap items-start justify-between gap-3">
               <div>
                 <p className="text-sm font-bold text-brand">
-                  {listing?.title ?? "Anuncio conectado"}
+                  {listing?.title ?? "Anúncio conectado"}
                 </p>
                 <h3 className="font-display text-2xl font-bold text-foreground">
                   {selectedLead.name}
@@ -186,7 +186,7 @@ export function LeadsInbox({
 
             <div className="grid gap-2">
               <h4 className="text-sm font-bold text-muted-strong">
-                Historico de interacoes
+                Histórico de interações
               </h4>
               {selectedLead.interactions.map((interaction) => (
                 <p

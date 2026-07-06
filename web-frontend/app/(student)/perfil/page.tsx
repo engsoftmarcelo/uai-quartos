@@ -10,7 +10,7 @@ import { createStudentDashboardAdapter } from "@/lib/adapters";
 export const metadata: Metadata = {
   title: "Perfil do estudante",
   description:
-    "Dados pessoais, universidade, preferencias de moradia, verificacao e privacidade.",
+    "Dados pessoais, universidade, preferências de moradia, verificação e privacidade.",
 };
 
 export default async function StudentProfilePage() {
@@ -19,7 +19,7 @@ export default async function StudentProfilePage() {
 
   return (
     <StudentDashboardShell
-      subtitle="Controle os dados que sustentam candidaturas, match e recomendacoes."
+      subtitle="Controle os dados que sustentam candidaturas, match e recomendações."
       title="Perfil"
     >
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_22rem]">
@@ -34,10 +34,10 @@ export default async function StudentProfilePage() {
           </span>
           <div>
             <h2 className="font-display text-2xl font-bold text-foreground">
-              Preferencias de moradia
+              Preferências de moradia
             </h2>
             <p className="mt-1 text-sm text-muted">
-              Dados preparados para alimentar recomendacoes e score de
+              Dados preparados para alimentar recomendações e score de
               compatibilidade.
             </p>
           </div>
@@ -50,12 +50,12 @@ export default async function StudentProfilePage() {
           />
           <InfoCard
             icon={<Clock className="h-5 w-5" aria-hidden="true" />}
-            label="Deslocamento maximo"
+            label="Deslocamento máximo"
             value={`${preferences.commuteMaxMinutes} min`}
           />
           <InfoCard
             icon={<Home className="h-5 w-5" aria-hidden="true" />}
-            label="Budget maximo"
+            label="Budget máximo"
             value={`${formatCurrency(preferences.budgetMax.amount)}/mes`}
           />
           <InfoCard

@@ -38,7 +38,7 @@ export function SavedListingCard({ listing }: { listing: StudentSavedListing }) 
         <div className="grid gap-2 rounded-md bg-surface-muted p-3">
           <p className="font-display text-2xl font-bold text-foreground">
             {formatCurrency(listing.totalMonthly.amount)}
-            <span className="text-sm font-medium text-muted">/mes</span>
+            <span className="text-sm font-medium text-muted">/mês</span>
           </p>
           <p className="text-sm text-muted">
             Hoje: {formatCurrency(listing.dueToday.amount)} - {listing.savedAtLabel}
@@ -51,7 +51,7 @@ export function SavedListingCard({ listing }: { listing: StudentSavedListing }) 
                 className="inline-flex items-center gap-2 text-sm font-medium text-success"
                 key={change}
               >
-                {change.includes("preco") ? (
+                {change.includes("preço") ? (
                   <TrendingDown className="h-4 w-4" aria-hidden="true" />
                 ) : (
                   <Bell className="h-4 w-4" aria-hidden="true" />

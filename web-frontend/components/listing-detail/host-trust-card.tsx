@@ -44,7 +44,7 @@ export function HostTrustCard({ listing }: { listing: ListingDetail }) {
       <div className="grid gap-3 rounded-md bg-success-soft p-3">
         <p className="inline-flex items-center gap-2 text-sm font-bold text-success">
           <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-          Verificacao do anuncio
+          Verificação do anúncio
         </p>
         <ul className="grid gap-2 text-sm text-success">
           {[...listing.verification.landlord, ...listing.verification.listing].map(

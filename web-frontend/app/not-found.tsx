@@ -16,7 +16,7 @@ export default function NotFound() {
               href="/"
             >
               <Home className="h-4 w-4" />
-              Inicio
+              Início
             </Link>
             <Link
               className="inline-flex h-11 items-center justify-center gap-2 rounded-md border border-border bg-surface px-4 text-sm font-bold text-muted-strong transition hover:bg-surface-muted"
@@ -27,10 +27,10 @@ export default function NotFound() {
             </Link>
           </div>
         }
-        title="Pagina nao encontrada"
+        title="Página não encontrada"
       >
-        O endereco pode ter mudado ou o anuncio pode nao estar mais
-        disponivel.
+        O endereço pode ter mudado ou o anúncio pode não estar mais
+        disponível.
       </EmptyState>
     </main>
   );

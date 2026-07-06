@@ -10,7 +10,7 @@ const statusLabel: Record<StudentApplication["status"], string> = {
   draft: "rascunho",
   rejected: "encerrada",
   sent: "enviada",
-  under_review: "em analise",
+  under_review: "em análise",
   visit_scheduled: "visita marcada",
 };
 
@@ -29,7 +29,7 @@ export function ApplicationStatusPanel({
             Candidaturas e reservas
           </h2>
           <p className="mt-1 text-sm text-muted">
-            Progresso concreto, documentos e proximo passo.
+            Progresso concreto, documentos e próximo passo.
           </p>
         </div>
         {compact ? (
@@ -60,7 +60,7 @@ export function ApplicationStatusPanel({
                     {application.listing.title}
                   </h3>
                   <p className="mt-1 text-sm text-muted">
-                    Proximo passo: {application.nextAction}
+                    Próximo passo: {application.nextAction}
                   </p>
                 </div>
                 <Link
@@ -91,7 +91,7 @@ export function ApplicationStatusPanel({
           actionLabel="Ver favoritos"
           title="Nenhuma candidatura ainda"
         >
-          Quando voce se candidatar ou reservar uma visita, o progresso aparece
+          Quando você se candidatar ou reservar uma visita, o progresso aparece
           aqui.
         </StudentEmptyState>
       )}

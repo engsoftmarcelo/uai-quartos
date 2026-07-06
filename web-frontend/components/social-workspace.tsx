@@ -97,13 +97,13 @@ const sliderMeta = [
   {
     key: "noiseLevel",
     label: "Ruido",
-    minLabel: "Silencio",
+    minLabel: "Silêncio",
     maxLabel: "Movimento",
   },
   {
     key: "organization",
-    label: "Organizacao",
-    minLabel: "Flexivel",
+    label: "Organização",
+    minLabel: "Flexível",
     maxLabel: "Rigorosa",
   },
   {
@@ -375,7 +375,7 @@ export function SocialWorkspace() {
           <div className="flex items-center justify-between gap-3">
             <div className="flex items-center gap-2">
               <Gauge className="h-5 w-5 text-[#27735d]" />
-              <h3 className="text-lg font-semibold">Perfil de convivencia</h3>
+              <h3 className="text-lg font-semibold">Perfil de convivência</h3>
             </div>
             {isProfileLoading ? (
               <Loader2 className="h-4 w-4 animate-spin text-[#27735d]" />
@@ -480,7 +480,7 @@ export function SocialWorkspace() {
                 ))}
               </div>
             ) : (
-              <EmptyState text="Nenhuma republica ativa retornou score ainda." />
+              <EmptyState text="Nenhuma república ativa retornou score ainda." />
             )}
           </div>
 
@@ -832,7 +832,7 @@ function getErrorMessage(error: unknown) {
     }
   }
 
-  return "Nao foi possivel concluir a operacao.";
+  return "Não foi possível concluir a operação.";
 }
 
 const socketLabel: Record<SocketStatus, string> = {

@@ -68,7 +68,7 @@ export function ApplicantsPipeline({
           Pipeline de candidatos
         </h2>
         <p className="mt-1 text-sm text-muted">
-          Agrupe por etapa, veja documentos pendentes e mantenha o proximo passo
+          Agrupe por etapa, veja documentos pendentes e mantenha o próximo passo
           claro.
         </p>
         {feedback ? (
@@ -106,7 +106,7 @@ export function ApplicantsPipeline({
                       {applicant.name}
                     </p>
                     <p className="mt-1 text-sm text-muted">
-                      {listing?.title ?? "Anuncio"} - {applicant.matchScore}% match
+                      {listing?.title ?? "Anúncio"} - {applicant.matchScore}% match
                     </p>
                   </div>
                   <p className="text-sm leading-6 text-muted">
@@ -123,7 +123,7 @@ export function ApplicantsPipeline({
                   ) : null}
                   <Button
                     disabled={stage === "rejected" || stage === "approved"}
-                    disabledReason="Candidatura ja esta em etapa final."
+                    disabledReason="Candidatura já esta em etapa final."
                     onClick={() => advance(applicant)}
                     rightIcon={<MoveRight className="h-4 w-4" aria-hidden="true" />}
                     size="sm"

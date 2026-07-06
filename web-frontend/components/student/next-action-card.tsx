@@ -14,7 +14,7 @@ export function NextActionCard({
     <article className="grid gap-4 rounded-md border border-border bg-foreground p-4 text-white shadow-xs">
       <p className="inline-flex items-center gap-2 text-sm font-bold text-white/80">
         <CheckCircle2 className="h-4 w-4 text-accent" aria-hidden="true" />
-        Proximo passo
+        Próximo passo
       </p>
       <h2 className="font-display text-2xl font-bold">{title}</h2>
       <Link

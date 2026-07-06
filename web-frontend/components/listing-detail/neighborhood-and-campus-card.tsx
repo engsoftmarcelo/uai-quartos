@@ -27,7 +27,7 @@ export function NeighborhoodAndCampusCard({
           Onde fica e como chegar
         </h2>
         <p className="text-sm leading-6 text-muted">
-          Endereco aproximado: {listing.location.addressHint}. A referencia
+          Endereço aproximado: {listing.location.addressHint}. A referência
           exata deve ser confirmada no contato seguro.
         </p>
       </div>
@@ -35,7 +35,7 @@ export function NeighborhoodAndCampusCard({
       <div className="relative min-h-72 overflow-hidden rounded-md border border-border bg-[#dfe9df]">
         <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(35,118,93,0.10)_1px,transparent_1px),linear-gradient(0deg,rgba(35,118,93,0.10)_1px,transparent_1px)] bg-[length:34px_34px]" />
         <Marker
-          label="Republica"
+          label="República"
           left={home.x}
           tone="home"
           top={home.y}
@@ -51,7 +51,7 @@ export function NeighborhoodAndCampusCard({
       <div className="grid gap-2 sm:grid-cols-2">
         <p className="inline-flex items-center gap-2 rounded-md bg-surface-muted px-3 py-2 text-sm font-bold text-muted-strong">
           <Clock3 className="h-4 w-4 text-brand" aria-hidden="true" />
-          {listing.location.commuteMinutes} min ate {listing.campus.label}
+          {listing.location.commuteMinutes} min até {listing.campus.label}
         </p>
         <p className="inline-flex items-center gap-2 rounded-md bg-surface-muted px-3 py-2 text-sm font-bold text-muted-strong">
           <Route className="h-4 w-4 text-brand" aria-hidden="true" />

@@ -1,12 +1,12 @@
 import Link from "next/link";
-import { Home, Menu, Search, ShieldCheck } from "lucide-react";
+import { Home, LogIn, Menu, Search } from "lucide-react";
 import { siteConfig } from "@/lib/constants";
 
 export function PublicHeader() {
   return (
     <header className="sticky top-0 z-[var(--z-header)] border-b border-border bg-background/92 backdrop-blur">
       <nav
-        aria-label="Navegacao publica"
+        aria-label="Navegação pública"
         className="uai-container flex h-16 items-center justify-between gap-4"
       >
         <Link className="inline-flex items-center gap-2 font-bold" href="/">
@@ -30,11 +30,17 @@ export function PublicHeader() {
 
         <div className="hidden items-center gap-2 md:flex">
           <Link
-            className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-border bg-surface px-3 text-sm font-bold text-muted-strong transition hover:bg-surface-muted"
-            href="/seguranca"
+            className="rounded-md px-3 py-2 text-sm font-bold text-muted-strong transition hover:bg-surface-muted"
+            href="/landlord"
           >
-            <ShieldCheck className="h-4 w-4" aria-hidden="true" />
-            Confianca
+            Anuncie seu quarto
+          </Link>
+          <Link
+            className="inline-flex h-10 items-center justify-center gap-2 rounded-md border border-border bg-surface px-3 text-sm font-bold text-muted-strong transition hover:bg-surface-muted"
+            href="/entrar"
+          >
+            <LogIn className="h-4 w-4" aria-hidden="true" />
+            Entrar
           </Link>
           <Link
             className="inline-flex h-10 items-center justify-center gap-2 rounded-md bg-brand px-3 text-sm font-bold text-white transition hover:bg-brand-strong"
@@ -62,6 +68,18 @@ export function PublicHeader() {
                 {item.label}
               </Link>
             ))}
+            <Link
+              className="rounded-md px-3 py-2 text-sm font-bold text-muted-strong hover:bg-surface-muted"
+              href="/landlord"
+            >
+              Anuncie seu quarto
+            </Link>
+            <Link
+              className="rounded-md border border-border px-3 py-2 text-sm font-bold text-muted-strong hover:bg-surface-muted"
+              href="/entrar"
+            >
+              Entrar
+            </Link>
             <Link
               className="rounded-md bg-brand px-3 py-2 text-sm font-bold text-white"
               href="/buscar"

@@ -6,7 +6,7 @@ import { createStudentDashboardAdapter } from "@/lib/adapters";
 export const metadata: Metadata = {
   title: "Favoritos",
   description:
-    "Shortlist do estudante com anuncios salvos, ordenacao, mudancas recentes e comparacao.",
+    "Shortlist do estudante com anúncios salvos, ordenação, mudanças recentes e comparacao.",
 };
 
 export default async function StudentFavoritesPage() {
@@ -15,7 +15,7 @@ export default async function StudentFavoritesPage() {
 
   return (
     <StudentDashboardShell
-      subtitle="Mantenha sua shortlist viva e compare opcoes sem ansiedade."
+      subtitle="Mantenha sua shortlist viva e compare opções sem ansiedade."
       title="Favoritos"
     >
       <FavoritesGrid listings={favorites} />

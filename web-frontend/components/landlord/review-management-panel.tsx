@@ -13,7 +13,7 @@ export function ReviewManagementPanel({
           Reviews recentes
         </h2>
         <p className="mt-1 text-sm text-muted">
-          Reputacao distribuida por anuncio e visivel para melhoria continua.
+          Reputação distribuida por anúncio e visível para melhoria continua.
         </p>
       </div>
 

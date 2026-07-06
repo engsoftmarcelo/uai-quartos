@@ -16,7 +16,7 @@ export function PendingChecklist({ items }: { items: StudentChecklistItem[] }) {
           Pendencias
         </h2>
         <p className="mt-1 text-sm text-muted">
-          Pequenas acoes que aumentam confianca e reduzem ansiedade.
+          Pequenas ações que aumentam confiança e reduzem ansiedade.
         </p>
       </div>
       <div className="grid gap-2">

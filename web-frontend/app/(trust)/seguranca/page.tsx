@@ -4,7 +4,7 @@ import { InlineMessage } from "@/components/ui/inline-message";
 import { SectionHeader } from "@/components/ui/section-header";
 
 export const metadata: Metadata = {
-  title: "Seguranca e confianca",
+  title: "Segurança e confiança",
   description:
     "Convencoes de acessibilidade, performance e arquitetura para o frontend UAI QUARTOS.",
 };
@@ -14,10 +14,10 @@ const conventions = [
     icon: Accessibility,
     title: "Acessibilidade",
     items: [
-      "Foco visivel global com :focus-visible.",
-      "IconButton exige label acessivel.",
+      "Foco visível global com :focus-visible.",
+      "IconButton exige label acessível.",
       "Campos exibem erro, dica e motivo de disabled por aria-describedby.",
-      "Landmarks separados por layouts publicos e areas logadas.",
+      "Landmarks separados por layouts públicos e áreas logadas.",
     ],
   },
   {
@@ -25,7 +25,7 @@ const conventions = [
     title: "Performance",
     items: [
       "next/font no root layout.",
-      "next/image em hero e cards de anuncio.",
+      "next/image em hero e cards de anúncio.",
       "Imagens fora da dobra com lazy loading.",
       "Componentes pesados preparados para dynamic import em mapas, upload e carrossel.",
     ],
@@ -34,15 +34,15 @@ const conventions = [
     icon: PackageCheck,
     title: "Arquitetura",
     items: [
-      "Pages e layouts como Server Components por padrao.",
-      "Client Components restritos a estado local, input e interacao.",
+      "Pages e layouts como Server Components por padrão.",
+      "Client Components restritos a estado local, input e interação.",
       "Adapters tipados preservam APIs futuras.",
       "Mocks ficam isolados em lib/constants/mock-data.",
     ],
   },
   {
     icon: LockKeyhole,
-    title: "Confianca",
+    title: "Confiança",
     items: [
       "Tokens semanticamente nomeados para estados de risco.",
       "Mensagens inline para erro, aviso e sucesso.",
@@ -57,14 +57,14 @@ export default function TrustPage() {
     <section className="uai-section bg-background">
       <div className="uai-container grid gap-8">
         <SectionHeader
-          eyebrow="Base de produto confiavel"
-          subtitle="As convencoes abaixo estao refletidas em tokens, componentes e layouts para manter consistencia conforme o marketplace crescer."
-          title="Seguranca percebida com engenharia simples"
+          eyebrow="Base de produto confiável"
+          subtitle="As convencoes abaixo estão refletidas em tokens, componentes e layouts para manter consistencia conforme o marketplace crescer."
+          title="Segurança percebida com engenharia simples"
         />
         <InlineMessage tone="success" title="Sem regra de negocio nova">
-          Esta fase entrega fundacao visual e estrutural. Fluxos reais de
+          Esta fase entrega fundação visual e estrutural. Fluxos reais de
           identidade, pagamento, KYC e contrato continuam pertencendo aos
-          servicos e adapters existentes.
+          serviços e adapters existentes.
         </InlineMessage>
         <div className="grid gap-4 md:grid-cols-2">
           {conventions.map((section) => {

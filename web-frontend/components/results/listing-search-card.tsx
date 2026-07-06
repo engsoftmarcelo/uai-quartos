@@ -20,7 +20,7 @@ import { PriceSummaryPill } from "./price-summary-pill";
 const roomTypeLabel: Record<ListingSearchResult["room"]["type"], string> = {
   private: "individual",
   shared: "compartilhado",
-  suite: "suite",
+  suite: "suíte",
 };
 
 const trustLabel: Record<ListingTrustBadge, string> = {
@@ -65,7 +65,7 @@ export function ListingSearchCard({
             <div className="flex flex-wrap items-center justify-between gap-2">
               <p className="inline-flex items-center gap-1 text-sm font-bold text-brand">
                 <MapPin className="h-4 w-4" aria-hidden="true" />
-                {listing.location.commuteMinutes} min ate{" "}
+                {listing.location.commuteMinutes} min até{" "}
                 {listing.location.campusLabel}
               </p>
               <p className="inline-flex items-center gap-1 text-sm font-bold text-accent">
@@ -117,7 +117,7 @@ export function ListingSearchCard({
           <div className="grid gap-2 border-t border-border pt-3 sm:grid-cols-[minmax(0,1fr)_auto_auto] sm:items-center">
             <p className="inline-flex items-center gap-2 text-sm text-muted">
               <CheckCircle2 className="h-4 w-4 text-success" aria-hidden="true" />
-              Deposito/caucao: {formatCurrency(listing.pricing.deposit.amount)}
+              Depósito/caução: {formatCurrency(listing.pricing.deposit.amount)}
             </p>
             <Link
               className="inline-flex h-10 items-center justify-center rounded-md bg-foreground px-4 text-sm font-bold text-white transition hover:bg-brand-strong"

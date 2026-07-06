@@ -13,7 +13,7 @@ interface MatchPageProps {
 export const metadata: Metadata = {
   title: "Roommate Matching",
   description:
-    "Fluxo leve para criar um perfil de convivencia e melhorar o matching de moradia universitaria.",
+    "Fluxo leve para criar um perfil de convivência e melhorar o matching de moradia universitária.",
 };
 
 export default async function MatchPage({ searchParams }: MatchPageProps) {
@@ -29,20 +29,20 @@ export default async function MatchPage({ searchParams }: MatchPageProps) {
             Roommate Matching
           </p>
           <h1 className="font-display text-3xl font-bold text-balance text-foreground sm:text-4xl">
-            Monte seu perfil de convivencia sem burocracia.
+            Monte seu perfil de convivência sem burocracia.
           </h1>
           <p className="max-w-3xl text-pretty text-sm leading-6 text-muted sm:text-base">
             Responda uma coisa por vez. O objetivo e entender rotina, limites e
-            prioridades para sugerir casas e pessoas mais compativeis.
+            prioridades para sugerir casas e pessoas mais compatíveis.
           </p>
         </div>
         <InlineMessage
           icon={<ShieldCheck className="h-5 w-5" />}
           tone="success"
-          title="Voce controla o ritmo"
+          title="Você controla o ritmo"
         >
           O progresso fica salvo neste dispositivo e a etapa atual aparece na
-          URL para voce voltar sem perder contexto.
+          URL para você voltar sem perder contexto.
         </InlineMessage>
       </section>
 

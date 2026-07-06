@@ -25,7 +25,7 @@ export const landlordProfile: LandlordProfile = {
 export const landlordListings: LandlordListing[] = [
   {
     activeLeads: 12,
-    addressLabel: "Coracao Eucaristico, Belo Horizonte",
+    addressLabel: "Coração Eucarístico, Belo Horizonte",
     availableFromLabel: "15 Jul 2026",
     completionScore: 92,
     id: "listing-puc-coracao",
@@ -35,11 +35,11 @@ export const landlordListings: LandlordListing[] = [
     minimumStayMonths: 6,
     monthlyTotal: { amount: 860, currency: "BRL" },
     occupancyLabel: "2 de 3 quartos ocupados",
-    qualityIssues: ["Adicionar video curto do quarto"],
+    qualityIssues: ["Adicionar vídeo curto do quarto"],
     responseRate: 96,
     roomsAvailable: 1,
     status: "active",
-    title: "Republica verificada perto da PUC",
+    title: "República verificada perto da PUC",
     viewsLast30Days: 1280,
   },
   {
@@ -72,42 +72,42 @@ export const landlordListings: LandlordListing[] = [
     lastUpdatedLabel: "atualizado ha 12 dias",
     minimumStayMonths: 3,
     monthlyTotal: { amount: 1240, currency: "BRL" },
-    occupancyLabel: "sem disponibilidade publica",
-    qualityIssues: ["Completar documentacao", "Atualizar disponibilidade"],
+    occupancyLabel: "sem disponibilidade pública",
+    qualityIssues: ["Completar documentação", "Atualizar disponibilidade"],
     responseRate: 72,
     roomsAvailable: 0,
     status: "paused",
-    title: "Suite compacta com contas inclusas",
+    title: "Suíte compacta com contas inclusas",
     viewsLast30Days: 310,
   },
 ];
 
 export const landlordKpis: LandlordKPI[] = [
   {
-    description: "Inventario publicado com disponibilidade visivel.",
+    description: "Inventário publicado com disponibilidade visível.",
     id: "active-listings",
-    label: "Anuncios ativos",
-    trendLabel: "+2 este mes",
+    label: "Anúncios ativos",
+    trendLabel: "+2 este mês",
     value: "2",
   },
   {
-    description: "Leads ainda sem resposta ou aguardando proximo passo.",
+    description: "Leads ainda sem resposta ou aguardando próximo passo.",
     id: "new-leads",
     label: "Leads novos",
     trendLabel: "5 hoje",
     value: "19",
   },
   {
-    description: "Media de conversas respondidas dentro do SLA operacional.",
+    description: "Média de conversas respondidas dentro do SLA operacional.",
     id: "response-rate",
     label: "Taxa de resposta",
-    trendLabel: "38 min media",
+    trendLabel: "38 min média",
     value: "93%",
   },
   {
     description: "Quartos ocupados ou com candidatura em etapa avancada.",
     id: "occupancy",
-    label: "Ocupacao",
+    label: "Ocupação",
     trendLabel: "1 vaga livre",
     value: "78%",
   },
@@ -115,31 +115,31 @@ export const landlordKpis: LandlordKPI[] = [
 
 export const landlordTasks: LandlordTask[] = [
   {
-    description: "A vaga da UFMG precisa confirmar se contas estao inclusas.",
+    description: "A vaga da UFMG precisa confirmar se contas estão inclusas.",
     href: "/landlord/anuncios/listing-ufmg-ouro/editar",
     id: "task-bills",
     label: "Revisar custos transparentes",
     severity: "critical",
   },
   {
-    description: "Tres leads novos aguardam resposta ha mais de 30 minutos.",
+    description: "Três leads novos aguardam resposta ha mais de 30 minutos.",
     href: "/landlord/leads",
     id: "task-leads",
     label: "Responder leads novos",
     severity: "warning",
   },
   {
-    description: "Adicionar video curto aumenta confianca acima da dobra.",
+    description: "Adicionar vídeo curto aumenta confiança acima da dobra.",
     href: "/landlord/anuncios/listing-puc-coracao/editar",
     id: "task-media",
-    label: "Melhorar midia do anuncio",
+    label: "Melhorar mídia do anúncio",
     severity: "info",
   },
 ];
 
 export const landlordLeads: LandlordLead[] = [
   {
-    budgetLabel: "ate R$ 1.100/mes",
+    budgetLabel: "até R$ 1.100/mês",
     connectedListingId: "listing-puc-coracao",
     id: "lead-marina",
     interactions: [
@@ -155,7 +155,7 @@ export const landlordLeads: LandlordLead[] = [
     visitTimeLabel: "sugeriu amanha 18h30",
   },
   {
-    budgetLabel: "ate R$ 800/mes",
+    budgetLabel: "até R$ 800/mês",
     connectedListingId: "listing-ufmg-ouro",
     id: "lead-lucas",
     interactions: [
@@ -170,7 +170,7 @@ export const landlordLeads: LandlordLead[] = [
     unread: false,
   },
   {
-    budgetLabel: "ate R$ 1.300/mes",
+    budgetLabel: "até R$ 1.300/mês",
     connectedListingId: "listing-savassi-suite",
     id: "lead-beatriz",
     interactions: [
@@ -179,7 +179,7 @@ export const landlordLeads: LandlordLead[] = [
     ],
     lastInteractionLabel: "ontem",
     matchScore: 91,
-    messagePreview: "Enviei os documentos para avaliacao.",
+    messagePreview: "Enviei os documentos para avaliação.",
     name: "Beatriz Costa",
     stage: "proposal",
     unread: false,
@@ -204,7 +204,7 @@ export const landlordApplicants: LandlordApplicant[] = [
     lastActionLabel: "visita marcada para 10 Jun",
     matchScore: 88,
     name: "Lucas Ferreira",
-    nextAction: "Confirmar presenca na visita",
+    nextAction: "Confirmar presença na visita",
     stage: "visit",
   },
   {
@@ -238,14 +238,14 @@ export const landlordCalendar: LandlordCalendarSlot[] = [
     dateLabel: "12 Jun",
     id: "cal-3",
     listingId: "listing-savassi-suite",
-    note: "Bloqueado para manutencao",
+    note: "Bloqueado para manutenção",
     status: "blocked",
   },
   {
     dateLabel: "15 Jul",
     id: "cal-4",
     listingId: "listing-puc-coracao",
-    note: "Disponivel para entrada",
+    note: "Disponível para entrada",
     status: "available",
   },
   {
@@ -259,7 +259,7 @@ export const landlordCalendar: LandlordCalendarSlot[] = [
     dateLabel: "03 Ago",
     id: "cal-6",
     listingId: "listing-ufmg-ouro",
-    note: "Conflito com duracao minima",
+    note: "Conflito com duração mínima",
     status: "conflict",
   },
 ];
@@ -274,15 +274,15 @@ export const landlordPerformance = [
 export const landlordReviews: LandlordReview[] = [
   {
     authorName: "Julia Martins",
-    body: "Casa organizada, custos claros e resposta rapida antes da visita.",
+    body: "Casa organizada, custos claros e resposta rápida antes da visita.",
     id: "review-1",
-    listingTitle: "Republica verificada perto da PUC",
+    listingTitle: "República verificada perto da PUC",
     rating: 5,
     receivedAtLabel: "ha 4 dias",
   },
   {
     authorName: "Rafael Souza",
-    body: "Anuncio bem fiel as fotos. Poderia detalhar melhor regras de visita.",
+    body: "Anúncio bem fiel as fotos. Poderia detalhar melhor regras de visita.",
     id: "review-2",
     listingTitle: "Vaga compartilhada perto da UFMG",
     rating: 4,
@@ -295,13 +295,13 @@ export const landlordListingDraft: LandlordListingDraft = {
   billsIncluded: true,
   depositAmount: 600,
   description:
-    "Quarto mobiliado em republica estudantil com ambiente de estudos e custos transparentes.",
-  houseRules: ["visitas combinadas", "sem fumantes", "silencio depois das 22h"],
+    "Quarto mobiliado em república estudantil com ambiente de estudos e custos transparentes.",
+  houseRules: ["visitas combinadas", "sem fumantes", "silêncio depois das 22h"],
   imageUrl:
     "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
   listingTitle: "Novo quarto perto do campus",
   monthlyRent: 860,
-  neighborhood: "Coracao Eucaristico",
+  neighborhood: "Coração Eucarístico",
   profileTags: ["perfil de estudos", "rotina tranquila", "mobiliado"],
   roomType: "private",
 };

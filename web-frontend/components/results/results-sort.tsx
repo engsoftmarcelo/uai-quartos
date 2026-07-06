@@ -8,7 +8,7 @@ const sortOptions: { label: string; value: ResultsSortKey }[] = [
   { label: "Menor custo mensal", value: "price_asc" },
   { label: "Menor valor hoje", value: "due_today_asc" },
   { label: "Mais perto do campus", value: "commute_asc" },
-  { label: "Melhor avaliacao", value: "rating_desc" },
+  { label: "Melhor avaliação", value: "rating_desc" },
 ];
 
 export function ResultsSort({ value }: { value: ResultsSortKey }) {

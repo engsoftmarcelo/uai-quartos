@@ -16,7 +16,7 @@ export function RecentMessagesPanel({
             Mensagens recentes
           </h2>
           <p className="mt-1 text-sm text-muted">
-            Comunicacao centralizada para reduzir ansiedade.
+            Comunicação centralizada para reduzir ansiedade.
           </p>
         </div>
         <Link
@@ -61,10 +61,10 @@ export function RecentMessagesPanel({
       ) : (
         <StudentEmptyState
           actionHref="/buscar/resultados"
-          actionLabel="Encontrar anuncios"
+          actionLabel="Encontrar anúncios"
           title="Nenhuma conversa ainda"
         >
-          Quando voce chamar um locador, a conversa aparece aqui com o anuncio
+          Quando você chamar um locador, a conversa aparece aqui com o anúncio
           conectado.
         </StudentEmptyState>
       )}

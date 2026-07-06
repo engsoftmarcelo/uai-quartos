@@ -14,10 +14,10 @@ export function SavedListingsPanel({
       <div className="flex items-start justify-between gap-3">
         <div>
           <h2 className="font-display text-xl font-bold text-foreground">
-            Anuncios salvos
+            Anúncios salvos
           </h2>
           <p className="mt-1 text-sm text-muted">
-            Sua shortlist viva, com mudancas recentes.
+            Sua shortlist viva, com mudanças recentes.
           </p>
         </div>
         <Link
@@ -41,7 +41,7 @@ export function SavedListingsPanel({
           actionLabel="Buscar moradias"
           title="Nenhum favorito ainda"
         >
-          Salve anuncios para comparar preco, campus e match sem recomecar a
+          Salve anúncios para comparar preço, campus e match sem recomecar a
           busca.
         </StudentEmptyState>
       )}

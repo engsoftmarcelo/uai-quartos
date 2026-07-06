@@ -106,7 +106,7 @@ export function MapView({ listings }: { listings: ListingSearchResult[] }) {
         <article className="absolute inset-x-3 bottom-3 z-20 grid gap-2 rounded-md border border-border bg-surface p-3 shadow-md">
           <p className="inline-flex items-center gap-1 text-sm font-bold text-brand">
             <MapPin className="h-4 w-4" aria-hidden="true" />
-            {selected.location.commuteMinutes} min ate {selected.location.campusLabel}
+            {selected.location.commuteMinutes} min até {selected.location.campusLabel}
           </p>
           <h2 className="font-display text-lg font-bold text-foreground">
             {selected.title}
@@ -114,7 +114,7 @@ export function MapView({ listings }: { listings: ListingSearchResult[] }) {
           <p className="inline-flex items-center gap-2 text-sm text-muted">
             <Building2 className="h-4 w-4 text-brand" aria-hidden="true" />
             {selected.location.neighborhood} ·{" "}
-            {formatCurrency(selected.pricing.totalMonthly.amount)}/mes
+            {formatCurrency(selected.pricing.totalMonthly.amount)}/mês
           </p>
         </article>
       ) : null}

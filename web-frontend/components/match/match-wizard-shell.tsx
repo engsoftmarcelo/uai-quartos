@@ -206,7 +206,7 @@ export function MatchWizardShell({
             </button>
             <p className="text-center text-sm text-muted">
               {currentStep.optional
-                ? "Opcional: voce pode avancar sem responder."
+                ? "Opcional: você pode avancar sem responder."
                 : "Se faltar algo, eu mostro aqui mesmo, sem modal."}
             </p>
             <button
@@ -306,17 +306,17 @@ function validateStep(step: MatchWizardStep, answer?: MatchAnswerValue) {
     const selected = Array.isArray(answer) ? answer : answer ? [answer] : [];
     const min = step.minSelections ?? 1;
     if (selected.length < min) {
-      return "Escolha pelo menos uma opcao para melhorar seu matching.";
+      return "Escolha pelo menos uma opção para melhorar seu matching.";
     }
   }
 
   if (step.type === "budget") {
     const value = answer as BudgetPreferenceAnswer | undefined;
     if (!value?.maxMonthly || value.maxMonthly < step.min) {
-      return `Informe um orcamento mensal a partir de R$ ${step.min}.`;
+      return `Informe um orçamento mensal a partir de R$ ${step.min}.`;
     }
     if (value.moveInBudget < 0) {
-      return "O valor de entrada nao pode ser negativo.";
+      return "O valor de entrada não pode ser negativo.";
     }
   }
 
@@ -403,7 +403,7 @@ function getInitialRuntime(
       answers: {},
       completed: false,
       currentStepId: fallbackStepId,
-      lastSavedLabel: "Nao foi possivel ler o progresso salvo.",
+      lastSavedLabel: "Não foi possível ler o progresso salvo.",
     };
   }
 }

@@ -4,23 +4,23 @@ import { SectionHeader } from "@/components/ui/section-header";
 const pillars = [
   {
     icon: BadgeCheck,
-    title: "Anuncios verificados",
-    text: "Status visivel para dono validado, checklist de contrato e sinais de perfil estudantil.",
+    title: "Anúncios verificados",
+    text: "Status visível para dono validado, checklist de contrato e sinais de perfil estudantil.",
   },
   {
     icon: ReceiptText,
     title: "Custos transparentes",
-    text: "Preco, contas inclusas e previsoes aparecem antes do contato para reduzir surpresa.",
+    text: "Preço, contas inclusas e previsoes aparecem antes do contato para reduzir surpresa.",
   },
   {
     icon: Headphones,
-    title: "Suporte rapido",
-    text: "Mensagens e estados de erro foram desenhados para orientar o proximo passo sem friccao.",
+    title: "Suporte rápido",
+    text: "Mensagens e estados de erro foram desenhados para orientar o próximo passo sem friccao.",
   },
   {
     icon: Star,
     title: "Reviews reais",
-    text: "A interface privilegia avaliacao, contexto da rotina e comentarios de quem ja visitou.",
+    text: "A interface privilegia avaliação, contexto da rotina e comentários de quem já visitou.",
   },
 ];
 
@@ -29,8 +29,8 @@ export function TrustSection() {
     <section className="uai-section bg-foreground text-white">
       <div className="uai-container grid gap-6">
         <SectionHeader
-          eyebrow="Confianca sem teatro"
-          subtitle="O estudante precisa decidir rapido, mas sem sentir que esta assumindo risco escondido."
+          eyebrow="Confiança sem teatro"
+          subtitle="O estudante precisa decidir rápido, mas sem sentir que esta assumindo risco escondido."
           title="Sinais que ajudam antes de chamar no contato"
         />
         <div className="grid gap-4 md:grid-cols-2 lg:grid-cols-4">

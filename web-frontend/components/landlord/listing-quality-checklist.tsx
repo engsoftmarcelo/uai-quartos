@@ -14,10 +14,10 @@ export function ListingQualityChecklist({
       <div className="flex items-center justify-between gap-3">
         <div>
           <h2 className="font-display text-xl font-bold text-foreground">
-            Qualidade do anuncio
+            Qualidade do anúncio
           </h2>
           <p className="mt-1 text-sm text-muted">
-            Checklist visual para reduzir duvidas antes da publicacao.
+            Checklist visual para reduzir dúvidas antes da públicação.
           </p>
         </div>
         <span className="font-display text-2xl font-bold text-brand">
@@ -44,12 +44,12 @@ export function ListingQualityChecklist({
         ) : (
           <p className="inline-flex items-start gap-2 rounded-md bg-success-soft p-2 text-sm font-medium text-success">
             <CheckCircle2 className="mt-0.5 h-4 w-4" aria-hidden="true" />
-            Anuncio pronto para publicar com confianca.
+            Anúncio pronto para publicar com confiança.
           </p>
         )}
         {complete ? null : (
           <p className="text-sm leading-6 text-muted">
-            Priorize midia real, custo total, regras e disponibilidade. Isso
+            Priorize mídia real, custo total, regras e disponibilidade. Isso
             reduz conversas repetidas e melhora conversao.
           </p>
         )}

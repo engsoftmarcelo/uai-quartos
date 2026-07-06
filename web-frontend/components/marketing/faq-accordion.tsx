@@ -8,7 +8,7 @@ export function FAQAccordion() {
       <div className="uai-container grid gap-6 lg:grid-cols-[22rem_minmax(0,1fr)]">
         <SectionHeader
           eyebrow="FAQ"
-          subtitle="Respostas curtas para tirar a duvida principal antes do usuario buscar."
+          subtitle="Respostas curtas para tirar a dúvida principal antes do usuário buscar."
           title="Perguntas frequentes"
         />
         <div className="grid gap-3">

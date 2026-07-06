@@ -2,25 +2,25 @@ import type { FilterShortcut, ListingSearchResult } from "@/lib/types";
 
 export const resultsPromotedFilters: FilterShortcut[] = [
   {
-    description: "Mostra opcoes com ate 10 minutos de deslocamento.",
+    description: "Mostra opções com até 10 minutos de deslocamento.",
     href: "/buscar/resultados?commuteMax=10",
     id: "commute",
-    label: "ate 10 min do campus",
+    label: "até 10 min do campus",
   },
   {
-    description: "Prioriza aluguel com agua, luz ou internet previstas.",
+    description: "Prioriza aluguel com água, luz ou internet previstas.",
     href: "/buscar/resultados?billsIncluded=true",
     id: "bills",
     label: "contas inclusas",
   },
   {
-    description: "Ambientes com tags de foco, silencio e estudos.",
+    description: "Ambientes com tags de foco, silêncio e estudos.",
     href: "/buscar/resultados?study=true&noise=quiet",
     id: "study",
     label: "bom para estudar",
   },
   {
-    description: "Opcoes mobiliadas para mudar com menos custo inicial.",
+    description: "Opções mobiliadas para mudar com menos custo inicial.",
     href: "/buscar/resultados?furnished=true",
     id: "furnished",
     label: "mobiliado",
@@ -29,7 +29,7 @@ export const resultsPromotedFilters: FilterShortcut[] = [
     description: "Moradias com valor inicial mais baixo.",
     href: "/buscar/resultados?dueTodayMax=700",
     id: "due-today",
-    label: "pagar hoje ate R$ 700",
+    label: "pagar hoje até R$ 700",
   },
 ];
 
@@ -37,7 +37,7 @@ export const listingSearchResults: ListingSearchResult[] = [
   {
     id: "result-puc-coracao",
     slug: "quarto-individual-republica-puc-coracao-eucaristico",
-    title: "Quarto individual mobiliado em republica verificada",
+    title: "Quarto individual mobiliado em república verificada",
     imageUrl:
       "https://images.unsplash.com/photo-1522708323590-d24dbb6b0267?auto=format&fit=crop&w=1200&q=80",
     location: {
@@ -45,7 +45,7 @@ export const listingSearchResults: ListingSearchResult[] = [
       city: "Belo Horizonte",
       commuteMinutes: 8,
       coordinates: { lat: -19.9236, lng: -43.9928 },
-      neighborhood: "Coracao Eucaristico",
+      neighborhood: "Coração Eucarístico",
       state: "MG",
     },
     pricing: {
@@ -117,7 +117,7 @@ export const listingSearchResults: ListingSearchResult[] = [
   {
     id: "result-savassi-suite",
     slug: "suite-compacta-contas-inclusas-savassi",
-    title: "Suite compacta com contas inclusas na Savassi",
+    title: "Suíte compacta com contas inclusas na Savassi",
     imageUrl:
       "https://images.unsplash.com/photo-1505693416388-ac5ce068fe85?auto=format&fit=crop&w=1200&q=80",
     location: {
@@ -165,7 +165,7 @@ export const listingSearchResults: ListingSearchResult[] = [
       city: "Belo Horizonte",
       commuteMinutes: 11,
       coordinates: { lat: -19.9417, lng: -43.9322 },
-      neighborhood: "Sao Pedro",
+      neighborhood: "São Pedro",
       state: "MG",
     },
     pricing: {
@@ -227,7 +227,7 @@ export const listingSearchResults: ListingSearchResult[] = [
       ageRange: "18-25",
       compatibilityScore: 81,
       genderPolicy: "men_only",
-      tags: ["orcamento leve", "casa movimentada", "sem pets"],
+      tags: ["orçamento leve", "casa movimentada", "sem pets"],
     },
     responseTimeLabel: "responde hoje",
     rating: 4.6,
@@ -237,7 +237,7 @@ export const listingSearchResults: ListingSearchResult[] = [
   {
     id: "result-santa-efigenia",
     slug: "suite-silenciosa-santa-efigenia",
-    title: "Suite silenciosa para rotina de estudos na Santa Efigenia",
+    title: "Suíte silenciosa para rotina de estudos na Santa Efigenia",
     imageUrl:
       "https://images.unsplash.com/photo-1560185127-6ed189bf02f4?auto=format&fit=crop&w=1200&q=80",
     location: {

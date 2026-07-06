@@ -65,6 +65,13 @@ export function AuthProvider({ children }: { children: ReactNode }) {
   }, []);
 
   useEffect(() => {
+    // Sem backend configurado não há sessão para restaurar; evita
+    // requisições com falha a cada carregamento de página.
+    if (!process.env.NEXT_PUBLIC_API_URL) {
+      setIsLoading(false);
+      return;
+    }
+
     api
       .post<AuthResponse>("/auth/refresh-tokens", {})
       .then(({ data }) => applySession(data))

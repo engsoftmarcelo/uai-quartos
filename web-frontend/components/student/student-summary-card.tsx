@@ -36,7 +36,7 @@ export function StudentSummaryCard({
           label="Budget"
           value={`${formatCurrency(preferences.budgetMax.amount)}/mes`}
         />
-        <Fact label="Deslocamento" value={`ate ${preferences.commuteMaxMinutes} min`} />
+        <Fact label="Deslocamento" value={`até ${preferences.commuteMaxMinutes} min`} />
       </div>
 
       <div className="grid gap-2">
@@ -65,7 +65,7 @@ export function StudentSummaryCard({
         >
           {profile.verificationStatus === "verified"
             ? "verificada"
-            : "verificacao pendente"}
+            : "verificação pendente"}
         </Badge>
       </div>
 

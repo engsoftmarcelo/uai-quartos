@@ -31,18 +31,18 @@ export function BudgetStep({
         onChange={(next) => update({ maxMonthly: next })}
       />
       <BudgetInput
-        label="Valor que voce consegue pagar hoje"
+        label="Valor que você consegue pagar hoje"
         max={step.max}
         min={0}
         value={value.moveInBudget}
         onChange={(next) => update({ moveInBudget: next })}
       />
       <div className="rounded-md bg-surface-muted p-3 text-sm leading-6 text-muted">
-        Confirmacao: buscar moradias ate{" "}
+        Confirmação: buscar moradias até{" "}
         <span className="font-bold text-foreground">
           {formatCurrency(value.maxMonthly)}
         </span>{" "}
-        por mes, com entrada perto de{" "}
+        por mês, com entrada perto de{" "}
         <span className="font-bold text-foreground">
           {formatCurrency(value.moveInBudget)}
         </span>

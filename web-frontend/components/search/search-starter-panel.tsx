@@ -17,11 +17,11 @@ export function SearchStarterPanel({ values }: SearchStarterPanelProps) {
             Busca de moradia
           </p>
           <h1 className="font-display text-3xl font-bold text-balance text-foreground sm:text-4xl">
-            Encontre um quarto perto da faculdade, no seu orcamento.
+            Encontre um quarto perto da faculdade, no seu orçamento.
           </h1>
           <p className="max-w-2xl text-pretty text-base leading-7 text-muted">
-            Refine por campus, bairro, preco, data de entrada e sinais de
-            confianca. A URL da busca fica compartilhavel e pronta para SEO.
+            Refine por campus, bairro, preço, data de entrada e sinais de
+            confiança. A URL da busca fica compartilhável e pronta para SEO.
           </p>
         </div>
         <Link
@@ -38,10 +38,10 @@ export function SearchStarterPanel({ values }: SearchStarterPanelProps) {
       <InlineMessage
         icon={<ShieldCheck className="h-5 w-5" />}
         tone="success"
-        title="Compare com mais seguranca"
+        title="Compare com mais segurança"
       >
-        A busca prioriza clareza: preco, distancia, status do anuncio e reviews
-        ficam visiveis antes do contato.
+        A busca prioriza clareza: preço, distância, status do anúncio e reviews
+        ficam visíveis antes do contato.
       </InlineMessage>
     </section>
   );

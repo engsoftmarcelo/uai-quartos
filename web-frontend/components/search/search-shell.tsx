@@ -22,7 +22,7 @@ export function SearchShell() {
           }
           eyebrow="Busca mobile-first"
           subtitle="Mocks tipados e isolados sustentam a UI enquanto os adapters conectam as APIs existentes."
-          title="Compare quartos por preco, localizacao e sinais de confianca"
+          title="Compare quartos por preço, localização e sinais de confiança"
         />
 
         <form
@@ -41,13 +41,13 @@ export function SearchShell() {
             options={[
               { label: "Individual", value: "private" },
               { label: "Partilhado", value: "shared" },
-              { label: "Suite", value: "suite" },
+              { label: "Suíte", value: "suite" },
             ]}
             placeholder="Todos"
           />
           <Input
             inputMode="numeric"
-            label="Preco maximo"
+            label="Preço máximo"
             name="maxPrice"
             placeholder="R$ 1.200"
           />
@@ -58,8 +58,8 @@ export function SearchShell() {
           </div>
           <div className="lg:col-span-4">
             <Checkbox
-              description="Mostra primeiro anuncios com dono validado e checklist de contrato."
-              label="Priorizar anuncios verificados"
+              description="Mostra primeiro anúncios com dono validado e checklist de contrato."
+              label="Priorizar anúncios verificados"
               name="onlyVerified"
             />
           </div>

@@ -20,8 +20,8 @@ import { cn } from "@/lib/utils";
 
 const quickTemplates = [
   "Tenho interesse e posso visitar esta semana.",
-  "Voce confirma o custo total e o valor para entrar?",
-  "A casa aceita minha rotina de estudos e silencio a noite?",
+  "Você confirma o custo total e o valor para entrar?",
+  "A casa aceita minha rotina de estudos e silêncio a noite?",
 ];
 
 export function ConversationPane({
@@ -34,7 +34,7 @@ export function ConversationPane({
 
   function submitMessage() {
     if (!draft.trim()) {
-      setStatus("Escreva uma mensagem ou escolha um template rapido.");
+      setStatus("Escreva uma mensagem ou escolha um template rápido.");
       return;
     }
 
@@ -51,11 +51,11 @@ export function ConversationPane({
               {conversation.participantName}
             </p>
             <h2 className="font-display text-2xl font-bold text-foreground">
-              Conversa conectada ao anuncio
+              Conversa conectada ao anúncio
             </h2>
           </div>
           <Badge tone={conversation.readState === "unread" ? "accent" : "neutral"}>
-            {conversation.readState === "unread" ? "nao lida" : "lida"}
+            {conversation.readState === "unread" ? "não lida" : "lida"}
           </Badge>
         </div>
 
@@ -78,7 +78,7 @@ export function ConversationPane({
             </span>
             <span className="text-sm text-muted">
               {formatCurrency(conversation.connectedListing.totalMonthly.amount)}
-              /mes - {conversation.connectedListing.matchScore}% match
+              /mês - {conversation.connectedListing.matchScore}% match
             </span>
           </span>
           <ArrowRight className="mt-2 h-4 w-4 text-muted" aria-hidden="true" />

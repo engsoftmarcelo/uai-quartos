@@ -6,7 +6,7 @@ import { createStudentDashboardAdapter } from "@/lib/adapters";
 export const metadata: Metadata = {
   title: "Reservas e candidaturas",
   description:
-    "Acompanhe status, timeline, documentos pendentes e historico de candidaturas.",
+    "Acompanhe status, timeline, documentos pendentes e histórico de candidaturas.",
 };
 
 export default async function StudentReservationsPage() {
@@ -15,7 +15,7 @@ export default async function StudentReservationsPage() {
 
   return (
     <StudentDashboardShell
-      subtitle="Veja o status real de cada candidatura e o proximo passo recomendado."
+      subtitle="Veja o status real de cada candidatura e o próximo passo recomendado."
       title="Reservas e candidaturas"
     >
       <ApplicationStatusPanel applications={applications} />

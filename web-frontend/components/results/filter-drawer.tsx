@@ -35,7 +35,7 @@ export function FilterDrawer({ filters }: { filters: SearchResultFilters }) {
                   Refinar resultados
                 </h2>
                 <p className="mt-1 text-sm text-muted">
-                  Aplique filtros claros e mantenha a busca compartilhavel por
+                  Aplique filtros claros e mantenha a busca compartilhável por
                   URL.
                 </p>
               </div>

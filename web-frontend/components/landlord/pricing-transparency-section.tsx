@@ -40,7 +40,7 @@ export function PricingTransparencySection({
         tone="success"
         title="Sem custo escondido"
       >
-        Mostre o total mensal estimado e deixe claro se contas estao inclusas.
+        Mostre o total mensal estimado e deixe claro se contas estão inclusas.
       </InlineMessage>
       <div className="grid gap-3 sm:grid-cols-2">
         <Input
@@ -52,7 +52,7 @@ export function PricingTransparencySection({
           value={monthlyRent}
         />
         <Input
-          label="Caucao / deposito"
+          label="Caução / depósito"
           leadingIcon={<Banknote className="h-4 w-4" aria-hidden="true" />}
           min={0}
           onChange={(event) => onDepositChange(Number(event.target.value))}
@@ -62,7 +62,7 @@ export function PricingTransparencySection({
       </div>
       <Checkbox
         checked={billsIncluded}
-        description="Quando ativado, o anuncio comunica que contas recorrentes ja entram no valor."
+        description="Quando ativado, o anúncio comunica que contas recorrentes já entram no valor."
         label="Contas inclusas"
         onChange={(event) => onBillsIncludedChange(event.target.checked)}
       />

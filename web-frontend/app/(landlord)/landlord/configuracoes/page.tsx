@@ -5,22 +5,22 @@ import { Badge } from "@/components/ui/badge";
 import { InlineMessage } from "@/components/ui/inline-message";
 
 export const metadata: Metadata = {
-  title: "Configuracoes do locador",
+  title: "Configurações do locador",
   description:
-    "Configuracoes operacionais para notificacoes, mensagens, pagamentos, privacidade e seguranca.",
+    "Configurações operacionais para notificações, mensagens, pagamentos, privacidade e segurança.",
 };
 
 const settings = [
   {
     description:
-      "Defina alertas para leads novos, visitas, documentos e conflitos de calendario.",
+      "Defina alertas para leads novos, visitas, documentos e conflitos de calendário.",
     icon: Bell,
-    label: "Notificacoes operacionais",
+    label: "Notificações operacionais",
     status: "ativo",
   },
   {
     description:
-      "Templates, SLA de resposta e regras de comunicacao segura com estudantes.",
+      "Templates, SLA de resposta e regras de comunicação segura com estudantes.",
     icon: MessageCircle,
     label: "Mensagens",
     status: "preparado",
@@ -34,7 +34,7 @@ const settings = [
   },
   {
     description:
-      "Controle dados exibidos no perfil publico e documentos usados para verificacao.",
+      "Controle dados exibidos no perfil público e documentos usados para verificação.",
     icon: LockKeyhole,
     label: "Privacidade",
     status: "revisar",
@@ -45,15 +45,15 @@ export default function LandlordSettingsPage() {
   return (
     <LandlordDashboardShell
       subtitle="Controles operacionais preparados para evoluir com APIs existentes."
-      title="Configuracoes"
+      title="Configurações"
     >
       <InlineMessage
         icon={<ShieldCheck className="h-5 w-5" />}
         tone="neutral"
         title="Sem backend novo nesta fase"
       >
-        Os controles abaixo sao estrutura visual e arquitetural para conexao
-        futura com notificacoes, mensagens, financeiro e privacidade.
+        Os controles abaixo são estrutura visual e arquitetural para conexão
+        futura com notificações, mensagens, financeiro e privacidade.
       </InlineMessage>
 
       <section className="grid gap-3 sm:grid-cols-2">

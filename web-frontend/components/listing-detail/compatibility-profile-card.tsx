@@ -19,7 +19,7 @@ export function CompatibilityProfileCard({
       <div className="grid gap-1">
         <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-brand">
           <HeartHandshake className="h-4 w-4" aria-hidden="true" />
-          perfil de convivencia
+          perfil de convivência
         </p>
         <h2 className="font-display text-2xl font-bold text-foreground">
           Com quem vou morar
@@ -31,13 +31,13 @@ export function CompatibilityProfileCard({
           {listing.roommateProfile.compatibilityScore}%
         </p>
         <p className="text-sm leading-6 text-brand-strong">
-          Compatibilidade estimada pelo perfil declarado do anuncio. A decisao
+          Compatibilidade estimada pelo perfil declarado do anúncio. A decisao
           final continua no contato e nos fluxos existentes.
         </p>
       </div>
 
       <div className="grid gap-2">
-        <Info label="Politica da casa" value={genderLabel[listing.roommateProfile.genderPolicy]} />
+        <Info label="Política da casa" value={genderLabel[listing.roommateProfile.genderPolicy]} />
         <Info label="Faixa etaria" value={listing.roommateProfile.ageRange} />
         <Info label="Rotina" value={listing.roommateProfile.routine} />
       </div>
@@ -56,7 +56,7 @@ export function CompatibilityProfileCard({
 
       <div className="grid gap-2 rounded-md bg-surface-muted p-3">
         <h3 className="text-sm font-bold text-muted-strong">
-          Ideal para voce se...
+          Ideal para você se...
         </h3>
         <ul className="grid gap-2 text-sm leading-6 text-muted">
           {listing.idealFor.map((item) => (

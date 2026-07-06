@@ -24,7 +24,7 @@ export function ProfileCompletionCard({
             Perfil do estudante
           </h2>
           <p className="mt-1 text-sm text-muted">
-            Dados usados para candidaturas e recomendacoes.
+            Dados usados para candidaturas e recomendações.
           </p>
         </div>
       </div>
@@ -55,7 +55,7 @@ export function ProfileCompletionCard({
         className="inline-flex h-11 items-center justify-center rounded-md bg-brand px-4 text-sm font-bold text-white transition hover:bg-brand-strong"
         href="/match"
       >
-        Atualizar preferencias
+        Atualizar preferências
       </Link>
     </section>
   );

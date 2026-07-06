@@ -8,7 +8,7 @@ import { createLandlordDashboardAdapter } from "@/lib/adapters";
 export const metadata: Metadata = {
   title: "Insights",
   description:
-    "Insights de inventario com visualizacoes, contatos, candidaturas, conversao, qualidade e reviews.",
+    "Insights de inventário com visualizações, contatos, candidaturas, conversao, qualidade e reviews.",
 };
 
 export default async function LandlordInsightsPage() {
@@ -20,7 +20,7 @@ export default async function LandlordInsightsPage() {
 
   return (
     <LandlordDashboardShell
-      subtitle="Transforme dados operacionais em decisoes para melhorar ocupacao."
+      subtitle="Transforme dados operacionais em decisoes para melhorar ocupação."
       title="Insights"
     >
       <KPIGrid kpis={overview.kpis} />

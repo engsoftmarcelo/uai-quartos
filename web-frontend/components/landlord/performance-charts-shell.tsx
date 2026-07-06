@@ -12,7 +12,7 @@ const metricLabels: Record<Metric, string> = {
   applications: "Candidaturas",
   contacts: "Contatos",
   conversionRate: "Conversao",
-  views: "Visualizacoes",
+  views: "Visualizações",
 };
 
 export function PerformanceChartsShell({
@@ -39,7 +39,7 @@ export function PerformanceChartsShell({
             Insights
           </p>
           <h2 className="mt-1 font-display text-2xl font-bold text-foreground">
-            Performance do inventario
+            Performance do inventário
           </h2>
           <p className="mt-1 text-sm text-muted">
             Acompanhe visibilidade, contatos, candidaturas e taxa de conversao.
@@ -102,7 +102,7 @@ export function PerformanceChartsShell({
               {listing.completionScore}%
             </p>
             <p className="text-xs font-bold uppercase tracking-[0.1em] text-muted">
-              qualidade do anuncio
+              qualidade do anúncio
             </p>
           </article>
         ))}

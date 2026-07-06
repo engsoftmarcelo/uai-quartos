@@ -15,7 +15,7 @@ import { createStudentDashboardAdapter } from "@/lib/adapters";
 export const metadata: Metadata = {
   title: "Dashboard do estudante",
   description:
-    "Home logada do estudante com proximos passos, favoritos, mensagens, candidaturas e recomendacoes.",
+    "Home logada do estudante com próximos passos, favoritos, mensagens, candidaturas e recomendações.",
 };
 
 export default async function StudentDashboardPage() {
@@ -37,7 +37,7 @@ export default async function StudentDashboardPage() {
           <ArrowRight className="h-4 w-4" aria-hidden="true" />
         </Link>
       }
-      subtitle="Acompanhe conversas, favoritos e candidaturas sem perder o proximo passo."
+      subtitle="Acompanhe conversas, favoritos e candidaturas sem perder o próximo passo."
       title={`Ola, ${overview.profile.name.split(" ")[0]}`}
     >
       <div className="grid gap-4 lg:grid-cols-[minmax(0,1fr)_22rem]">
@@ -51,7 +51,7 @@ export default async function StudentDashboardPage() {
           title={
             nextPendingItem?.label ??
             nextApplication?.nextAction ??
-            "Continue sua busca com seguranca"
+            "Continue sua busca com segurança"
           }
         />
       </div>
@@ -74,7 +74,7 @@ export default async function StudentDashboardPage() {
               Alertas de disponibilidade
             </p>
             <h2 className="mt-1 font-display text-2xl font-bold text-foreground">
-              Oportunidades que merecem atencao
+              Oportunidades que merecem atenção
             </h2>
           </div>
           <Badge tone="signal">{overview.alerts.length} ativos</Badge>
@@ -97,7 +97,7 @@ export default async function StudentDashboardPage() {
         <div>
           <p className="inline-flex items-center gap-2 text-sm font-bold uppercase tracking-[0.12em] text-brand">
             <Sparkles className="h-4 w-4" aria-hidden="true" />
-            Recomendacoes
+            Recomendações
           </p>
           <h2 className="mt-1 font-display text-2xl font-bold text-foreground">
             Combinam com campus, budget e match

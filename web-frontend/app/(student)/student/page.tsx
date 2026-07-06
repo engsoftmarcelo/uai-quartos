@@ -2,9 +2,9 @@ import type { Metadata } from "next";
 import { ProductWorkspace } from "@/components/shared/product-workspace";
 
 export const metadata: Metadata = {
-  title: "Area do estudante",
+  title: "Área do estudante",
   description:
-    "Workspace preservado com integracoes existentes de autenticacao, busca e mensagens.",
+    "Workspace preservado com integrações existentes de autenticação, busca e mensagens.",
 };
 
 export default function StudentPage() {

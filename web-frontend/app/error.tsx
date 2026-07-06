@@ -24,10 +24,10 @@ export default function Error({
       <InlineMessage
         icon={<AlertTriangle className="h-5 w-5" />}
         tone="danger"
-        title="Nao foi possivel carregar esta area."
+        title="Não foi possível carregar esta área."
       >
-        Tente novamente. Se continuar, a equipe tecnica pode localizar o erro
-        pelo identificador da requisicao.
+        Tente novamente. Se continuar, a equipe técnica pode localizar o erro
+        pelo identificador da requisição.
       </InlineMessage>
       <Button leftIcon={<RotateCw className="h-4 w-4" />} onClick={reset}>
         Recarregar

@@ -12,23 +12,23 @@ import { featuredListings, siteConfig } from "@/lib/constants";
 
 export function generateMetadata(): Metadata {
   return {
-    title: "Moradia universitaria perto da faculdade",
+    title: "Moradia universitária perto da faculdade",
     description:
-      "Encontre republicas e quartos partilhados por campus, bairro, orcamento e sinais de confianca no UAI QUARTOS.",
+      "Encontre repúblicas e quartos partilhados por campus, bairro, orçamento e sinais de confiança no UAI QUARTOS.",
     alternates: {
       canonical: "/",
     },
     keywords: [
-      "moradia universitaria",
-      "republica estudantil",
+      "moradia universitária",
+      "república estudantil",
       "quarto compartilhado",
       "quarto perto da faculdade",
       "aluguel para estudantes",
     ],
     openGraph: {
-      title: "UAI QUARTOS | Moradia universitaria perto da faculdade",
+      title: "UAI QUARTOS | Moradia universitária perto da faculdade",
       description:
-        "Busque por campus, compare preco e veja sinais de confianca antes de chamar no contato.",
+        "Busque por campus, compare preço e veja sinais de confiança antes de chamar no contato.",
       url: "/",
       type: "website",
     },

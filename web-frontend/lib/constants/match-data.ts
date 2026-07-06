@@ -19,22 +19,22 @@ export const matchWizardSteps: MatchWizardStep[] = [
       {
         description: "Se adapta bem, desde que os combinados estejam claros.",
         id: "flexible",
-        label: "Rotina flexivel",
+        label: "Rotina flexível",
       },
     ],
     title: "Como e sua rotina de sono?",
     type: "multi-choice",
     why:
-      "Sono desalinhado vira atrito rapido. A gente usa isso para sugerir casas com rotina parecida.",
+      "Sono desalinhado vira atrito rápido. A gente usa isso para sugerir casas com rotina parecida.",
   },
   {
-    category: "Horarios",
+    category: "Horários",
     fields: [
       {
         defaultValue: 7,
         highLabel: "mais tarde",
         id: "wakeHour",
-        label: "Horario de acordar",
+        label: "Horário de acordar",
         lowLabel: "mais cedo",
         max: 12,
         min: 5,
@@ -45,7 +45,7 @@ export const matchWizardSteps: MatchWizardStep[] = [
         defaultValue: 23,
         highLabel: "mais tarde",
         id: "sleepHour",
-        label: "Horario de dormir",
+        label: "Horário de dormir",
         lowLabel: "mais cedo",
         max: 26,
         min: 20,
@@ -54,10 +54,10 @@ export const matchWizardSteps: MatchWizardStep[] = [
       },
     ],
     id: "sleep-hours",
-    title: "Quais horarios costumam funcionar para voce?",
+    title: "Quais horários costumam funcionar para você?",
     type: "range",
     why:
-      "Horarios ajudam a evitar choque de luz, barulho e uso de areas compartilhadas.",
+      "Horários ajudam a evitar choque de luz, barulho e uso de áreas compartilhadas.",
   },
   {
     category: "Limpeza",
@@ -70,29 +70,29 @@ export const matchWizardSteps: MatchWizardStep[] = [
         label: "Muito organizada",
       },
       {
-        description: "Mantem o basico e topa escala compartilhada.",
+        description: "Mantem o básico e topa escala compartilhada.",
         id: "balanced",
         label: "Equilibrada",
       },
       {
-        description: "Prefere uma casa mais relaxada, sem rigidez diaria.",
+        description: "Prefere uma casa mais relaxada, sem rigidez diária.",
         id: "relaxed",
         label: "Mais tranquila",
       },
     ],
-    title: "Qual e seu nivel de organizacao?",
+    title: "Qual e seu nível de organização?",
     type: "multi-choice",
     why:
-      "Limpeza e uma das maiores fontes de conflito em republicas. Melhor alinhar cedo.",
+      "Limpeza e uma das maiores fontes de conflito em repúblicas. Melhor alinhar cedo.",
   },
   {
     category: "Estudos",
     fields: [
       {
         defaultValue: 70,
-        highLabel: "silencio total",
+        highLabel: "silêncio total",
         id: "studyQuiet",
-        label: "Silencio para estudar",
+        label: "Silêncio para estudar",
         lowLabel: "ruido ok",
         max: 100,
         min: 0,
@@ -101,7 +101,7 @@ export const matchWizardSteps: MatchWizardStep[] = [
       },
     ],
     id: "study-noise",
-    title: "Quanto silencio voce precisa para estudar?",
+    title: "Quanto silêncio você precisa para estudar?",
     type: "range",
     why:
       "Isso ajuda a diferenciar casas focadas em estudo de casas mais sociais.",
@@ -127,10 +127,10 @@ export const matchWizardSteps: MatchWizardStep[] = [
         label: "Quase nunca",
       },
     ],
-    title: "Como voce lida com visitas e hospedes?",
+    title: "Como você lida com visitas e hospedes?",
     type: "multi-choice",
     why:
-      "Visitas mudam ruido, privacidade e seguranca percebida na casa.",
+      "Visitas mudam ruido, privacidade e segurança percebida na casa.",
   },
   {
     category: "Social",
@@ -139,7 +139,7 @@ export const matchWizardSteps: MatchWizardStep[] = [
         defaultValue: 40,
         highLabel: "bem social",
         id: "socialEnergy",
-        label: "Festas e socializacao",
+        label: "Festas e socialização",
         lowLabel: "bem calma",
         max: 100,
         min: 0,
@@ -148,21 +148,21 @@ export const matchWizardSteps: MatchWizardStep[] = [
       },
     ],
     id: "social-energy",
-    title: "Que energia social combina com voce?",
+    title: "Que energia social combina com você?",
     type: "range",
     why:
       "Ajuda a sugerir casas com clima parecido: silenciosas, equilibradas ou mais movimentadas.",
   },
   {
-    category: "Regras sensiveis",
+    category: "Regras sensíveis",
     id: "sensitive-rules",
     mode: "multiple",
     optional: true,
     options: [
       {
-        description: "Nao quer morar com fumantes dentro de casa.",
+        description: "Não quer morar com fumantes dentro de casa.",
         id: "no-smoking",
-        label: "Nao fumante",
+        label: "Não fumante",
       },
       {
         description: "Prefere ou precisa de casa que aceite pets.",
@@ -180,10 +180,10 @@ export const matchWizardSteps: MatchWizardStep[] = [
         label: "Noites silenciosas",
       },
     ],
-    title: "Alguma regra sensivel para voce?",
+    title: "Alguma regra sensível para você?",
     type: "multi-choice",
     why:
-      "Essas preferencias costumam ser decisivas, mas voce pode pular se ainda nao souber.",
+      "Essas preferências costumam ser decisivas, mas você pode pular se ainda não souber.",
   },
   {
     category: "Conforto",
@@ -205,15 +205,15 @@ export const matchWizardSteps: MatchWizardStep[] = [
     title: "Qual temperatura de casa te deixa confortavel?",
     type: "range",
     why:
-      "Parece pequeno, mas ventilador, janela e ar condicionado afetam convivencia todos os dias.",
+      "Parece pequeno, mas ventilador, janela e ar condicionado afetam convivência todos os dias.",
   },
   {
-    category: "Orcamento",
+    category: "Orçamento",
     id: "budget",
     max: 2500,
     min: 400,
     suggestedMax: 1200,
-    title: "Qual faixa de orcamento funciona agora?",
+    title: "Qual faixa de orçamento funciona agora?",
     type: "budget",
     why:
       "A gente separa custo mensal e valor de entrada para evitar surpresa na decisao.",
@@ -224,14 +224,14 @@ export const matchWizardSteps: MatchWizardStep[] = [
     mode: "multiple",
     options: [
       {
-        description: "Menos troca de moradores e rotina mais previsivel.",
+        description: "Menos troca de moradores e rotina mais previsível.",
         id: "long-term",
-        label: "Longa duracao",
+        label: "Longa duração",
       },
       {
-        description: "Bom para intercambio, estagio ou semestre especifico.",
+        description: "Bom para intercambio, estágio ou semestre específico.",
         id: "short-term",
-        label: "Curta duracao",
+        label: "Curta duração",
       },
       {
         description: "Casa com combinados, estudos e menos barulho.",
@@ -239,15 +239,15 @@ export const matchWizardSteps: MatchWizardStep[] = [
         label: "Casa de estudos",
       },
       {
-        description: "Casa com convivencia mais social.",
+        description: "Casa com convivência mais social.",
         id: "social-house",
         label: "Casa social",
       },
     ],
-    title: "Que estilo de casa voce esta buscando?",
+    title: "Que estilo de casa você esta buscando?",
     type: "multi-choice",
     why:
-      "Estilo de casa ajuda a comparar expectativa, duracao minima e rotina de convivencia.",
+      "Estilo de casa ajuda a comparar expectativa, duração mínima e rotina de convivência.",
   },
   {
     category: "Limites",
@@ -272,30 +272,30 @@ export const matchWizardSteps: MatchWizardStep[] = [
       {
         description: "Evitar custo inicial alto.",
         id: "high-deposit",
-        label: "Caucao alta",
+        label: "Caução alta",
       },
     ],
-    title: "Tem algo que seria um nao imediato?",
+    title: "Tem algo que seria um não imediato?",
     type: "deal-breakers",
     why:
-      "Deal breakers ajudam o matching futuro a esconder opcoes que so fariam voce perder tempo.",
+      "Deal breakers ajudam o matching futuro a esconder opções que so fariam você perder tempo.",
   },
   {
     category: "Prioridades",
     id: "optional-info",
     optional: true,
     placeholder:
-      "Ex.: preciso de silencio em semana de prova, gosto de cozinhar a noite, tenho alergia a gato...",
+      "Ex.: preciso de silêncio em semana de prova, gosto de cozinhar a noite, tenho alergia a gato...",
     priorityOptions: [
       { id: "near-campus", label: "perto do campus" },
       { id: "low-cost", label: "baixo custo" },
-      { id: "quiet", label: "silencio" },
+      { id: "quiet", label: "silêncio" },
       { id: "friendly-roommates", label: "pessoas parecidas" },
       { id: "private-room", label: "quarto individual" },
     ],
     title: "Quer deixar algum contexto extra?",
     type: "optional-info",
     why:
-      "Contexto livre ajuda a equipe e o matching futuro a entender detalhes que escolhas fechadas nao capturam.",
+      "Contexto livre ajuda a equipe e o matching futuro a entender detalhes que escolhas fechadas não capturam.",
   },
 ];

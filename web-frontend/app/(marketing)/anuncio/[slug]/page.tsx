@@ -38,7 +38,7 @@ export async function generateMetadata({
 
   if (!listing) {
     return {
-      title: "Anuncio nao encontrado",
+      title: "Anúncio não encontrado",
     };
   }
 
@@ -46,7 +46,7 @@ export async function generateMetadata({
     title: `${listing.title} em ${listing.location.neighborhood}`,
     description: `${listing.summary} Custo mensal estimado de ${formatCurrency(
       listing.pricing.monthlyTotal.amount,
-    )}, ${listing.location.commuteMinutes} min ate ${listing.campus.label}.`,
+    )}, ${listing.location.commuteMinutes} min até ${listing.campus.label}.`,
     alternates: {
       canonical: `/anuncio/${listing.slug}`,
     },
@@ -88,10 +88,10 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
             <section className="grid gap-4 rounded-md border border-border bg-surface p-4 shadow-xs">
               <div className="grid gap-2">
                 <p className="text-sm font-bold uppercase tracking-[0.12em] text-brand">
-                  descricao
+                  descrição
                 </p>
                 <h2 className="font-display text-2xl font-bold text-foreground">
-                  O que voce precisa saber
+                  O que você precisa saber
                 </h2>
                 <p className="text-pretty text-sm leading-6 text-muted">
                   {listing.description}
@@ -103,7 +103,7 @@ export default async function ListingDetailPage({ params }: ListingPageProps) {
                   values={[
                     `${listing.room.areaM2} m2`,
                     listing.room.bedLabel,
-                    listing.room.furnished ? "mobiliado" : "sem mobilia",
+                    listing.room.furnished ? "mobiliado" : "sem mobília",
                     listing.room.privateBathroom
                       ? "banheiro privativo"
                       : "banheiro compartilhado",

@@ -21,7 +21,7 @@ const toneClasses: Record<ToastTone, string> = {
 export function ToastRegion({ messages = [] }: { messages?: ToastMessage[] }) {
   return (
     <section
-      aria-label="Notificacoes"
+      aria-label="Notificações"
       aria-live="polite"
       className="pointer-events-none fixed bottom-4 right-4 z-[var(--z-toast)] grid w-[min(22rem,calc(100vw-2rem))] gap-2"
     >

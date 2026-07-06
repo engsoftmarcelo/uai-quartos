@@ -4,9 +4,9 @@ import { LandlordDashboardShell } from "@/components/landlord/landlord-dashboard
 import { createLandlordDashboardAdapter } from "@/lib/adapters";
 
 export const metadata: Metadata = {
-  title: "Calendario",
+  title: "Calendário",
   description:
-    "Calendario operacional de disponibilidade por anuncio, visitas, bloqueios e conflitos.",
+    "Calendário operacional de disponibilidade por anúncio, visitas, bloqueios e conflitos.",
 };
 
 export default async function LandlordCalendarPage() {
@@ -19,7 +19,7 @@ export default async function LandlordCalendarPage() {
   return (
     <LandlordDashboardShell
       subtitle="Evite conflitos e mantenha disponibilidade clara para cada quarto."
-      title="Calendario"
+      title="Calendário"
     >
       <AvailabilityCalendar listings={listings} slots={slots} />
     </LandlordDashboardShell>

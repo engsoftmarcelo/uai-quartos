@@ -24,10 +24,10 @@ export function MatchProfilePreview({
           perfil em construcao
         </p>
         <h2 className="font-display text-xl font-bold text-foreground">
-          Seu perfil de convivencia
+          Seu perfil de convivência
         </h2>
         <p className="text-sm leading-6 text-muted">
-          Esta previa sera usada futuramente no score de compatibilidade.
+          Esta previa será usada futuramente no score de compatibilidade.
         </p>
       </div>
 
@@ -44,7 +44,7 @@ export function MatchProfilePreview({
         />
         <PreviewLine
           icon={<WalletCards className="h-4 w-4" aria-hidden="true" />}
-          label="Orcamento"
+          label="Orçamento"
           value={profile.budgetLabel}
         />
         <PreviewLine
@@ -67,7 +67,7 @@ export function MatchProfilePreview({
 
       {profile.dealBreakers.length ? (
         <div className="grid gap-2 rounded-md bg-danger-soft p-3">
-          <p className="text-sm font-bold text-danger">Nao negociaveis</p>
+          <p className="text-sm font-bold text-danger">Não negociáveis</p>
           <p className="text-sm leading-6 text-danger">
             {profile.dealBreakers.join(", ")}
           </p>
@@ -102,16 +102,16 @@ export function buildMatchProfileSummary(
 
   const studyLabel = studyNoise
     ? studyNoise.studyQuiet >= 70
-      ? "precisa de silencio para estudar"
+      ? "precisa de silêncio para estudar"
       : "tolera ruido moderado"
-    : "preferencia de estudo a definir";
+    : "preferência de estudo a definir";
 
   return {
     budgetLabel: budget
-      ? `${formatCurrency(budget.maxMonthly)}/mes, entrada ${formatCurrency(
+      ? `${formatCurrency(budget.maxMonthly)}/mês, entrada ${formatCurrency(
           budget.moveInBudget,
         )}`
-      : "orcamento a definir",
+      : "orçamento a definir",
     dealBreakers: dealBreakers.map((item) => labelFor("deal-breakers", item)),
     houseStyle: houseStyle.map((item) => labelFor("house-style", item)),
     profileTags,
@@ -152,18 +152,18 @@ function labelFor(group: string, value?: string) {
   const labels: Record<string, Record<string, string>> = {
     "deal-breakers": {
       "frequent-parties": "sem festas frequentes",
-      "high-deposit": "sem caucao alta",
+      "high-deposit": "sem caução alta",
       "indoor-smoking": "sem fumante dentro",
       "no-cleaning-plan": "precisa de limpeza combinada",
     },
     cleanliness: {
-      balanced: "organizacao equilibrada",
-      relaxed: "limpeza flexivel",
+      balanced: "organização equilibrada",
+      relaxed: "limpeza flexível",
       "very-organized": "muito organizada",
     },
     "house-style": {
-      "long-term": "longa duracao",
-      "short-term": "curta duracao",
+      "long-term": "longa duração",
+      "short-term": "curta duração",
       "social-house": "casa social",
       "study-house": "casa de estudos",
     },
@@ -172,17 +172,17 @@ function labelFor(group: string, value?: string) {
       "low-cost": "baixo custo",
       "near-campus": "perto do campus",
       "private-room": "quarto individual",
-      quiet: "silencio",
+      quiet: "silêncio",
     },
     "sensitive-rules": {
       "no-pets": "sem pets",
-      "no-smoking": "nao fumante",
+      "no-smoking": "não fumante",
       "pets-ok": "pets ok",
       "quiet-night": "noites silenciosas",
     },
     "sleep-routine": {
       early: "pessoa da manha",
-      flexible: "rotina flexivel",
+      flexible: "rotina flexível",
       night: "pessoa da noite",
     },
   };

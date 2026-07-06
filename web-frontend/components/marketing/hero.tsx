@@ -7,7 +7,7 @@ export function Hero() {
   return (
     <section className="relative isolate overflow-hidden bg-foreground text-white">
       <Image
-        alt="Quarto universitario autentico com cama, mesa de estudos e luz natural"
+        alt="Quarto universitário autentico com cama, mesa de estudos e luz natural"
         className="absolute inset-0 -z-20 object-cover"
         fill
         priority
@@ -18,14 +18,14 @@ export function Hero() {
       <div className="uai-container grid min-h-[86svh] content-end gap-6 pb-8 pt-24 sm:pb-12">
         <div className="grid max-w-3xl gap-4">
           <p className="text-sm font-bold uppercase tracking-[0.16em] text-accent">
-            Republicas e quartos partilhados
+            Repúblicas e quartos partilhados
           </p>
           <h1 className="font-display text-4xl font-bold text-balance sm:text-6xl lg:text-7xl">
             Ache moradia perto da faculdade.
           </h1>
           <p className="max-w-2xl text-pretty text-lg leading-8 text-white/88">
-            Busque por campus, bairro ou cidade e compare preco, distancia,
-            tipo de quarto e sinais de confianca antes de chamar no contato.
+            Busque por campus, bairro ou cidade e compare preço, distância,
+            tipo de quarto e sinais de confiança antes de chamar no contato.
           </p>
         </div>
 
@@ -41,7 +41,7 @@ export function Hero() {
             </Link>
             <p className="inline-flex items-center gap-2 text-sm font-bold text-white/82">
               <ShieldCheck className="h-4 w-4 text-accent" aria-hidden="true" />
-              Anuncios verificados, custos claros e reviews reais.
+              Anúncios verificados, custos claros e reviews reais.
             </p>
           </div>
         </div>
@@ -60,7 +60,7 @@ export function Hero() {
 
         <dl className="grid gap-3 pb-2 sm:grid-cols-3">
           {[
-            ["Orcamento", "filtro claro antes do contato"],
+            ["Orçamento", "filtro claro antes do contato"],
             ["Campus", "bairro e tempo de deslocamento"],
             ["Compatibilidade", "rotina, casa e reviews"],
           ].map(([label, value]) => (
