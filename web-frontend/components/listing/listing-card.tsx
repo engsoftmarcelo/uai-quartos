@@ -1,27 +1,36 @@
 import Image from "next/image";
 import Link from "next/link";
-import { Bath, CheckCircle2, MapPin, ShieldCheck, Star, Users } from "lucide-react";
+import {
+  CheckCircle2,
+  HeartHandshake,
+  MapPin,
+  ShieldCheck,
+  Star,
+  Users,
+} from "lucide-react";
 import { Badge } from "@/components/ui/badge";
-import { formatCurrency, formatShortDate } from "@/lib/formatters";
+import { formatCurrency } from "@/lib/formatters";
 import type { ListingPreview, ListingTrustBadge } from "@/lib/types";
 
 const trustLabel: Record<ListingTrustBadge, string> = {
   bill_split: "contas claras",
   contract_ready: "contrato pronto",
   student_friendly: "perfil estudantil",
-  verified_owner: "dono validado",
+  verified_owner: "Dono verificado",
 };
 
 const roomTypeLabel: Record<ListingPreview["roomType"], string> = {
   private: "individual",
-  shared: "partilhado",
+  shared: "compartilhado",
   suite: "suíte",
 };
 
 export function ListingCard({ listing }: { listing: ListingPreview }) {
+  const campusHighlight = listing.location.distanceToCampusInMinutes;
+
   return (
     <article className="overflow-hidden rounded-md border border-border bg-surface shadow-xs transition duration-150 hover:-translate-y-0.5 hover:shadow-sm">
-      <div className="relative aspect-[4/3] bg-surface-muted">
+      <div className="relative aspect-[16/10] bg-surface-muted">
         <Image
           alt={listing.title}
           className="object-cover"
@@ -41,6 +50,12 @@ export function ListingCard({ listing }: { listing: ListingPreview }) {
             </Badge>
           ))}
         </div>
+        {typeof listing.compatibilityScore === "number" ? (
+          <div className="absolute bottom-3 left-3 inline-flex items-center gap-1.5 rounded-md bg-foreground/85 px-2.5 py-1.5 text-xs font-bold text-white backdrop-blur">
+            <HeartHandshake className="h-3.5 w-3.5 text-accent" aria-hidden="true" />
+            Match {listing.compatibilityScore}% com você
+          </div>
+        ) : null}
       </div>
 
       <div className="grid gap-4 p-4">
@@ -58,32 +73,26 @@ export function ListingCard({ listing }: { listing: ListingPreview }) {
           <h3 className="line-clamp-2 font-display text-xl font-bold text-foreground">
             {listing.title}
           </h3>
-          <p className="inline-flex items-center gap-1 text-sm text-muted">
+          <p className="inline-flex items-center gap-1 text-sm font-bold text-brand">
             <MapPin className="h-4 w-4" aria-hidden="true" />
-            {listing.location.neighborhood}, {listing.location.city}
+            {campusHighlight
+              ? `${campusHighlight} min até o campus · ${listing.location.neighborhood}`
+              : `${listing.location.neighborhood}, ${listing.location.city}`}
           </p>
         </div>
 
-        <div className="grid grid-cols-2 gap-2 text-sm">
-          <span className="inline-flex items-center gap-1 text-muted-strong">
-            <Users className="h-4 w-4 text-brand" aria-hidden="true" />
-            {listing.capacity} pessoa{listing.capacity > 1 ? "s" : ""}
-          </span>
-          <span className="inline-flex items-center gap-1 text-muted-strong">
-            <Bath className="h-4 w-4 text-brand" aria-hidden="true" />
-            desde {formatShortDate(listing.availableFrom)}
-          </span>
-        </div>
-
         <div className="flex flex-wrap gap-2">
-          {listing.amenities.slice(0, 3).map((amenity) => (
+          <Badge icon={<Users className="h-3.5 w-3.5" aria-hidden="true" />}>
+            {listing.capacity} pessoa{listing.capacity > 1 ? "s" : ""}
+          </Badge>
+          {listing.amenities.slice(0, 2).map((amenity) => (
             <Badge key={amenity.id}>{amenity.label}</Badge>
           ))}
         </div>
 
         {listing.matchHighlights.length ? (
           <ul className="grid gap-1 text-sm text-muted">
-            {listing.matchHighlights.slice(0, 3).map((highlight) => (
+            {listing.matchHighlights.slice(0, 2).map((highlight) => (
               <li className="inline-flex items-center gap-2" key={highlight}>
                 <CheckCircle2 className="h-4 w-4 text-success" aria-hidden="true" />
                 {highlight}
@@ -93,7 +102,18 @@ export function ListingCard({ listing }: { listing: ListingPreview }) {
         ) : null}
 
         <div className="flex items-end justify-between gap-3 border-t border-border pt-3">
-          <p className="text-sm text-muted">Aluguel estimado</p>
+          <div className="grid gap-1">
+            <p className="text-sm text-muted">Total por mês</p>
+            {listing.billsIncluded ? (
+              <span className="inline-flex w-fit items-center rounded-md bg-success-soft px-2 py-0.5 text-xs font-bold text-success">
+                contas incluídas
+              </span>
+            ) : (
+              <span className="inline-flex w-fit items-center rounded-md bg-surface-muted px-2 py-0.5 text-xs font-bold text-muted">
+                contas à parte
+              </span>
+            )}
+          </div>
           <p className="text-right">
             <span className="font-display text-2xl font-bold text-foreground">
               {formatCurrency(listing.price.amount)}

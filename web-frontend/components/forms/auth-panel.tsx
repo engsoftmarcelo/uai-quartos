@@ -179,6 +179,11 @@ export function AuthPanel() {
         >
           {mode === "login" ? "Entrar" : "Criar conta"}
         </Button>
+        <p className="text-center text-xs leading-5 text-muted">
+          {mode === "register"
+            ? "Leva menos de 1 minuto e você pode editar seus dados depois. Usamos seu e-mail só para avisar sobre respostas dos donos — nada de spam."
+            : "Esqueceu a senha? Fale com o suporte que a gente resolve rapidinho."}
+        </p>
       </form>
     </section>
   );

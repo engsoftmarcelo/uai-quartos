@@ -248,6 +248,7 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
           "O anúncio bateu com a visita. O ponto mais útil foi ver custo, regras e tempo até o campus antes de chamar.",
         rating: 5,
         stayContext: "visitou e comparou com outras repúblicas",
+        tags: ["preço honesto", "perto do campus"],
       },
       {
         author: "Rafael S.",
@@ -257,6 +258,22 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
           "A casa tinha combinados claros e resposta rápida. Deu para decidir sem ficar perdido no chat.",
         rating: result.rating >= 4.8 ? 5 : 4,
         stayContext: "morou por 1 semestre",
+        tags: ["dono presente", "regras claras"],
+      },
+      {
+        author: "Bianca T.",
+        dateLabel: "Nov 2025",
+        id: `${result.id}-review-3`,
+        quote:
+          result.rules.noise === "quiet"
+            ? "Consegui estudar para as provas sem estresse. Internet estável e casa silenciosa durante a semana."
+            : "Casa com energia boa e gente parecida comigo. Internet estável e áreas comuns bem cuidadas.",
+        rating: 5,
+        stayContext: "morou por 12 meses",
+        tags:
+          result.rules.noise === "quiet"
+            ? ["silenciosa", "internet boa"]
+            : ["internet boa", "áreas comuns boas"],
       },
     ],
     reviewCount: result.reviewCount,

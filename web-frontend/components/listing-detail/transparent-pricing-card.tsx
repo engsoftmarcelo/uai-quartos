@@ -50,11 +50,14 @@ export function TransparentPricingCard({
           </p>
         </div>
         <div className="flex items-end justify-between gap-4 border-t border-white/12 pt-3">
-          <p className="text-sm text-white/72">Estimativa mensal total</p>
+          <p className="text-sm text-white/72">Total por mês</p>
           <p className="font-display text-3xl font-bold">
             {formatCurrency(pricing.monthlyTotal.amount)}
           </p>
         </div>
+        <p className="text-sm font-bold text-white/88">
+          Você paga isso todo mês. Nada além disso.
+        </p>
       </div>
 
       <div className="grid gap-2">

@@ -1,5 +1,4 @@
 import {
-  BadgeCheck,
   Bath,
   BedSingle,
   CalendarDays,
@@ -9,6 +8,7 @@ import {
   Star,
 } from "lucide-react";
 import { Badge } from "@/components/ui/badge";
+import { TrustBadge } from "@/components/ui/trust-badge";
 import { formatCurrency, formatShortDate } from "@/lib/formatters";
 import type { ListingDetail } from "@/lib/types";
 
@@ -23,14 +23,9 @@ export function ListingQuickFacts({ listing }: { listing: ListingDetail }) {
     <section className="grid gap-4 rounded-md border border-border bg-surface p-4 shadow-xs">
       <div className="grid gap-2">
         <div className="flex flex-wrap gap-2">
-          {listing.trustBadges.includes("verified_owner") ? (
-            <Badge
-              icon={<BadgeCheck className="h-3.5 w-3.5" aria-hidden="true" />}
-              tone="success"
-            >
-              locador verificado
-            </Badge>
-          ) : null}
+          <TrustBadge
+            verified={listing.trustBadges.includes("verified_owner")}
+          />
           <Badge tone="brand">{roomTypeLabel[listing.room.type]}</Badge>
           <Badge tone="accent">{listing.location.commuteMinutes} min do campus</Badge>
         </div>

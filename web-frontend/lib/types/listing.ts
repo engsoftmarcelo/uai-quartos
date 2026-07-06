@@ -28,6 +28,10 @@ export interface ListingPreview {
   imageUrl: string;
   location: ListingLocation;
   price: Money;
+  /** Indica se o preço mensal já cobre água, luz e internet. */
+  billsIncluded?: boolean;
+  /** Percentual (0-100) de compatibilidade de convivência com o perfil do estudante. */
+  compatibilityScore?: number;
   roomType: "private" | "shared" | "suite";
   capacity: number;
   availableFrom: string;

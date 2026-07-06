@@ -21,11 +21,11 @@ export function Hero() {
             Repúblicas e quartos partilhados
           </p>
           <h1 className="font-display text-4xl font-bold text-balance sm:text-6xl lg:text-7xl">
-            Ache moradia perto da faculdade.
+            Morar bem em BH, sem golpe e com república que combina com você.
           </h1>
           <p className="max-w-2xl text-pretty text-lg leading-8 text-white/88">
-            Busque por campus, bairro ou cidade e compare preço, distância,
-            tipo de quarto e sinais de confiança antes de chamar no contato.
+            Busque por campus, bairro ou orçamento e veja o preço total com
+            contas, dono verificado e reviews reais antes de chamar no contato.
           </p>
         </div>
 

@@ -23,10 +23,10 @@ export function NoResultsState() {
         </div>
       }
       icon={<SearchX className="h-5 w-5" aria-hidden="true" />}
-      title="Nenhuma moradia combina com todos esses filtros"
+      title="Não achamos nenhum quarto com esses filtros"
     >
-      Remova uma regra muito restrita, aumente o custo total ou tente bairros
-      próximos ao campus. A lista continua funcionando mesmo sem abrir o mapa.
+      Tira um pouco a exigência — aumenta o orçamento ou testa bairros
+      vizinhos — que novas opções aparecem. Quartos novos entram toda semana.
     </EmptyState>
   );
 }
