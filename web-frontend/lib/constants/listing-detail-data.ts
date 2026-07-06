@@ -173,24 +173,28 @@ function createDetail(result: ListingSearchResult, index: number): ListingDetail
     media: [
       {
         alt: result.title,
+        category: "Fachada",
         id: `${result.id}-cover`,
         src: result.imageUrl,
         type: "image",
       },
       {
         alt: "Vista do quarto e área de estudos",
+        category: "Quarto",
         id: `${result.id}-room`,
         src: extraImages[index % extraImages.length],
         type: "image",
       },
       {
         alt: "Área compartilhada da república",
+        category: "Áreas comuns",
         id: `${result.id}-shared`,
         src: extraImages[(index + 1) % extraImages.length],
         type: "image",
       },
       {
         alt: "Tour virtual do anúncio",
+        category: "Tour",
         id: `${result.id}-tour`,
         posterUrl: extraImages[(index + 2) % extraImages.length],
         src: `/anuncio/${result.slug}#tour`,

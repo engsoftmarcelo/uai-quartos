@@ -10,10 +10,41 @@ export function ListingGallery({ media }: { media: ListingMediaItem[] }) {
   const [selectedId, setSelectedId] = useState(media[0]?.id);
   const selected = media.find((item) => item.id === selectedId) ?? media[0];
 
+  const categories = media
+    .map((item) => item.category)
+    .filter((category, index, all): category is string =>
+      Boolean(category) && all.indexOf(category) === index,
+    );
+
   if (!selected) return null;
 
   return (
     <section className="grid gap-3" aria-label="Galeria do anúncio">
+      {categories.length > 1 ? (
+        <div className="flex flex-wrap gap-2" role="group" aria-label="Categorias de fotos">
+          {categories.map((category) => {
+            const first = media.find((item) => item.category === category);
+            const isActive = selected.category === category;
+
+            return (
+              <button
+                aria-pressed={isActive}
+                className={cn(
+                  "inline-flex h-8 items-center rounded-md border px-3 text-sm font-bold transition",
+                  isActive
+                    ? "border-brand bg-brand text-white"
+                    : "border-border bg-surface text-muted-strong hover:bg-surface-muted",
+                )}
+                key={category}
+                onClick={() => first && setSelectedId(first.id)}
+                type="button"
+              >
+                {category}
+              </button>
+            );
+          })}
+        </div>
+      ) : null}
       <div className="relative aspect-[4/3] overflow-hidden rounded-md border border-border bg-surface-muted shadow-xs lg:aspect-[16/10]">
         {selected.type === "video" ? (
           <video
@@ -45,6 +76,11 @@ export function ListingGallery({ media }: { media: ListingMediaItem[] }) {
             ) : null}
           </>
         )}
+        {selected.category ? (
+          <span className="absolute bottom-3 left-3 rounded-md bg-foreground/80 px-2.5 py-1 text-xs font-bold text-white backdrop-blur">
+            {selected.category}
+          </span>
+        ) : null}
       </div>
 
       <div className="grid grid-cols-4 gap-2">

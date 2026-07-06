@@ -7,6 +7,7 @@ import { MobileMapToggle } from "@/components/results/mobile-map-toggle";
 import { PromotedFilterChips } from "@/components/results/promoted-filter-chips";
 import { ResultsPageHeader } from "@/components/results/results-page-header";
 import { ResultsSort } from "@/components/results/results-sort";
+import { MapSyncProvider } from "@/components/results/map-sync-context";
 import { ResultsStats } from "@/components/results/results-stats";
 import { SavedSearchCTA } from "@/components/results/saved-search-cta";
 import { SearchMapPanel } from "@/components/results/search-map-panel";
@@ -80,21 +81,23 @@ export default async function ResultsPage({ searchParams }: ResultsPageProps) {
 
         <MobileMapToggle value={filters.view} />
 
-        <div className="grid gap-5 lg:grid-cols-[19rem_minmax(0,1fr)_minmax(23rem,0.82fr)] lg:items-start">
-          <DesktopFiltersSidebar filters={filters} />
+        <MapSyncProvider>
+          <div className="grid gap-5 lg:grid-cols-[19rem_minmax(0,1fr)_minmax(23rem,0.82fr)] lg:items-start">
+            <DesktopFiltersSidebar filters={filters} />
 
-          <main
-            className={filters.view === "map" ? "hidden lg:grid" : "grid"}
-            id="resultados-lista"
-          >
-            <div className="grid gap-4">
-              <SavedSearchCTA />
-              <ListingResultsGrid listings={results.listings} />
-            </div>
-          </main>
+            <main
+              className={filters.view === "map" ? "hidden lg:grid" : "grid"}
+              id="resultados-lista"
+            >
+              <div className="grid gap-4">
+                <SavedSearchCTA />
+                <ListingResultsGrid listings={results.listings} />
+              </div>
+            </main>
 
-          <SearchMapPanel listings={results.listings} view={filters.view} />
-        </div>
+            <SearchMapPanel listings={results.listings} view={filters.view} />
+          </div>
+        </MapSyncProvider>
       </div>
     </div>
   );

@@ -14,6 +14,8 @@ export type ListingMediaType = "image" | "video" | "tour";
 
 export interface ListingMediaItem {
   alt: string;
+  /** Categoria exibida na galeria (ex.: "Quarto", "Áreas comuns", "Tour"). */
+  category?: string;
   id: string;
   posterUrl?: string;
   src: string;

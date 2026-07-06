@@ -1,10 +1,11 @@
 "use client";
 
 import { useMemo, useState } from "react";
-import { Building2, Layers, MapPin } from "lucide-react";
+import { Building2, MapPin } from "lucide-react";
 import type { ListingCoordinates, ListingSearchResult, MapCluster } from "@/lib/types";
 import { formatCurrency } from "@/lib/formatters";
 import { cn } from "@/lib/utils";
+import { useMapSync } from "./map-sync-context";
 
 interface MapProviderAdapter {
   cluster(listings: ListingSearchResult[]): MapCluster[];
@@ -64,6 +65,7 @@ const staticMapAdapter: MapProviderAdapter = {
 
 export function MapView({ listings }: { listings: ListingSearchResult[] }) {
   const [selectedId, setSelectedId] = useState<string | null>(listings[0]?.id ?? null);
+  const { hoveredId } = useMapSync();
   const clusters = useMemo(() => staticMapAdapter.cluster(listings), [listings]);
   const selected =
     listings.find((listing) => listing.id === selectedId) ??
@@ -76,14 +78,15 @@ export function MapView({ listings }: { listings: ListingSearchResult[] }) {
     >
       <div className="absolute inset-0 bg-[linear-gradient(90deg,rgba(35,118,93,0.10)_1px,transparent_1px),linear-gradient(0deg,rgba(35,118,93,0.10)_1px,transparent_1px)] bg-[length:36px_36px]" />
       <div className="absolute left-4 top-4 z-10 inline-flex items-center gap-2 rounded-md bg-surface/95 px-3 py-2 text-sm font-bold text-muted-strong shadow-xs">
-        <Layers className="h-4 w-4 text-brand" aria-hidden="true" />
-        Mapa adapter-ready
+        <MapPin className="h-4 w-4 text-brand" aria-hidden="true" />
+        Mapa da região
       </div>
 
       {clusters.map((cluster) => {
         const position = staticMapAdapter.project(cluster.position);
         const primary = cluster.listings[0];
         const isSelected = cluster.listings.some((listing) => listing.id === selected?.id);
+        const isHovered = cluster.listings.some((listing) => listing.id === hoveredId);
 
         return (
           <button
@@ -91,6 +94,7 @@ export function MapView({ listings }: { listings: ListingSearchResult[] }) {
             className={cn(
               "absolute z-10 grid min-h-12 min-w-12 -translate-x-1/2 -translate-y-1/2 place-items-center rounded-md border-2 border-white bg-brand px-3 text-sm font-bold text-white shadow-md transition hover:scale-105",
               isSelected && "bg-foreground",
+              isHovered && "z-20 scale-110 bg-foreground ring-4 ring-accent/70",
             )}
             key={cluster.id}
             style={{ left: `${position.x}%`, top: `${position.y}%` }}
